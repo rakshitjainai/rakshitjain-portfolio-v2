@@ -35,21 +35,19 @@ export default function ResumeIndexPage() {
     <>
       <StructuredData data={breadcrumbJsonLd} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-16 pb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14 space-y-12 pb-20">
         {/* ============================================================ */}
         {/* HEADER                                                       */}
         {/* ============================================================ */}
-        <section className="max-w-3xl space-y-4">
+        <section className="max-w-3xl space-y-2">
           <span className="font-mono text-xs uppercase tracking-wider text-[#d4af37]">
-            Institutional Curriculum Vitae
+            Recruiter Resumes
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight font-sans">
+          <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight font-sans">
             Curated Professional Resumes
           </h1>
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans pt-2">
-            To provide recruitment teams with relevant context, two specialized versions of my
-            resume are available for viewing and PDF download. All employment dates, responsibilities,
-            and credentials strictly reflect verified institutional records.
+          <p className="text-xs sm:text-sm text-slate-300 font-sans">
+            Tailored curriculum vitae for viewing and PDF download, customized for Capital Markets or Software Engineering.
           </p>
         </section>
 

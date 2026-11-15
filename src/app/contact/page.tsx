@@ -45,21 +45,20 @@ export default function ContactPage() {
     <>
       <StructuredData data={breadcrumbJsonLd} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-16 pb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14 space-y-12 pb-20">
         {/* ============================================================ */}
         {/* HEADER                                                       */}
         {/* ============================================================ */}
-        <section className="max-w-3xl space-y-4">
+        <section className="max-w-3xl space-y-2">
           <span className="font-mono text-xs uppercase tracking-wider text-[#d4af37]">
-            Recruiter & Professional Inquiries
+            Recruiter & Inquiries
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight font-sans">
+          <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight font-sans">
             Get in Touch
           </h1>
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans pt-2">
-            I am actively exploring internships and early-career opportunities across Financial
-            Markets, Quantitative Analysis, Software Engineering, and Product Development.
-            Feel free to reach out directly via email, LinkedIn, or the message form below.
+          <p className="text-xs sm:text-sm text-slate-300 font-sans">
+            Open to early-career and internship opportunities across Financial Markets, Quantitative Analysis,
+            Software Engineering, and Product Development.
           </p>
         </section>
 
