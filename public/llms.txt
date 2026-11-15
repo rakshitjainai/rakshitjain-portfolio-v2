@@ -1,0 +1,47 @@
+# Rakshit Jain — Professional Identity & Portfolio
+
+> B.Tech Information and Communications Technology student at Pandit Deendayal Energy University (PDEU), combining direct financial-market operations exposure at GIFT City, quantitative strategy backtesting with Python, and hands-on full-stack product engineering.
+
+## Summary
+- **Name:** Rakshit Jain
+- **Primary Positioning:** Finance, Technology & Product
+- **Education:** B.Tech in Information and Communications Technology, Pandit Deendayal Energy University (PDEU), Gandhinagar, Gujarat, India (July 2023 – June 2027).
+- **Official Website:** https://www.rakshitjain.in/
+- **Official GitHub:** https://github.com/rakshitjainai
+- **Official LinkedIn:** https://www.linkedin.com/in/rakshitjainrj/
+- **Email:** rakshitindia2019@gmail.com
+
+## Four Interconnected Pillars
+1. **Financial Markets & Capital Markets:**
+   - Internship at Anand Rathi International Ventures (IFSC) Pvt. Ltd. at GIFT City (May 2026 – July 2026).
+   - Practical operational exposure to the India International Bullion Exchange (IIBX) ecosystem.
+   - Operated alongside live trading terminals for order entry, market watch observation, and margin/risk monitoring.
+   - Dematerialization of physical gold into electronic Bullion Depository Receipts (BDRs).
+   - Institutional client onboarding (KYC, GST, IEC validation) for Qualified Jewellers.
+
+2. **Quantitative Analysis & Trading:**
+   - Engineered Market Sentiment Analyzer & Backtesting Engine using Python, Pandas, Matplotlib, and yFinance.
+   - Built a 20/50 Simple Moving Average (SMA) crossover strategy tested on real NSE equities (INFY and TATAINVEST).
+   - Calculated Compound Annual Growth Rate (CAGR), Sharpe Ratio, and Maximum Drawdown against Buy & Hold benchmarks.
+   - Explored market friction realities: slippage, transaction costs, and whipsaw risks in consolidating regimes.
+
+3. **Software Engineering & Full Stack:**
+   - Full Stack Development Intern at Certopus Inc. (Remote, May 2026 – July 2026), building responsive UI and REST APIs.
+   - Summer Trainee at Department of Atomic Energy, Heavy Water Plant Kota (July 2025), building internal PHP portal and studying industrial instrumentation and firewall setups.
+   - Built custom Unix Shell in C implementing process forking (`fork`, `execvp`), pipes, and file redirection.
+
+4. **Product Thinking & Development:**
+   - Co-founded LawPrix (Triscaleon Technologies), an AI-assisted legal-tech platform routing users to verified lawyers based on practice domain and urgency rather than sponsored ad bidding.
+   - 2nd Runner-Up at national Tutedude Buildathon 2025 for legal-tech SaaS sprint.
+   - Created RegMate: GIFT City IFSC regulatory compliance reference and assessment system.
+
+## Research Papers & Deep Dives
+- [IIBX and India's Bullion Market](https://www.rakshitjain.in/research/iibx-and-indias-bullion-market): Comprehensive analysis of bullion dematerialization, Bullion Depository Receipts (BDRs), and GIFT City's IFSC exchange architecture.
+- [20/50 SMA Strategy Backtesting](https://www.rakshitjain.in/research/sma-strategy-backtesting): Mathematical and programmatic evaluation of dual moving average crossover strategies, risk-adjusted metrics, and market frictions.
+- [From Financial Workflows to FinTech Products](https://www.rakshitjain.in/research/financial-workflows-and-fintech-products): Operational bottlenecks in institutional onboarding and the engineering of deterministic "Compliance as Code."
+
+## Target Opportunities
+- Financial Markets & Global Markets Trainee / Analyst
+- Quantitative Trading & Analysis Roles
+- Full Stack Software Engineering Internships
+- Associate Product Manager (APM) & Product Analyst Roles

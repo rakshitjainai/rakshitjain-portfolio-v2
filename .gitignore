@@ -36,6 +36,16 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Private reference documents and local PDFs
+/references/
+references/
+*.pdf
+_temp_references/
+
+# Local-only files and environment secrets
+.env*.local
+*.local
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
