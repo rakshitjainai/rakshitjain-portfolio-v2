@@ -38,7 +38,7 @@ export default function ExperiencePage() {
     <>
       <StructuredData data={breadcrumbJsonLd} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14 space-y-12 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 space-y-12 pb-20">
         {/* Header */}
         <section className="max-w-3xl space-y-2">
           <span className="font-mono text-xs uppercase tracking-wider text-[#d4af37]">

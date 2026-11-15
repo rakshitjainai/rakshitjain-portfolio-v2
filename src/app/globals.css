@@ -1,49 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-navy-950: #040812;
-  --color-navy-900: #070b14;
-  --color-navy-850: #0a101f;
-  --color-navy-800: #0f172a;
-  --color-navy-700: #1e293b;
-  --color-gold-500: #d4af37;
-  --color-gold-400: #e2c99a;
-  --color-steel-500: #38bdf8;
-  --color-steel-600: #0284c7;
+  --color-midnight: #101a27;
+  --color-charcoal: #172536;
+  --color-ivory: #f4f1ea;
+  --color-stone: #e9e6df;
+  --color-copper: #c28b5e;
+  --color-copper-light: #d8a478;
+  --color-steel: #4a7c9b;
+  --color-steel-light: #6ba2c5;
 }
 
 :root {
-  --background: #070b14;
-  --foreground: #f8fafc;
+  --background: #101a27;
+  --foreground: #f4f1ea;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-editorial {
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+
+.font-editorial-italic {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #070b14;
+  background: #101a27;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 4px;
+  background: #22344a;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #334e6e;
 }
 
-/* Premium Motion Keyframes */
+/* Editorial Keyframes & Transitions */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -53,10 +64,10 @@ body {
   }
 }
 
-@keyframes slideUp {
+@keyframes slideUpEditorial {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -64,41 +75,40 @@ body {
   }
 }
 
-@keyframes subtleFloat {
+@keyframes slowAtmosphere {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    opacity: 0.15;
   }
   50% {
-    transform: translateY(-4px);
+    transform: translateY(-8px) scale(1.02);
+    opacity: 0.25;
   }
 }
 
-@keyframes signalPulse {
+@keyframes coordinatePulse {
   0%, 100% {
-    opacity: 0.4;
-    transform: scale(1);
+    opacity: 0.2;
   }
   50% {
-    opacity: 0.9;
-    transform: scale(1.05);
+    opacity: 0.6;
   }
 }
 
-/* Animation utilities */
 .animate-fade-in {
-  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.animate-slide-up {
-  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.animate-editorial-up {
+  animation: slideUpEditorial 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.animate-float {
-  animation: subtleFloat 4s ease-in-out infinite;
+.animate-atmosphere {
+  animation: slowAtmosphere 12s ease-in-out infinite;
 }
 
-.animate-signal {
-  animation: signalPulse 3s ease-in-out infinite;
+.animate-coordinate {
+  animation: coordinatePulse 4s ease-in-out infinite;
 }
 
 .delay-100 {
@@ -115,10 +125,6 @@ body {
 
 .delay-400 {
   animation-delay: 400ms;
-}
-
-.delay-500 {
-  animation-delay: 500ms;
 }
 
 /* Accessibility: Reduced Motion */
