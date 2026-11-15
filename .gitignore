@@ -39,8 +39,9 @@ yarn-error.log*
 # Private reference documents and local PDFs
 /references/
 references/
-*.pdf
 _temp_references/
+*.pdf
+!public/Rakshit-Jain-Resume.pdf
 
 # Local-only files and environment secrets
 .env*.local

@@ -216,7 +216,7 @@ By grounding financial market infrastructure in high-performance software, excha
       { id: "moving-average-mechanics", label: "2. The Mathematical Mechanics of Simple Moving Averages" },
       { id: "the-crossover-rule", label: "3. The 20/50 Crossover Logic & State Machine" },
       { id: "python-pipeline", label: "4. Designing the Python Data & Backtesting Pipeline" },
-      { id: "empirical-results", label: "5. Empirical Evaluation: Testing on INFY and TATAINVEST" },
+      { id: "backtest-results", label: "5. Historical Testing Results: INFY and TATAINVEST" },
       { id: "performance-metrics", label: "6. Measuring What Matters: CAGR, Sharpe, and Maximum Drawdown" },
       { id: "equity-curve-analysis", label: "7. Interpreting the Equity Curve: Regimes and Drawdowns" },
       { id: "real-world-friction", label: "8. The Uncomfortable Realities: Frictions, Slippage, and Whipsaws" },
@@ -313,7 +313,7 @@ By remaining in cash during prolonged downtrends, the strategy aims to protect c
       {
         id: "python-pipeline",
         title: "4. Designing the Python Data & Backtesting Pipeline",
-        content: `Building a robust backtesting script requires structuring clean data transformations using Python's scientific ecosystem: \`yfinance\` for ingestion, \`pandas\` and \`numpy\` for vectorized series operations, and \`matplotlib\` for visualization.
+        content: `Building a reliable backtesting script requires structuring clean data transformations using Python's scientific ecosystem: \`yfinance\` for ingestion, \`pandas\` and \`numpy\` for vectorized series operations, and \`matplotlib\` for visualization.
 
 Below is an annotated overview of the vectorized computation logic utilized in the backtester:
 
@@ -354,8 +354,8 @@ def run_sma_backtest(ticker: str, start_date: str, end_date: str):
 Notice the crucial call to \`.shift(1)\` on the position series: signals calculated on the closing prices of Day $t$ cannot realistically be executed until Day $t+1$. Omitting this shift is the classic rookie backtesting blunder that introduces fatal look-ahead bias.`,
       },
       {
-        id: "empirical-results",
-        title: "5. Empirical Evaluation: Testing on INFY and TATAINVEST",
+        id: "backtest-results",
+        title: "5. Historical Testing Results: INFY and TATAINVEST",
         content: `To test the model across varied asset dynamics, I ran historical backtests against two distinct Indian equities traded on the National Stock Exchange (NSE):
 1. **INFY (Infosys Ltd):** A high-liquidity, large-cap global IT services provider subject to multinational tech corporate spending cycles and foreign institutional flows.
 2. **TATAINVEST (Tata Investment Corporation):** An investment holding firm characterized by prolonged accumulation ranges, cyclical market valuation surges, and idiosyncratic holding discounts.
@@ -423,7 +423,7 @@ An investor facing a 52% drawdown requires a subsequent 108% gain just to break 
         content: `Through this project, I gained an acute appreciation for the common biases that render academic backtests invalid in live trading:
 
 1. **Look-Ahead Bias:** Indexing data points using information that would not have been available at the moment of execution. For instance, computing today's signal using today's closing price while simultaneously executing the fill at today's open.
-2. **Data Snooping & Overfitting (P-Hacking):** Testing hundreds of moving average combinations (e.g., testing 17/43, 21/54, 19/48) until finding the single parameter set that performed miraculously on historical data. Such optimizations merely overfit past noise and almost universally disintegrate on out-of-sample forward data. The 20/50 combination is historically robust precisely because it represents standardized monthly and quarterly institutional lookback intervals.
+2. **Data Snooping & Overfitting (P-Hacking):** Testing hundreds of moving average combinations (e.g., testing 17/43, 21/54, 19/48) until finding the single parameter set that performed miraculously on historical data. Such optimizations merely overfit past noise and almost universally disintegrate on out-of-sample forward data. The 20/50 combination is historically persistent precisely because it represents standardized monthly and quarterly institutional lookback intervals.
 3. **Survivorship Bias:** Testing strategies only on the current constituents of an index (such as the Nifty 50 today), conveniently omitting companies that went bankrupt, merged, or were delisted during the test window.`,
       },
       {
@@ -434,7 +434,7 @@ An investor facing a 52% drawdown requires a subsequent 108% gain just to break 
 For an aspiring quant or analyst, building this backtester provided several enduring insights:
 - **Capital preservation is the prerequisite for compounding:** Sacrificing a fraction of bull-market upside is an acceptable trade-off if it shields the portfolio from devastating 40% drawdowns.
 - **Vectorized computing enforces rigor:** Writing programmatic data transformations in Pandas requires understanding time-series alignment, indexing integrity, and statistical distributions.
-- **Humility before the market:** The true value of quantitative engineering lies not in promising unrealistic riches, but in measuring uncertainty, respecting friction, and replacing guesswork with verifiable empirical evidence.`,
+- **Humility before the market:** The true value of quantitative engineering lies not in promising unrealistic riches, but in measuring uncertainty, respecting friction, and replacing guesswork with verifiable market evidence.`,
       },
     ],
   },
@@ -470,7 +470,7 @@ For an aspiring quant or analyst, building this backtester provided several endu
       { id: "conclusion", label: "9. Concluding Perspective: The Engineer-Analyst Catalyst" },
     ],
     keyTakeaways: [
-      "Consumer FinTech has achieved seamless digital UX, but institutional capital market operations still suffer from multi-day manual verification delays and PDF-based documentation friction.",
+      "Consumer FinTech has achieved low-friction digital UX, but institutional capital market operations still suffer from multi-day manual verification delays and PDF-based documentation friction.",
       "Institutional onboarding fails not because of regulatory strictness, but because of fragmented data validation across disparate government databases (GSTN, DGFT, MCA).",
       "Product design for trading terminals must balance high information density with cognitive clarity, preventing catastrophic fat-finger errors and execution paralysis.",
       "Building products in regulated environments demands auditability, idempotency, and fail-safe deterministic architectures rather than fragile rapid prototyping.",
@@ -502,7 +502,7 @@ For an aspiring quant or analyst, building this backtester provided several endu
         title: "Designing Data-Dense Interfaces for Financial Applications",
         source: "Association for Computing Machinery (ACM Digital Library)",
         year: "2022",
-        note: "Empirical study on visual ergonomics, latency thresholds, and error prevention in institutional trading dashboards.",
+        note: "Field study on visual ergonomics, latency thresholds, and error prevention in institutional trading dashboards.",
       },
     ],
     contentSections: [
@@ -561,7 +561,7 @@ This is a classic problem begging for an engineered product solution. Rather tha
       {
         id: "trading-ux",
         title: "4. Trading Terminal UX: Cognitive Load vs Information Density",
-        content: `Another critical intersection of technology and capital markets is the user experience of institutional trading terminals.
+        content: `Another critical connection between technology and capital markets is the user experience of institutional trading terminals.
 
 Unlike consumer investing apps designed around generous whitespace, pastel gradients, and gamified animations, institutional trading screens (such as terminal front-ends for IIBX or Bloomberg) are intentionally information-dense:
 - Real-time Level 2 and Level 3 order books showing depth across multiple ticks.
@@ -644,7 +644,7 @@ In architecting LawPrix, we re-centered the product around **workflow transparen
 - **Case Milestone Tracking:** Translating opaque legal proceedings into structured status stages, reducing user anxiety and maintaining transparent communication between client and counsel.
 
 ### 2. RegMate: Deconstructing Regulatory Complexity
-Similarly, when analyzing GIFT City's regulatory architecture, the challenge was translating complex IFSCA Fund Management Entity (FME) and Bullion regulations into structured, digestible learning and self-assessment modules. Building RegMate required breaking down multi-page gazette notifications into atomic compliance checks, proving that thoughtful software architecture can demystify even the most intimidating statutory frameworks.`,
+Similarly, when analyzing GIFT City's regulatory architecture, the challenge was translating complex IFSCA Fund Management Entity (FME) and Bullion regulations into structured, digestible learning and self-assessment modules. Building RegMate required breaking down multi-page gazette notifications into atomic compliance checks, proving that structured software architecture can demystify even the most intimidating statutory frameworks.`,
       },
       {
         id: "emerging-frontiers",

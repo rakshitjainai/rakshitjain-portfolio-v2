@@ -1,23 +1,36 @@
 import React from "react";
+import type { Metadata } from "next";
 import { siteConfig } from "@/data/siteConfig";
 import { StructuredData } from "@/components/StructuredData";
-import { EditorialHero } from "@/components/EditorialHero";
-import { EditorialAbout } from "@/components/EditorialAbout";
-import { EditorialExperience } from "@/components/EditorialExperience";
-import { EditorialProjects } from "@/components/EditorialProjects";
-import { EditorialQuantFlow } from "@/components/EditorialQuantFlow";
-import { EditorialProduct } from "@/components/EditorialProduct";
-import { EditorialResearch } from "@/components/EditorialResearch";
-import { EditorialClosing } from "@/components/EditorialClosing";
+import { RecruiterHero } from "@/components/RecruiterHero";
+import { RoleCards } from "@/components/RoleCards";
+import { ExperienceSection } from "@/components/ExperienceSection";
+import { ProjectsSection } from "@/components/ProjectsSection";
+import { LeadershipSection } from "@/components/LeadershipSection";
+import { SkillsSection } from "@/components/SkillsSection";
+import { EducationSection } from "@/components/EducationSection";
+import { ArticlesSection } from "@/components/ArticlesSection";
+import { AboutSection } from "@/components/AboutSection";
+import { ContactSection } from "@/components/ContactSection";
+
+export const metadata: Metadata = {
+  title: "Rakshit Jain | Finance, Quant and Software Intern Candidate | PDEU",
+  description:
+    "B.Tech ICT student at PDEU seeking Summer 2027 internships across Markets, Quant and Product. GIFT City bullion desk & full-stack experience.",
+  alternates: {
+    canonical: siteConfig.url,
+  },
+};
 
 export default function HomePage() {
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: siteConfig.name,
+    name: "Rakshit Jain",
+    jobTitle: "Student, B.Tech ICT",
     url: siteConfig.url,
+    email: `mailto:${siteConfig.author.email}`,
     sameAs: [siteConfig.author.linkedin, siteConfig.author.github],
-    jobTitle: "B.Tech ICT Student (Class of 2027)",
     worksFor: {
       "@type": "CollegeOrUniversity",
       name: "Pandit Deendayal Energy University (PDEU)",
@@ -26,54 +39,121 @@ export default function HomePage() {
       "@type": "CollegeOrUniversity",
       name: "Pandit Deendayal Energy University (PDEU)",
     },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Gandhinagar",
+      addressRegion: "Gujarat",
+      addressCountry: "IN",
+    },
     knowsAbout: [
-      "Financial Markets",
-      "Bullion Trading Operations",
-      "IIBX (India International Bullion Exchange)",
-      "Quantitative Finance",
-      "Python Backtesting",
-      "Full Stack Development",
-      "Product Management",
+      "quantitative analysis",
+      "backtesting",
+      "Python",
+      "financial markets",
+      "bullion trading",
+      "IIBX",
+      "GIFT City",
+      "product management",
+      "full-stack development",
+      "risk metrics",
+      "Sharpe ratio",
+      "maximum drawdown",
+      "React.js",
+      "Node.js",
+      "C systems programming",
     ],
+  };
+
+  const profilePageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    mainEntity: personJsonLd,
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: siteConfig.url,
+        },
+      ],
+    },
   };
 
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: siteConfig.name,
+    name: "Rakshit Jain Portfolio",
     url: siteConfig.url,
-    description: siteConfig.description,
+    description:
+      "Recruiter-aligned candidate portfolio of Rakshit Jain, B.Tech ICT student at PDEU seeking Summer 2027 internships in Markets, Quant and Product.",
+  };
+
+  const organizationsJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        name: "Anand Rathi International Ventures (IFSC) Pvt. Ltd.",
+        url: "https://rathi.com",
+        location: "GIFT City, Gujarat, India",
+      },
+      {
+        "@type": "Organization",
+        name: "Certopus Inc.",
+        url: "https://certopus.com",
+      },
+      {
+        "@type": "Organization",
+        name: "Department of Atomic Energy, Government of India",
+        location: "Kota, Rajasthan, India",
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        name: "Pandit Deendayal Energy University (PDEU)",
+        location: "Gandhinagar, Gujarat, India",
+      },
+    ],
   };
 
   return (
     <>
       <StructuredData data={personJsonLd} />
+      <StructuredData data={profilePageJsonLd} />
       <StructuredData data={websiteJsonLd} />
+      <StructuredData data={organizationsJsonLd} />
 
-      <div className="w-full flex flex-col">
-        {/* 00 / Editorial Hero — Midnight Navy */}
-        <EditorialHero />
+      <div className="w-full flex flex-col bg-[#0a0b0d]">
+        {/* 1. Recruiter-First Hero (Above the fold 30-sec test) */}
+        <RecruiterHero />
 
-        {/* 01 / Perspective & Foundation — Warm Ivory */}
-        <EditorialAbout />
+        {/* 2. What I can do for your team (3 role cards) */}
+        <RoleCards />
 
-        {/* 02 / Operational Track Record — Deep Charcoal Navy */}
-        <EditorialExperience />
+        {/* 3. Experience (3 roles, 3 bullets each) */}
+        <ExperienceSection />
 
-        {/* 03 / Engineering & Systems — Warm Ivory */}
-        <EditorialProjects />
+        {/* 4. Selected Projects (3 case studies + chart) */}
+        <ProjectsSection />
 
-        {/* 04 / Quantitative Methodology — Midnight Navy */}
-        <EditorialQuantFlow />
+        {/* 5. Leadership (4 role cards with scope) */}
+        <LeadershipSection />
 
-        {/* 05 / Product Management — Warm Ivory */}
-        <EditorialProduct />
+        {/* 6. Skills Matrix (Plain scannable table grouped by 3 categories) */}
+        <SkillsSection />
 
-        {/* 06 / Editorial Publications — Deep Charcoal Navy */}
-        <EditorialResearch />
+        {/* 7. Education & Recognition (PDEU + honors) */}
+        <EducationSection />
 
-        {/* 07 / Collaboration & Career Closing — Midnight Navy */}
-        <EditorialClosing />
+        {/* 8. Writing & Research (3 articles with read times) */}
+        <ArticlesSection />
+
+        {/* 9. Short About (Max 90 words + photo placeholder) */}
+        <AboutSection />
+
+        {/* 10. Contact Section (Form, copy email, Cal placeholder, 24h reply) */}
+        <ContactSection />
       </div>
     </>
   );

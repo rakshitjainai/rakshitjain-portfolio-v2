@@ -2,24 +2,25 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  GraduationCap,
-  Briefcase,
   TrendingUp,
   Activity,
   Code2,
   Compass,
   ArrowRight,
-  CheckCircle2,
+  GraduationCap,
+  Award,
 } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
-import { skillCategories } from "@/data/skills";
 import { educationData } from "@/data/education";
 import { StructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Rakshit Jain | Candidate Background",
   description:
-    "Professional background, educational journey at PDEU, core principles, and the intersection of finance, technology, quantitative analysis, and product thinking.",
+    "Candidate overview of Rakshit Jain: B.Tech ICT student at PDEU, GIFT City bullion desk operations intern, full-stack software engineer, and quant analyst.",
+  alternates: {
+    canonical: `${siteConfig.url}/about`,
+  },
 };
 
 export default function AboutPage() {
@@ -44,28 +45,28 @@ export default function AboutPage() {
 
   const focusAreas = [
     {
-      title: "Financial Market Infrastructure",
+      title: "Financial Market Operations",
       desc: "Bullion trading operations, IIBX exchange mechanics, BDR dematerialization, and institutional onboarding.",
       icon: TrendingUp,
-      color: "#d4af37",
+      color: "#c8a15a",
     },
     {
-      title: "Quantitative Trading Strategies",
-      desc: "Empirical backtesting with Python, dual moving average models, risk metrics (CAGR, Sharpe, Drawdown), and market frictions.",
+      title: "Quantitative Trading Models",
+      desc: "Systematic backtesting in Python, dual moving average models, risk metrics (CAGR, Sharpe, Drawdown), and market frictions.",
       icon: Activity,
-      color: "#38bdf8",
+      color: "#c8a15a",
     },
     {
-      title: "Full-Stack Software Engineering",
-      desc: "Developing web applications, REST APIs, database integrations, and systems programming in C and Python.",
+      title: "Full Stack Software Engineering",
+      desc: "Production web applications in React.js and Node.js, POSIX systems programming in C, and internal enterprise tools.",
       icon: Code2,
-      color: "#10b981",
+      color: "#c8a15a",
     },
     {
-      title: "Product Thinking & Workflows",
-      desc: "Workflow analysis, user research, and credential verification models in regulated environments.",
+      title: "Product Management",
+      desc: "Workflow analysis, requirements modeling, criteria-based matchmaking logic, and user friction reduction.",
       icon: Compass,
-      color: "#e2c99a",
+      color: "#c8a15a",
     },
   ];
 
@@ -73,31 +74,26 @@ export default function AboutPage() {
     <>
       <StructuredData data={breadcrumbJsonLd} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 space-y-12 pb-20">
-        {/* ============================================================ */}
-        {/* CONCISE PROFESSIONAL INTRODUCTION                            */}
-        {/* ============================================================ */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 space-y-12 pb-20">
+        {/* Header */}
         <section className="max-w-3xl space-y-3">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#d4af37]">
-            Professional Overview
+          <span className="font-mono text-xs uppercase tracking-wider text-[#c8a15a] font-semibold">
+            Candidate Profile
           </span>
-          <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight font-sans">
-            Finance, Technology & Product
+          <h1 className="text-3xl sm:text-5xl font-serif-display font-bold text-[#f2efe8] tracking-tight">
+            Markets, Quantitative Analysis &amp; Software
           </h1>
-          {/* Paragraph kept strictly to 2-3 lines */}
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+          <p className="text-sm sm:text-base text-[#8b8f97] leading-relaxed font-sans">
             I am a B.Tech ICT student at Pandit Deendayal Energy University (2023–2027).
             My work combines operational exposure to bullion trading at GIFT City with hands-on
             software development and Python-based quantitative backtesting.
           </p>
         </section>
 
-        {/* ============================================================ */}
-        {/* FOUR KEY AREAS OF INTEREST                                   */}
-        {/* ============================================================ */}
+        {/* Four Key Areas of Focus */}
         <section className="space-y-4">
-          <div className="border-b border-slate-800 pb-2">
-            <h2 className="text-lg font-bold text-white">Core Focus Areas</h2>
+          <div className="border-b border-[#22262e] pb-2">
+            <h2 className="text-lg font-bold text-[#f2efe8]">Core Focus Areas</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -106,125 +102,89 @@ export default function AboutPage() {
               return (
                 <div
                   key={idx}
-                  className="p-5 rounded-xl bg-[#0a101f] border border-slate-800 hover:border-slate-700 transition-all space-y-2.5"
+                  className="p-5 rounded-xl bg-[#111317] border border-[#22262e] space-y-2.5"
                 >
                   <div
-                    className="p-2 rounded-lg bg-slate-900 border border-slate-800 w-fit"
-                    style={{ color: area.color }}
+                    className="p-2 rounded-lg bg-[#0a0b0d] border border-[#22262e] w-fit text-[#c8a15a]"
                   >
                     <Icon className="w-4 h-4" />
                   </div>
-                  <h3 className="text-sm font-bold text-white">{area.title}</h3>
-                  <p className="text-xs text-slate-400 leading-relaxed">{area.desc}</p>
+                  <h3 className="text-sm font-bold text-[#f2efe8]">{area.title}</h3>
+                  <p className="text-xs text-[#8b8f97] leading-relaxed">{area.desc}</p>
                 </div>
               );
             })}
           </div>
         </section>
 
-        {/* ============================================================ */}
-        {/* SHORT SUMMARY OF RELEVANT EXPERIENCE (BULLET-BASED)          */}
-        {/* ============================================================ */}
+        {/* Short Summary of Relevant Experience */}
         <section className="space-y-4">
-          <div className="border-b border-slate-800 pb-2">
-            <h2 className="text-lg font-bold text-white">Relevant Experience Summary</h2>
+          <div className="border-b border-[#22262e] pb-2">
+            <h2 className="text-lg font-bold text-[#f2efe8]">Relevant Experience Summary</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-5 rounded-xl bg-[#0a101f] border border-slate-800 space-y-2">
-              <span className="font-mono text-[10px] text-[#d4af37] uppercase">GIFT City IFSC</span>
-              <h3 className="text-sm font-bold text-white">Anand Rathi International Ventures</h3>
-              <p className="text-xs text-slate-400">Financial Markets / Operations Intern (May 2026 – Jul 2026)</p>
-              <ul className="text-xs text-slate-300 space-y-1 list-disc list-inside pt-1">
+            <div className="p-5 rounded-xl bg-[#111317] border border-[#22262e] space-y-2">
+              <span className="font-mono text-[10px] text-[#c8a15a] uppercase font-semibold">GIFT City IFSC</span>
+              <h3 className="text-sm font-bold text-[#f2efe8]">Anand Rathi International Ventures</h3>
+              <p className="text-xs text-[#8b8f97]">Financial Markets / Operations Intern (May 2026 – Jul 2026)</p>
+              <ul className="text-xs text-[#f2efe8] space-y-1 list-disc list-inside pt-1">
                 <li>IIBX bullion trading operations</li>
-                <li>Live terminal order entry & risk monitoring</li>
-                <li>Institutional KYC/GST/IEC compliance</li>
+                <li>Live terminal order entry &amp; risk monitoring</li>
+                <li>BDR settlement &amp; vault reconciliation</li>
+                <li>Institutional KYC, GST &amp; IEC verification</li>
               </ul>
             </div>
 
-            <div className="p-5 rounded-xl bg-[#0a101f] border border-slate-800 space-y-2">
-              <span className="font-mono text-[10px] text-[#38bdf8] uppercase">Full Stack</span>
-              <h3 className="text-sm font-bold text-white">Certopus Inc.</h3>
-              <p className="text-xs text-slate-400">Full Stack Development Intern (May 2026 – Jul 2026)</p>
-              <ul className="text-xs text-slate-300 space-y-1 list-disc list-inside pt-1">
-                <li>Production web features with React & Node</li>
-                <li>REST API development & DB integration</li>
-                <li>Git branch workflows & team sync</li>
+            <div className="p-5 rounded-xl bg-[#111317] border border-[#22262e] space-y-2">
+              <span className="font-mono text-[10px] text-[#c8a15a] uppercase font-semibold">Remote</span>
+              <h3 className="text-sm font-bold text-[#f2efe8]">Certopus Inc.</h3>
+              <p className="text-xs text-[#8b8f97]">Full Stack Development Intern (May 2026 – Jul 2026)</p>
+              <ul className="text-xs text-[#f2efe8] space-y-1 list-disc list-inside pt-1">
+                <li>Production React.js and Node.js features</li>
+                <li>REST APIs and database integration</li>
+                <li>Debugging, testing, and staging releases</li>
+                <li>Git branch workflows and code reviews</li>
               </ul>
             </div>
 
-            <div className="p-5 rounded-xl bg-[#0a101f] border border-slate-800 space-y-2">
-              <span className="font-mono text-[10px] text-emerald-400 uppercase">Industrial Systems</span>
-              <h3 className="text-sm font-bold text-white">Department of Atomic Energy</h3>
-              <p className="text-xs text-slate-400">Summer Trainee (July 2025)</p>
-              <ul className="text-xs text-slate-300 space-y-1 list-disc list-inside pt-1">
-                <li>PHP-based internal training application</li>
-                <li>Server & firewall configuration</li>
-                <li>Industrial I&C instrumentation exposure</li>
+            <div className="p-5 rounded-xl bg-[#111317] border border-[#22262e] space-y-2">
+              <span className="font-mono text-[10px] text-[#c8a15a] uppercase font-semibold">Heavy Water Plant Kota</span>
+              <h3 className="text-sm font-bold text-[#f2efe8]">Department of Atomic Energy</h3>
+              <p className="text-xs text-[#8b8f97]">Summer Trainee (July 2025)</p>
+              <ul className="text-xs text-[#f2efe8] space-y-1 list-disc list-inside pt-1">
+                <li>PHP/MySQL training records portal</li>
+                <li>Server and firewall intranet configuration</li>
+                <li>Industrial instrumentation exposure</li>
+                <li>Rated &apos;Very Good&apos; by plant leadership</li>
               </ul>
             </div>
           </div>
         </section>
 
-        {/* ============================================================ */}
-        {/* SKILLS ARCHITECTURE (CLEAN 4 GROUPS)                         */}
-        {/* ============================================================ */}
-        <section className="space-y-4">
-          <div className="border-b border-slate-800 pb-2">
-            <h2 className="text-lg font-bold text-white">Technical & Domain Skills</h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {skillCategories.map((cat, idx) => (
-              <div
-                key={idx}
-                className="p-5 bg-[#0a101f] border border-slate-800 rounded-xl space-y-3"
-              >
-                <div>
-                  <h3 className="text-sm font-bold text-white">{cat.title}</h3>
-                </div>
-
-                <div className="flex flex-wrap gap-1.5 pt-1 border-t border-slate-800/80">
-                  {cat.skills.map((skill, sIdx) => (
-                    <span
-                      key={sIdx}
-                      className="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-900 border border-slate-800 text-slate-300"
-                    >
-                      {skill.name}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ============================================================ */}
-        {/* EDUCATION (COMPACT)                                          */}
-        {/* ============================================================ */}
-        <section className="p-6 bg-[#0a101f] border border-slate-800 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        {/* Academic Foundation Callout */}
+        <section className="p-6 bg-[#111317] border border-[#22262e] rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-[#d4af37]">
+            <div className="p-2.5 rounded-lg bg-[#0a0b0d] border border-[#22262e] text-[#c8a15a]">
               <GraduationCap className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-sm sm:text-base font-bold text-white">
-                {educationData.institution}
+              <div className="text-xs font-mono uppercase text-[#c8a15a]">Formal Education</div>
+              <h3 className="text-base font-bold text-[#f2efe8]">
+                {educationData.institution} — {educationData.degree}
               </h3>
-              <p className="text-xs text-slate-300">
-                {educationData.degree} — {educationData.major}
-              </p>
-              <p className="font-mono text-[11px] text-slate-500 mt-0.5">
-                {educationData.period} · {educationData.location}
+              <p className="text-xs text-[#8b8f97]">
+                {educationData.major} · {educationData.period} · {educationData.location}
               </p>
             </div>
           </div>
-
           <Link
-            href="/resume"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#d4af37] text-slate-950 font-bold text-xs uppercase tracking-wider hover:bg-[#c5a880] transition-colors shrink-0"
+            href="/Rakshit-Jain-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#c8a15a] text-[#0a0b0d] font-bold text-xs uppercase tracking-wider hover:bg-[#dbb36c] transition-colors shrink-0 font-mono"
           >
-            <span>View Resumes</span>
+            <span>Resume (PDF)</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </section>

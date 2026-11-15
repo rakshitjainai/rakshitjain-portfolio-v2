@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import {
   Calendar,
   Clock,
@@ -9,19 +9,18 @@ import {
   BookOpen,
   CheckCircle2,
   ExternalLink,
-  ShieldCheck,
   Share2,
 } from "lucide-react";
 import { articlesData } from "@/data/articles";
 import { siteConfig } from "@/data/siteConfig";
 import { ArticleProgressBar } from "@/components/ArticleProgressBar";
 import { ArticleTableOfContents } from "@/components/ArticleTableOfContents";
-import { SmaBacktestChart } from "@/components/SmaBacktestChart";
 import { BullionSettlementDiagram } from "@/components/BullionSettlementDiagram";
+import { SmaBacktestChart } from "@/components/SmaBacktestChart";
 import { LegalTechWorkflowDiagram } from "@/components/LegalTechWorkflowDiagram";
 import { StructuredData } from "@/components/StructuredData";
 
-interface PageProps {
+interface Props {
   params: Promise<{ slug: string }>;
 }
 
@@ -31,32 +30,35 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const article = articlesData.find((a) => a.slug === slug);
-  if (!article) return {};
+
+  if (!article) {
+    return { title: "Article Not Found | Rakshit Jain" };
+  }
 
   return {
-    title: article.title,
-    description: article.excerpt,
+    title: `${article.title.slice(0, 50)} | Rakshit Jain`,
+    description: article.excerpt.slice(0, 150),
+    authors: [{ name: article.author, url: siteConfig.url }],
+    alternates: {
+      canonical: `${siteConfig.url}/research/${article.slug}`,
+    },
     openGraph: {
       type: "article",
-      title: `${article.title} | Rakshit Jain`,
-      description: article.excerpt,
       url: `${siteConfig.url}/research/${article.slug}`,
-      publishedTime: article.date,
-      authors: [article.author],
-      tags: article.tags,
-    },
-    twitter: {
-      card: "summary_large_image",
       title: article.title,
       description: article.excerpt,
+      publishedTime: article.date,
+      modifiedTime: article.updatedDate || article.date,
+      authors: [article.author],
+      tags: article.tags,
     },
   };
 }
 
-export default async function ArticleDetailPage({ params }: PageProps) {
+export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
   const article = articlesData.find((a) => a.slug === slug);
 
@@ -73,10 +75,16 @@ export default async function ArticleDetailPage({ params }: PageProps) {
       "@type": "Person",
       name: article.author,
       url: siteConfig.url,
+      jobTitle: "Student, B.Tech ICT",
+      affiliation: {
+        "@type": "CollegeOrUniversity",
+        name: "Pandit Deendayal Energy University (PDEU)",
+      },
     },
     publisher: {
       "@type": "Person",
       name: siteConfig.name,
+      url: siteConfig.url,
     },
     datePublished: article.date,
     dateModified: article.updatedDate || article.date,
@@ -118,54 +126,67 @@ export default async function ArticleDetailPage({ params }: PageProps) {
       <StructuredData data={breadcrumbJsonLd} />
       <ArticleProgressBar />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 space-y-12 pb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 space-y-12 pb-24">
         {/* Navigation Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
+        <div className="flex items-center gap-2 text-xs font-mono text-[#8b8f97]">
           <Link href="/research" className="hover:text-white transition-colors flex items-center gap-1">
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Research Archive</span>
           </Link>
-          <span className="text-slate-600">/</span>
-          <span className="text-slate-300 truncate max-w-xs sm:max-w-md">{article.title}</span>
+          <span className="text-[#22262e]">/</span>
+          <span className="text-[#f2efe8] truncate max-w-xs sm:max-w-md">{article.title}</span>
         </div>
 
-        {/* Article Header */}
-        <header className="max-w-4xl space-y-5 border-b border-slate-800 pb-8">
+        {/* Article Header & Byline */}
+        <header className="max-w-4xl space-y-5 border-b border-[#22262e] pb-8">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-[#d4af37] uppercase tracking-wider text-[11px] font-mono">
+            <span className="px-2.5 py-0.5 rounded bg-[#111317] border border-[#22262e] text-[#c8a15a] uppercase tracking-wider text-[11px] font-mono font-semibold">
               {article.category}
             </span>
-            <div className="flex items-center gap-3 text-slate-400 text-xs font-mono">
+            <div className="flex items-center gap-3 text-[#8b8f97] text-xs font-mono">
               <span className="flex items-center gap-1">
                 <Calendar className="w-3.5 h-3.5" />
-                <span>Published {article.date}</span>
+                <span>Published: {article.date}</span>
               </span>
               <span>•</span>
               <span className="flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5 text-[#38bdf8]" />
+                <span>Updated: {article.updatedDate || article.date}</span>
+              </span>
+              <span>•</span>
+              <span className="flex items-center gap-1 text-[#c8a15a]">
+                <Clock className="w-3.5 h-3.5" />
                 <span>{article.readTime}</span>
               </span>
             </div>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight font-sans">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f2efe8] tracking-tight leading-tight font-serif-display">
             {article.title}
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-300 font-sans leading-relaxed">
+          <p className="text-base sm:text-lg text-[#8b8f97] font-sans leading-relaxed">
             {article.subtitle}
           </p>
 
-          <div className="pt-2 flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-xs text-[#d4af37]">
+          {/* Visible Author Byline for Citability */}
+          <div className="pt-2 flex items-center gap-3 border-t border-[#22262e]">
+            <div className="w-9 h-9 rounded-full bg-[#111317] border border-[#22262e] flex items-center justify-center font-bold text-xs text-[#c8a15a]">
               RJ
             </div>
             <div className="text-xs">
-              <div className="font-semibold text-white">{article.author}</div>
-              <div className="text-slate-400 text-[11px] font-mono">
-                B.Tech ICT Student · PDEU (2023–2027)
+              <div className="font-semibold text-[#f2efe8]">{article.author}</div>
+              <div className="text-[#8b8f97] text-[11px] font-mono">
+                B.Tech ICT Student · PDEU (2023–2027) · Gandhinagar, Gujarat
               </div>
             </div>
+          </div>
+
+          {/* 2-Sentence Summary Block */}
+          <div className="p-4 rounded-xl bg-[#111317] border border-[#c8a15a]/40 text-xs text-[#f2efe8] leading-relaxed font-sans space-y-1">
+            <span className="font-mono text-[10px] text-[#c8a15a] uppercase block font-semibold">
+              Article Summary
+            </span>
+            <p>{article.excerpt}</p>
           </div>
         </header>
 
@@ -174,22 +195,22 @@ export default async function ArticleDetailPage({ params }: PageProps) {
           {/* Main Article Body */}
           <article className="lg:col-span-8 space-y-10">
             {/* Key Takeaways Callout */}
-            <div className="p-6 bg-slate-900/60 border border-slate-800 rounded-xl space-y-3">
-              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#d4af37]">
+            <div className="p-6 bg-[#111317] border border-[#22262e] rounded-xl space-y-3">
+              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#c8a15a]">
                 <BookOpen className="w-4 h-4" />
-                <span>Executive Summary & Key Takeaways</span>
+                <span>Executive Summary &amp; Key Takeaways</span>
               </div>
-              <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
+              <ul className="space-y-2 text-xs sm:text-sm text-[#f2efe8]">
                 {article.keyTakeaways.map((takeaway, i) => (
                   <li key={i} className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#d4af37] mt-0.5 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#c8a15a] mt-0.5 shrink-0" />
                     <span className="leading-relaxed">{takeaway}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* In-article Interactive Visualizations */}
+            {/* In-article Visualizations */}
             {slug === "iibx-and-indias-bullion-market" && (
               <div className="space-y-2">
                 <BullionSettlementDiagram />
@@ -214,12 +235,12 @@ export default async function ArticleDetailPage({ params }: PageProps) {
                 <section
                   key={section.id}
                   id={section.id}
-                  className="space-y-4 scroll-mt-24 border-b border-slate-800/60 pb-10"
+                  className="space-y-4 scroll-mt-24 border-b border-[#22262e] pb-10"
                 >
-                  <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight font-sans">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#f2efe8] tracking-tight font-sans">
                     {section.title}
                   </h2>
-                  <div className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans space-y-4 whitespace-pre-line">
+                  <div className="text-sm sm:text-base text-[#8b8f97] leading-relaxed font-sans space-y-4 whitespace-pre-line">
                     {section.content}
                   </div>
                 </section>
@@ -229,12 +250,12 @@ export default async function ArticleDetailPage({ params }: PageProps) {
             {/* Citations & References Section */}
             {article.citations && article.citations.length > 0 && (
               <section id="references" className="pt-6 space-y-4">
-                <div className="border-t border-slate-800 pt-6">
-                  <span className="font-mono text-xs uppercase tracking-wider text-[#d4af37]">
-                    Bibliography & Statutory Citations
+                <div className="border-t border-[#22262e] pt-6">
+                  <span className="font-mono text-xs uppercase tracking-wider text-[#c8a15a]">
+                    Bibliography &amp; Statutory Citations
                   </span>
-                  <h3 className="text-lg font-bold text-white mt-1">
-                    Primary Sources & Referenced Publications
+                  <h3 className="text-lg font-bold text-[#f2efe8] mt-1 font-sans">
+                    Primary Sources &amp; Referenced Publications
                   </h3>
                 </div>
 
@@ -242,80 +263,54 @@ export default async function ArticleDetailPage({ params }: PageProps) {
                   {article.citations.map((cite) => (
                     <div
                       key={cite.id}
-                      className="p-4 bg-slate-900/40 border border-slate-800 rounded-lg space-y-1 text-xs"
+                      className="p-4 rounded-lg bg-[#111317] border border-[#22262e] text-xs space-y-1"
                     >
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                        <span className="font-semibold text-white">{cite.title}</span>
-                        <span className="font-mono text-[11px] text-slate-500">
-                          {cite.source} ({cite.year})
-                        </span>
+                      <div className="flex items-start justify-between gap-2">
+                        <span className="font-bold text-[#f2efe8]">{cite.title}</span>
+                        {cite.url && (
+                          <a
+                            href={cite.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[#c8a15a] hover:underline flex items-center gap-1 shrink-0 font-mono text-[11px]"
+                          >
+                            <span>Source</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        )}
                       </div>
-                      {cite.note && (
-                        <p className="text-slate-400 text-[11px] leading-relaxed">{cite.note}</p>
-                      )}
-                      {cite.url && (
-                        <a
-                          href={cite.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-[11px] text-[#38bdf8] hover:underline pt-1 font-mono"
-                        >
-                          <span>Official Repository / Document Link</span>
-                          <ExternalLink className="w-3 h-3" />
-                        </a>
-                      )}
+                      <div className="text-[#8b8f97] font-mono text-[11px]">
+                        {cite.source} ({cite.year})
+                      </div>
+                      <p className="text-[#8b8f97] text-[11px] pt-1">{cite.note}</p>
                     </div>
                   ))}
                 </div>
               </section>
             )}
-
-            {/* Author Footer Card */}
-            <div className="p-6 bg-[#0a101f] border border-slate-800 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="space-y-1">
-                <div className="font-bold text-white text-sm">Author: Rakshit Jain</div>
-                <p className="text-xs text-slate-400">
-                  B.Tech ICT Student at PDEU interested in financial markets, quantitative analysis,
-                  and software product development.
-                </p>
-              </div>
-              <Link
-                href="/contact"
-                className="px-4 py-2 rounded-lg bg-[#d4af37] text-slate-950 font-bold text-xs uppercase tracking-wider hover:bg-[#c5a880] transition-colors shrink-0"
-              >
-                Discuss Article
-              </Link>
-            </div>
           </article>
 
-          {/* Sticky Sidebar on Desktop */}
-          <aside className="lg:col-span-4 space-y-6">
-            <div className="sticky top-24 space-y-6">
+          {/* Sticky Sidebar: Table of Contents */}
+          <aside className="lg:col-span-4 hidden lg:block">
+            <div className="sticky top-28 space-y-6">
               <ArticleTableOfContents items={article.tableOfContents} />
 
-              {/* Related Articles Box */}
-              <div className="p-5 bg-[#0a101f] border border-slate-800 rounded-xl space-y-3">
-                <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-slate-300">
-                  Other Research Papers
-                </h4>
-                <div className="space-y-2.5 text-xs">
-                  {articlesData
-                    .filter((a) => a.slug !== article.slug)
-                    .map((other) => (
-                      <Link
-                        key={other.slug}
-                        href={`/research/${other.slug}`}
-                        className="block p-2.5 rounded-lg bg-slate-900/60 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors group"
-                      >
-                        <span className="font-mono text-[10px] text-[#d4af37] block">
-                          {other.category}
-                        </span>
-                        <span className="font-medium text-slate-200 group-hover:text-white line-clamp-2 mt-0.5">
-                          {other.title}
-                        </span>
-                      </Link>
-                    ))}
-                </div>
+              {/* Author Card */}
+              <div className="p-5 rounded-xl bg-[#111317] border border-[#22262e] space-y-3 text-xs">
+                <span className="font-mono text-[10px] uppercase text-[#c8a15a] font-semibold block">
+                  Author Dossier
+                </span>
+                <div className="font-bold text-[#f2efe8]">{article.author}</div>
+                <p className="text-[#8b8f97] leading-relaxed">
+                  Third-year ICT undergraduate at PDEU Gandhinagar focusing on bullion market infrastructure, quantitative analysis, and product management.
+                </p>
+                <Link
+                  href="/resume"
+                  className="text-[#c8a15a] hover:underline flex items-center gap-1 font-mono pt-1"
+                >
+                  <span>Candidate resume</span>
+                  <ExternalLink className="w-3 h-3" />
+                </Link>
               </div>
             </div>
           </aside>

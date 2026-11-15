@@ -3,34 +3,71 @@ import { siteConfig } from "@/data/siteConfig";
 import { articlesData } from "@/data/articles";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = siteConfig.url;
+  const currentDate = "2026-11-16";
 
-  // Base routes
-  const routes = [
-    "",
-    "/about",
-    "/experience",
-    "/projects",
-    "/product-thinking",
-    "/research",
-    "/resume",
-    "/resume/finance",
-    "/resume/tech",
-    "/contact",
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: "2026-11-16",
-    changeFrequency: "weekly" as const,
-    priority: route === "" ? 1.0 : route.startsWith("/resume") || route === "/projects" ? 0.9 : 0.8,
+  const staticRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${siteConfig.url}`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 1.0,
+    },
+    {
+      url: `${siteConfig.url}/experience`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteConfig.url}/projects`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteConfig.url}/resume`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${siteConfig.url}/faq`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${siteConfig.url}/research`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${siteConfig.url}/product-thinking`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${siteConfig.url}/about`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.75,
+    },
+    {
+      url: `${siteConfig.url}/contact`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+  ];
+
+  const articleRoutes: MetadataRoute.Sitemap = articlesData.map((article) => ({
+    url: `${siteConfig.url}/research/${article.slug}`,
+    lastModified: currentDate,
+    changeFrequency: "monthly",
+    priority: 0.75,
   }));
 
-  // Article routes
-  const articleRoutes = articlesData.map((article) => ({
-    url: `${baseUrl}/research/${article.slug}`,
-    lastModified: "2026-11-16",
-    changeFrequency: "monthly" as const,
-    priority: 0.85,
-  }));
-
-  return [...routes, ...articleRoutes];
+  return [...staticRoutes, ...articleRoutes];
 }

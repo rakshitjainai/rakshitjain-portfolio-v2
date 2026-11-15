@@ -1,130 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-midnight: #101a27;
-  --color-charcoal: #172536;
-  --color-ivory: #f4f1ea;
-  --color-stone: #e9e6df;
-  --color-copper: #c28b5e;
-  --color-copper-light: #d8a478;
-  --color-steel: #4a7c9b;
-  --color-steel-light: #6ba2c5;
+  --color-bg: #0a0b0d;
+  --color-surface: #111317;
+  --color-surface-hover: #181b21;
+  --color-ivory: #f2efe8;
+  --color-muted: #8b8f97;
+  --color-gold: #c8a15a;
+  --color-gold-hover: #dbb36c;
+  --color-hairline: #22262e;
 }
 
 :root {
-  --background: #101a27;
-  --foreground: #f4f1ea;
+  --background: #0a0b0d;
+  --foreground: #f2efe8;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
-.font-editorial {
-  font-family: 'Instrument Serif', Georgia, serif;
+.font-serif-display {
+  font-family: var(--font-fraunces), Georgia, serif;
 }
 
-.font-editorial-italic {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-style: italic;
+.font-mono-num {
+  font-family: var(--font-mono), monospace;
+  font-feature-settings: "tnum" 1, "zero" 1;
+}
+
+/* Custom hairline borders */
+.border-hairline {
+  border-color: #22262e;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #101a27;
+  background: #0a0b0d;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #22344a;
+  background: #22262e;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334e6e;
-}
-
-/* Editorial Keyframes & Transitions */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUpEditorial {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slowAtmosphere {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-    opacity: 0.15;
-  }
-  50% {
-    transform: translateY(-8px) scale(1.02);
-    opacity: 0.25;
-  }
-}
-
-@keyframes coordinatePulse {
-  0%, 100% {
-    opacity: 0.2;
-  }
-  50% {
-    opacity: 0.6;
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-editorial-up {
-  animation: slideUpEditorial 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-atmosphere {
-  animation: slowAtmosphere 12s ease-in-out infinite;
-}
-
-.animate-coordinate {
-  animation: coordinatePulse 4s ease-in-out infinite;
-}
-
-.delay-100 {
-  animation-delay: 100ms;
-}
-
-.delay-200 {
-  animation-delay: 200ms;
-}
-
-.delay-300 {
-  animation-delay: 300ms;
-}
-
-.delay-400 {
-  animation-delay: 400ms;
+  background: #333842;
 }
 
 /* Accessibility: Reduced Motion */
@@ -139,14 +70,59 @@ body {
   }
 }
 
-/* Print Styles */
+/* Recruiter Resume Print Stylesheet */
 @media print {
-  body {
-    background: #ffffff !important;
-    color: #000000 !important;
+  @page {
+    margin: 12mm 15mm;
+    size: A4 portrait;
   }
 
-  header, footer, .print-hidden {
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-size: 10.5pt !important;
+    line-height: 1.35 !important;
+  }
+
+  header,
+  footer,
+  nav,
+  .no-print,
+  button,
+  .print-hidden {
     display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-card {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    page-break-inside: avoid;
+  }
+
+  a {
+    color: #111111 !important;
+    text-decoration: none !important;
+  }
+
+  h1, h2, h3, h4 {
+    color: #000000 !important;
+    page-break-after: avoid;
+  }
+
+  .text-ivory {
+    color: #111111 !important;
+  }
+
+  .text-muted {
+    color: #555555 !important;
+  }
+
+  .border-hairline {
+    border-color: #cccccc !important;
   }
 }

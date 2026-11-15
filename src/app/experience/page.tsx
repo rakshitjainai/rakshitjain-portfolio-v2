@@ -2,16 +2,19 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, FileText } from "lucide-react";
-import { professionalExperience, leadershipExperience } from "@/data/experience";
 import { siteConfig } from "@/data/siteConfig";
-import { ExperienceCard } from "@/components/ExperienceCard";
+import { ExperienceSection } from "@/components/ExperienceSection";
+import { LeadershipSection } from "@/components/LeadershipSection";
 import { BullionSettlementDiagram } from "@/components/BullionSettlementDiagram";
 import { StructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Experience",
+  title: "Experience | Rakshit Jain",
   description:
-    "Institutional internships and technical experience across Anand Rathi at GIFT City, full-stack development at Certopus Inc., and industrial systems at the Department of Atomic Energy.",
+    "Institutional internships across Anand Rathi at GIFT City, full-stack development at Certopus Inc., and industrial systems at the Department of Atomic Energy.",
+  alternates: {
+    canonical: `${siteConfig.url}/experience`,
+  },
 };
 
 export default function ExperiencePage() {
@@ -38,81 +41,57 @@ export default function ExperiencePage() {
     <>
       <StructuredData data={breadcrumbJsonLd} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 space-y-12 pb-20">
-        {/* Header */}
-        <section className="max-w-3xl space-y-2">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#d4af37]">
-            Work Experience
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight font-sans">
-            Professional Experience Timeline
-          </h1>
-          <p className="text-xs sm:text-sm text-slate-300 font-sans">
-            Verified internships and technical roles. Dates follow official LinkedIn records.
-          </p>
-        </section>
+      <div className="pt-24 sm:pt-32 pb-20 space-y-12">
+        {/* Work Experience Section */}
+        <ExperienceSection />
 
-        {/* Professional Internships Timeline */}
-        <section className="space-y-4">
-          <div className="border-b border-slate-800 pb-2 flex items-center justify-between">
-            <h2 className="text-lg font-bold text-white">Professional Internships</h2>
-            <span className="font-mono text-xs text-slate-500">2025–2026</span>
+        {/* Operational Workflow Visual: IIBX Bullion Settlement */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+          <div className="border-b border-[#22262e] pb-3 flex items-center justify-between">
+            <div>
+              <span className="font-mono text-xs uppercase text-[#c8a15a] block font-semibold">
+                Operational Lifecycle
+              </span>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#f2efe8] font-sans mt-0.5">
+                IIBX Bullion Depository Receipt (BDR) Settlement Lifecycle
+              </h2>
+            </div>
+            <Link
+              href="/research/iibx-and-indias-bullion-market"
+              className="text-xs font-mono text-[#c8a15a] hover:underline flex items-center gap-1 shrink-0"
+            >
+              <span>Read research paper</span>
+              <ArrowRight className="w-3 h-3" />
+            </Link>
           </div>
 
-          <div className="max-w-4xl pt-2">
-            {professionalExperience.map((exp) => (
-              <ExperienceCard key={exp.id} experience={exp} />
-            ))}
-          </div>
-        </section>
-
-        {/* Embedded Bullion Lifecycle Diagram */}
-        <section className="space-y-3">
           <BullionSettlementDiagram />
         </section>
 
-        {/* Leadership & Campus Roles */}
-        <section className="space-y-4">
-          <div className="border-b border-slate-800 pb-2">
-            <h2 className="text-lg font-bold text-white">Campus Leadership & Responsibility</h2>
+        {/* Leadership Section */}
+        <LeadershipSection />
+
+        {/* Quick CTA to Resume */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="p-6 bg-[#111317] border border-[#22262e] rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="space-y-1">
+              <h3 className="text-base font-bold text-[#f2efe8]">
+                Looking for a formal copy for internal review?
+              </h3>
+              <p className="text-xs text-[#8b8f97]">
+                Download Rakshit-Jain-Resume.pdf for the official 1-page summary.
+              </p>
+            </div>
+            <Link
+              href="/Rakshit-Jain-Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#c8a15a] text-[#0a0b0d] font-bold text-xs uppercase tracking-wider hover:bg-[#dbb36c] transition-colors shrink-0 font-mono"
+            >
+              <FileText className="w-3.5 h-3.5" />
+              <span>Download Resume (PDF)</span>
+            </Link>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {leadershipExperience.map((lead) => (
-              <div
-                key={lead.id}
-                className="p-5 bg-[#0a101f] border border-slate-800 rounded-xl space-y-2.5"
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <h3 className="text-sm font-bold text-white">{lead.role}</h3>
-                  <span className="font-mono text-[10px] text-slate-400 shrink-0">
-                    {lead.period}
-                  </span>
-                </div>
-                <div className="text-xs text-[#38bdf8] font-medium">{lead.company}</div>
-
-                <ul className="text-xs text-slate-300 space-y-1 list-disc list-inside pt-1">
-                  {lead.responsibilities.map((r, i) => (
-                    <li key={i}>{r}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Bottom CTA */}
-        <section className="p-5 bg-slate-900/60 border border-slate-800 rounded-xl flex items-center justify-between gap-4">
-          <span className="text-xs text-slate-300">
-            Looking for structured PDF copies for your recruitment records?
-          </span>
-          <Link
-            href="/resume"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#d4af37] text-slate-950 font-bold text-xs uppercase tracking-wider hover:bg-[#c5a880] transition-colors shrink-0"
-          >
-            <FileText className="w-3.5 h-3.5" />
-            <span>Curated Resumes</span>
-          </Link>
         </section>
       </div>
     </>

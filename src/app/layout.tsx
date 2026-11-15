@@ -1,56 +1,81 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/data/siteConfig";
+import { Analytics } from "@vercel/analytics/react";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const fraunces = Fraunces({
   subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Rakshit Jain | Finance, Technology & Product",
+    default: "Rakshit Jain | Finance, Quant and Software Intern Candidate | PDEU",
     template: "%s | Rakshit Jain",
   },
-  description: siteConfig.description,
+  description:
+    "B.Tech ICT student at PDEU seeking Summer 2027 internships across Markets, Quant and Product. GIFT City bullion desk & full-stack experience.",
   keywords: [
     "Rakshit Jain",
-    "Rakshit Jain Finance",
     "Rakshit Jain PDEU",
-    "Rakshit Jain Software Engineer",
-    "Rakshit Jain Financial Markets",
-    "Rakshit Jain Quantitative Analysis",
-    "Rakshit Jain Product Management",
-    "IIBX Bullion Market",
-    "Quantitative Finance Projects",
-    "SMA Crossover Backtesting",
-    "LawPrix LegalTech",
-    "FinTech Product Development",
+    "Finance Intern",
+    "Quantitative Analyst Intern",
+    "Software Engineer Intern",
+    "IIBX Bullion Trading",
     "GIFT City IFSC",
+    "Anand Rathi IFSC",
+    "Python Backtesting",
+    "SMA Crossover",
+    "LawPrix",
+    "Product Management",
+    "Gandhinagar",
+    "Gujarat",
   ],
   authors: [{ name: "Rakshit Jain", url: siteConfig.url }],
   creator: "Rakshit Jain",
+  alternates: {
+    canonical: siteConfig.url,
+  },
   openGraph: {
-    type: "website",
-    locale: "en_IE",
+    type: "profile",
+    locale: "en_IN",
     url: siteConfig.url,
-    title: siteConfig.title,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
+    title: "Rakshit Jain | Finance, Quant and Software Intern Candidate | PDEU",
+    description:
+      "B.Tech ICT student at PDEU seeking Summer 2027 internships across Markets, Quant and Product. GIFT City bullion desk & full-stack experience.",
+    siteName: "Rakshit Jain Portfolio",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Rakshit Jain — Markets, Quant and Product Intern Candidate",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.title,
-    description: siteConfig.description,
+    title: "Rakshit Jain | Finance, Quant and Software Intern Candidate | PDEU",
+    description:
+      "B.Tech ICT student at PDEU seeking Summer 2027 internships across Markets, Quant and Product. GIFT City bullion desk & full-stack experience.",
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
@@ -72,13 +97,14 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
+      lang="en-IN"
+      className={`${inter.variable} ${fraunces.variable} ${jetbrainsMono.variable} h-full antialiased selection:bg-[#c8a15a]/25 selection:text-[#f2efe8]`}
     >
-      <body className="min-h-full flex flex-col bg-[#101a27] text-[#f4f1ea] selection:bg-[#c28b5e]/25 selection:text-[#f4f1ea]">
+      <body className="min-h-full flex flex-col bg-[#0a0b0d] text-[#f2efe8]">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

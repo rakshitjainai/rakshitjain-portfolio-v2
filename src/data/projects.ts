@@ -11,7 +11,7 @@ export const projectsData: ProjectItem[] = [
     period: "Dec 2025 – Mar 2026",
     featured: true,
     summary:
-      "Engineered an empirical backtesting system to test dual moving average crossover signals on real market data, evaluating risk-adjusted returns and drawdown control.",
+      "Engineered a Python backtesting system to test dual moving average crossover signals on real market data, evaluating risk-adjusted returns and drawdown control.",
     problem:
       "Retail traders often trade on discretionary intuition without testing systematic rules against historical drawdowns and market cycles.",
     approach:

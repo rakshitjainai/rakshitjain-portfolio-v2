@@ -51,151 +51,138 @@ export function SmaBacktestChart() {
   const [selectedStock, setSelectedStock] = useState<"INFY" | "TATAINVEST">("INFY");
   const data = selectedStock === "INFY" ? infyData : tataInvestData;
 
-  // Chart dimensions & calculations
-  const width = 800;
-  const height = 340;
-  const padding = { top: 25, right: 30, bottom: 40, left: 50 };
+  const width = 850;
+  const height = 300;
+  const padding = { top: 25, right: 30, bottom: 35, left: 55 };
 
-  const chartWidth = width - padding.left - padding.right;
-  const chartHeight = height - padding.top - padding.bottom;
+  const prices = data.flatMap((d) => [d.price, d.sma20, d.sma50]);
+  const minVal = Math.min(...prices) * 0.96;
+  const maxVal = Math.max(...prices) * 1.04;
 
-  const minPrice = Math.min(...data.map((d) => Math.min(d.price, d.sma20, d.sma50))) * 0.96;
-  const maxPrice = Math.max(...data.map((d) => Math.max(d.price, d.sma20, d.sma50))) * 1.04;
+  const getX = (index: number) =>
+    padding.left + (index / (data.length - 1)) * (width - padding.left - padding.right);
 
-  const getX = (index: number) => padding.left + (index / (data.length - 1)) * chartWidth;
   const getY = (val: number) =>
-    padding.top + chartHeight - ((val - minPrice) / (maxPrice - minPrice)) * chartHeight;
+    height - padding.bottom - ((val - minVal) / (maxVal - minVal)) * (height - padding.top - padding.bottom);
 
-  // Generate SVG path strings
-  const pricePath = data
-    .map((d, i) => `${i === 0 ? "M" : "L"} ${getX(i)} ${getY(d.price)}`)
-    .join(" ");
+  const makePath = (accessor: (d: EquityDataPoint) => number) => {
+    return data
+      .map((d, i) => `${i === 0 ? "M" : "L"} ${getX(i).toFixed(1)} ${getY(accessor(d)).toFixed(1)}`)
+      .join(" ");
+  };
 
-  const sma20Path = data
-    .map((d, i) => `${i === 0 ? "M" : "L"} ${getX(i)} ${getY(d.sma20)}`)
-    .join(" ");
-
-  const sma50Path = data
-    .map((d, i) => `${i === 0 ? "M" : "L"} ${getX(i)} ${getY(d.sma50)}`)
-    .join(" ");
+  const pricePath = makePath((d) => d.price);
+  const sma20Path = makePath((d) => d.sma20);
+  const sma50Path = makePath((d) => d.sma50);
 
   return (
-    <div className="w-full bg-[#0a101f] border border-slate-800 rounded-xl p-5 sm:p-6 space-y-6">
-      {/* Header controls & stock toggle */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <div className="w-full bg-[#111317] border border-[#22262e] rounded-xl p-5 sm:p-6 space-y-6">
+      {/* Chart Header & Ticker Toggle */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#22262e] pb-4">
         <div>
           <div className="flex items-center gap-2">
-            <Activity className="w-4 h-4 text-[#d4af37]" />
-            <h4 className="text-sm font-semibold tracking-wide text-white uppercase">
-              20/50 SMA Crossover Backtest Visualization
+            <Activity className="w-4 h-4 text-[#c8a15a]" />
+            <h4 className="text-base font-bold text-[#f2efe8]">
+              20/50 SMA Crossover Strategy Backtest Simulation
             </h4>
           </div>
-          <p className="text-xs text-slate-400 mt-0.5">
-            Empirical dual moving average trend filter with Golden Cross (Buy) and Death Cross (Exit) triggers.
+          <p className="text-xs text-[#8b8f97] mt-1">
+            Dual moving average trend filter with Golden Cross (Buy) and Death Cross (Exit) triggers.
           </p>
         </div>
 
-        {/* Stock Selector Pill */}
-        <div className="flex items-center gap-1.5 p-1 bg-slate-900 border border-slate-800 rounded-lg">
+        <div className="flex items-center gap-1.5 p-1 bg-[#0a0b0d] border border-[#22262e] rounded-lg">
           <button
             onClick={() => setSelectedStock("INFY")}
-            className={`px-3 py-1 text-xs font-mono rounded-md transition-colors ${
+            className={`px-3 py-1 text-xs font-mono rounded transition-colors ${
               selectedStock === "INFY"
-                ? "bg-[#d4af37] text-slate-950 font-bold"
-                : "text-slate-400 hover:text-white"
+                ? "bg-[#c8a15a] text-[#0a0b0d] font-bold"
+                : "text-[#8b8f97] hover:text-[#f2efe8]"
             }`}
           >
-            NSE: INFY
+            INFY (Infosys)
           </button>
           <button
             onClick={() => setSelectedStock("TATAINVEST")}
-            className={`px-3 py-1 text-xs font-mono rounded-md transition-colors ${
+            className={`px-3 py-1 text-xs font-mono rounded transition-colors ${
               selectedStock === "TATAINVEST"
-                ? "bg-[#d4af37] text-slate-950 font-bold"
-                : "text-slate-400 hover:text-white"
+                ? "bg-[#c8a15a] text-[#0a0b0d] font-bold"
+                : "text-[#8b8f97] hover:text-[#f2efe8]"
             }`}
           >
-            NSE: TATAINVEST
+            TATAINVEST
           </button>
         </div>
       </div>
 
-      {/* SVG Chart */}
+      {/* Responsive SVG Chart */}
       <div className="relative w-full overflow-x-auto">
         <svg
           viewBox={`0 0 ${width} ${height}`}
-          className="w-full h-auto min-w-[550px] select-none"
+          className="w-full h-auto min-w-[650px] font-mono text-xs select-none"
         >
-          {/* Horizontal grid lines */}
-          {[0, 0.25, 0.5, 0.75, 1].map((pct, idx) => {
-            const yVal = padding.top + chartHeight * pct;
-            const priceVal = Math.round(maxPrice - pct * (maxPrice - minPrice));
+          {/* Horizontal Grid lines */}
+          {[0, 0.25, 0.5, 0.75, 1].map((pct, i) => {
+            const y = height - padding.bottom - pct * (height - padding.top - padding.bottom);
+            const val = minVal + pct * (maxVal - minVal);
             return (
-              <g key={idx}>
+              <g key={i}>
                 <line
                   x1={padding.left}
-                  y1={yVal}
+                  y1={y}
                   x2={width - padding.right}
-                  y2={yVal}
-                  stroke="#1e293b"
-                  strokeDasharray="4 4"
-                  strokeWidth="1"
+                  y2={y}
+                  stroke="#22262e"
+                  strokeDasharray="3 3"
                 />
                 <text
                   x={padding.left - 8}
-                  y={yVal + 4}
-                  fill="#64748b"
-                  fontSize="10"
+                  y={y + 3}
+                  fill="#8b8f97"
+                  fontSize="9"
                   fontFamily="monospace"
                   textAnchor="end"
                 >
-                  ₹{priceVal}
+                  ₹{Math.round(val)}
                 </text>
               </g>
             );
           })}
 
-          {/* Underlay filled area */}
-          <path
-            d={`${pricePath} L ${getX(data.length - 1)} ${padding.top + chartHeight} L ${getX(0)} ${
-              padding.top + chartHeight
-            } Z`}
-            fill="url(#priceGradient)"
-            opacity="0.1"
-          />
-
+          {/* Area Fill under Fast SMA */}
           <defs>
-            <linearGradient id="priceGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#38bdf8" />
-              <stop offset="100%" stopColor="#38bdf8" stopOpacity="0" />
+            <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#c8a15a" stopOpacity="0.15" />
+              <stop offset="100%" stopColor="#c8a15a" stopOpacity="0" />
             </linearGradient>
           </defs>
+          <path
+            d={`${sma20Path} L ${getX(data.length - 1)} ${height - padding.bottom} L ${getX(0)} ${
+              height - padding.bottom
+            } Z`}
+            fill="url(#areaGradient)"
+          />
 
-          {/* Price Line (Slate) */}
+          {/* Lines */}
           <path
             d={pricePath}
             fill="none"
-            stroke="#94a3b8"
-            strokeWidth="1.5"
-            strokeOpacity="0.6"
+            stroke="#8b8f97"
+            strokeWidth="1.25"
+            strokeDasharray="2 2"
+            opacity="0.8"
           />
-
-          {/* Slow 50 SMA Line (Steel Blue) */}
           <path
             d={sma50Path}
             fill="none"
             stroke="#38bdf8"
-            strokeWidth="2.5"
-            strokeLinecap="round"
+            strokeWidth="2"
           />
-
-          {/* Fast 20 SMA Line (Gold) */}
           <path
             d={sma20Path}
             fill="none"
-            stroke="#d4af37"
+            stroke="#c8a15a"
             strokeWidth="2.5"
-            strokeLinecap="round"
           />
 
           {/* Signals dots & annotations */}
@@ -211,18 +198,8 @@ export function SmaBacktestChart() {
                   cy={y}
                   r="6"
                   fill={isBuy ? "#10b981" : "#f43f5e"}
-                  stroke="#070b14"
+                  stroke="#0a0b0d"
                   strokeWidth="2"
-                />
-                <circle
-                  cx={x}
-                  cy={y}
-                  r="10"
-                  fill="none"
-                  stroke={isBuy ? "#10b981" : "#f43f5e"}
-                  strokeWidth="1"
-                  strokeDasharray="2 2"
-                  opacity="0.7"
                 />
                 <rect
                   x={x - 22}
@@ -255,7 +232,7 @@ export function SmaBacktestChart() {
               key={i}
               x={getX(i)}
               y={height - padding.bottom + 18}
-              fill="#64748b"
+              fill="#8b8f97"
               fontSize="9"
               fontFamily="monospace"
               textAnchor="middle"
@@ -267,19 +244,19 @@ export function SmaBacktestChart() {
       </div>
 
       {/* Legend */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-slate-800 text-xs text-slate-400">
+      <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-[#22262e] text-xs text-[#8b8f97]">
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-0.5 bg-[#94a3b8] rounded inline-block"></span>
+            <span className="w-3 h-0.5 bg-[#8b8f97] rounded inline-block"></span>
             <span>Close Price</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-1 bg-[#d4af37] rounded inline-block"></span>
-            <span className="text-white font-medium">Fast 20-Day SMA</span>
+            <span className="w-3 h-1 bg-[#c8a15a] rounded inline-block"></span>
+            <span className="text-[#f2efe8] font-medium">Fast 20-Day SMA</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-3 h-1 bg-[#38bdf8] rounded inline-block"></span>
-            <span className="text-white font-medium">Slow 50-Day SMA</span>
+            <span className="text-[#f2efe8] font-medium">Slow 50-Day SMA</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span>
@@ -290,49 +267,49 @@ export function SmaBacktestChart() {
             <span>Death Cross</span>
           </div>
         </div>
-        <div className="font-mono text-[11px] text-slate-500">
+        <div className="font-mono text-[11px] text-[#8b8f97]">
           Source: yFinance historical NSE data · Vectorized in Pandas
         </div>
       </div>
 
       {/* Comparative Metric Snapshot */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-2">
-        <div className="p-3 bg-slate-900/80 border border-slate-800 rounded-lg">
-          <div className="text-[11px] text-slate-400 uppercase font-mono">Max Drawdown</div>
+        <div className="p-3 bg-[#0a0b0d] border border-[#22262e] rounded-lg">
+          <div className="text-[11px] text-[#8b8f97] uppercase font-mono">Max Drawdown</div>
           <div className="text-base sm:text-lg font-bold text-emerald-400 font-mono mt-0.5">
             {selectedStock === "INFY" ? "-18.2%" : "-24.8%"}
           </div>
-          <div className="text-[10px] text-slate-500 mt-1">
-            vs {selectedStock === "INFY" ? "-36.4%" : "-52.1%"} Buy & Hold
+          <div className="text-[10px] text-[#8b8f97] mt-1">
+            vs {selectedStock === "INFY" ? "-36.4%" : "-52.1%"} Buy &amp; Hold
           </div>
         </div>
 
-        <div className="p-3 bg-slate-900/80 border border-slate-800 rounded-lg">
-          <div className="text-[11px] text-slate-400 uppercase font-mono">Sharpe Ratio</div>
-          <div className="text-base sm:text-lg font-bold text-[#d4af37] font-mono mt-0.5">
+        <div className="p-3 bg-[#0a0b0d] border border-[#22262e] rounded-lg">
+          <div className="text-[11px] text-[#8b8f97] uppercase font-mono">Sharpe Ratio</div>
+          <div className="text-base sm:text-lg font-bold text-[#c8a15a] font-mono mt-0.5">
             {selectedStock === "INFY" ? "0.35" : "0.60"}
           </div>
-          <div className="text-[10px] text-slate-500 mt-1">
+          <div className="text-[10px] text-[#8b8f97] mt-1">
             Rf = 6.5% 91-day T-Bill baseline
           </div>
         </div>
 
-        <div className="p-3 bg-slate-900/80 border border-slate-800 rounded-lg">
-          <div className="text-[11px] text-slate-400 uppercase font-mono">Annual Volatility</div>
+        <div className="p-3 bg-[#0a0b0d] border border-[#22262e] rounded-lg">
+          <div className="text-[11px] text-[#8b8f97] uppercase font-mono">Annual Volatility</div>
           <div className="text-base sm:text-lg font-bold text-sky-400 font-mono mt-0.5">
             {selectedStock === "INFY" ? "15.3%" : "19.7%"}
           </div>
-          <div className="text-[10px] text-slate-500 mt-1">
+          <div className="text-[10px] text-[#8b8f97] mt-1">
             Reduced standard deviation of returns
           </div>
         </div>
 
-        <div className="p-3 bg-slate-900/80 border border-slate-800 rounded-lg">
-          <div className="text-[11px] text-slate-400 uppercase font-mono">Market Exposure</div>
-          <div className="text-base sm:text-lg font-bold text-slate-200 font-mono mt-0.5">
+        <div className="p-3 bg-[#0a0b0d] border border-[#22262e] rounded-lg">
+          <div className="text-[11px] text-[#8b8f97] uppercase font-mono">Market Exposure</div>
+          <div className="text-base sm:text-lg font-bold text-[#f2efe8] font-mono mt-0.5">
             {selectedStock === "INFY" ? "~58%" : "~62%"}
           </div>
-          <div className="text-[10px] text-slate-500 mt-1">
+          <div className="text-[10px] text-[#8b8f97] mt-1">
             Invested time; remainder in cash
           </div>
         </div>

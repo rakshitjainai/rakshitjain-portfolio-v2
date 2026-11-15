@@ -1,15 +1,18 @@
 import React from "react";
 import type { Metadata } from "next";
-import { articlesData } from "@/data/articles";
+import Link from "next/link";
+import { BookOpen, ShieldCheck } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
-import { ResearchCard } from "@/components/ResearchCard";
+import { ArticlesSection } from "@/components/ArticlesSection";
 import { StructuredData } from "@/components/StructuredData";
-import { ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Research & Analysis",
+  title: "Research & Analytical Papers | Rakshit Jain",
   description:
-    "Original research papers on India's Bullion Market (IIBX & GIFT City), 20/50 SMA crossover backtesting, and institutional FinTech product workflows.",
+    "Original research papers examining India's bullion market architecture (IIBX), quantitative SMA backtests, and financial workflow engineering.",
+  alternates: {
+    canonical: `${siteConfig.url}/research`,
+  },
 };
 
 export default function ResearchPage() {
@@ -36,40 +39,24 @@ export default function ResearchPage() {
     <>
       <StructuredData data={breadcrumbJsonLd} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 space-y-10 pb-20">
-        {/* Header */}
-        <section className="max-w-3xl space-y-2">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#38bdf8]">
-            Original Research
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight font-sans">
-            Research & Analytical Insights
-          </h1>
-          <p className="text-xs sm:text-sm text-slate-300 font-sans">
-            Rigorous, evidence-based essays exploring capital market infrastructure, quantitative
-            trading backtests, and FinTech workflows. All articles cite official regulatory sources.
-          </p>
-        </section>
-
+      <div className="pt-24 sm:pt-32 pb-20 space-y-8">
         {/* Source Grounding Banner */}
-        <section className="p-4 bg-[#0a101f] border border-slate-800 rounded-xl flex items-center justify-between gap-4 text-xs">
-          <div className="flex items-center gap-2.5 text-slate-300">
-            <ShieldCheck className="w-4 h-4 text-[#d4af37] shrink-0" />
-            <span>
-              Primary sources include IFSCA, RBI, IIBX Operating Guidelines, and econometric literature.
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="p-4 bg-[#111317] border border-[#22262e] rounded-xl flex items-center justify-between gap-4 text-xs font-mono">
+            <div className="flex items-center gap-2 text-[#8b8f97]">
+              <ShieldCheck className="w-4 h-4 text-[#c8a15a] shrink-0" />
+              <span>
+                All papers cite primary regulatory authorities (IFSCA, RBI, DGFT, World Gold Council) and empirical backtest datasets.
+              </span>
+            </div>
+            <span className="text-[10px] text-[#c8a15a] bg-[#c8a15a]/10 px-2 py-0.5 rounded border border-[#c8a15a]/20 shrink-0">
+              Citations Included
             </span>
           </div>
-          <span className="font-mono text-[10px] text-[#d4af37] bg-[#d4af37]/10 px-2 py-0.5 rounded border border-[#d4af37]/20 shrink-0">
-            3 Full-Length Papers
-          </span>
-        </section>
+        </div>
 
-        {/* Articles Grid */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {articlesData.map((article) => (
-            <ResearchCard key={article.slug} article={article} />
-          ))}
-        </section>
+        {/* Articles List */}
+        <ArticlesSection />
       </div>
     </>
   );
