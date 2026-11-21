@@ -17,10 +17,10 @@ export default async function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#0A0B0D",
+          backgroundColor: "#FFFFFF",
           padding: "70px 80px",
           fontFamily: "system-ui, -apple-system, sans-serif",
-          border: "2px solid #22262E",
+          border: "2px solid #E2E8F0",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -29,26 +29,27 @@ export default async function Image() {
               display: "flex",
               alignItems: "center",
               gap: "10px",
-              padding: "8px 16px",
+              padding: "8px 18px",
               borderRadius: "999px",
-              border: "1px solid #22262E",
-              backgroundColor: "#111317",
+              border: "1px solid #E2E8F0",
+              backgroundColor: "#F8FAFC",
             }}
           >
             <div
               style={{
-                width: "8px",
-                height: "8px",
+                width: "9px",
+                height: "9px",
                 borderRadius: "50%",
-                backgroundColor: "#C8A15A",
+                backgroundColor: "#2563EB",
               }}
             />
             <span
               style={{
                 fontSize: "14px",
-                color: "#8B8F97",
+                color: "#475569",
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
+                fontWeight: 600,
               }}
             >
               PDEU ICT (2023–2027)
@@ -58,10 +59,10 @@ export default async function Image() {
           <span
             style={{
               fontSize: "14px",
-              color: "#C8A15A",
+              color: "#2563EB",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
-              fontWeight: 600,
+              fontWeight: 700,
             }}
           >
             Financial Markets · Quant · Software
@@ -72,8 +73,8 @@ export default async function Image() {
           <h1
             style={{
               fontSize: "82px",
-              fontWeight: 700,
-              color: "#F2EFE8",
+              fontWeight: 800,
+              color: "#0F172A",
               margin: 0,
               letterSpacing: "-0.03em",
               lineHeight: 1,
@@ -81,13 +82,21 @@ export default async function Image() {
           >
             RAKSHIT JAIN
           </h1>
+          <div
+            style={{
+              width: "140px",
+              height: "4px",
+              borderRadius: "2px",
+              background: "linear-gradient(90deg, #2563EB, #0EA5A4, #059669)",
+            }}
+          />
           <p
             style={{
               fontSize: "26px",
-              color: "#C8A15A",
+              color: "#1D4ED8",
               margin: 0,
-              letterSpacing: "0.02em",
-              fontWeight: 500,
+              letterSpacing: "0.01em",
+              fontWeight: 600,
             }}
           >
             Financial Markets, Quantitative Research &amp; Software
@@ -95,7 +104,7 @@ export default async function Image() {
           <p
             style={{
               fontSize: "18px",
-              color: "#8B8F97",
+              color: "#475569",
               margin: 0,
               maxWidth: "850px",
               lineHeight: 1.4,
@@ -110,14 +119,14 @@ export default async function Image() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            borderTop: "1px solid #22262E",
+            borderTop: "1px solid #E2E8F0",
             paddingTop: "24px",
           }}
         >
-          <span style={{ fontSize: "16px", color: "#8B8F97" }}>
+          <span style={{ fontSize: "16px", color: "#64748B" }}>
             Gandhinagar, Gujarat, India
           </span>
-          <span style={{ fontSize: "16px", color: "#F2EFE8", fontWeight: 600 }}>
+          <span style={{ fontSize: "16px", color: "#0F172A", fontWeight: 600 }}>
             rakshitindia2019@gmail.com
           </span>
         </div>

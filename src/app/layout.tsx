@@ -1,10 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import { siteConfig } from "@/data/siteConfig";
 import { Analytics } from "@vercel/analytics/react";
+
+export const viewport: Viewport = {
+  themeColor: "#FFFFFF",
+};
 
 const inter = Inter({
   subsets: ["latin"],
@@ -98,9 +103,10 @@ export default function RootLayout({
   return (
     <html
       lang="en-IN"
-      className={`${inter.variable} ${fraunces.variable} ${jetbrainsMono.variable} h-full antialiased selection:bg-[#c8a15a]/25 selection:text-[#f2efe8]`}
+      className={`${inter.variable} ${fraunces.variable} ${jetbrainsMono.variable} h-full antialiased selection:bg-blue-500/20 selection:text-[#0f172a]`}
     >
-      <body className="min-h-full flex flex-col bg-[#0a0b0d] text-[#f2efe8]">
+      <body className="min-h-full flex flex-col bg-white text-[#0f172a]">
+        <ScrollProgress />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

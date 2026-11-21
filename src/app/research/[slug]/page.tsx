@@ -126,22 +126,22 @@ export default async function ArticlePage({ params }: Props) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 space-y-12 pb-24">
         {/* Navigation Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs font-mono text-[#8b8f97]">
-          <Link href="/research" className="hover:text-white transition-colors flex items-center gap-1">
+        <div className="flex items-center gap-2 text-xs font-mono text-[#475569]">
+          <Link href="/research" className="hover:text-[#0f172a] transition-colors flex items-center gap-1">
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Research Archive</span>
           </Link>
-          <span className="text-[#22262e]">/</span>
-          <span className="text-[#f2efe8] truncate max-w-xs sm:max-w-md">{article.title}</span>
+          <span className="text-[#e3e8ef]">/</span>
+          <span className="text-[#0f172a] truncate max-w-xs sm:max-w-md">{article.title}</span>
         </div>
 
         {/* Article Header & Byline */}
-        <header className="max-w-4xl space-y-5 border-b border-[#22262e] pb-8">
+        <header className="max-w-4xl space-y-5 border-b border-[#e3e8ef] pb-8">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded bg-[#111317] border border-[#22262e] text-[#c8a15a] uppercase tracking-wider text-[11px] font-mono font-semibold">
+            <span className="px-2.5 py-0.5 rounded bg-blue-50 border border-blue-200/80 text-[#1d4ed8] uppercase tracking-wider text-[11px] font-mono font-semibold">
               {article.category}
             </span>
-            <div className="flex items-center gap-3 text-[#8b8f97] text-xs font-mono">
+            <div className="flex items-center gap-3 text-[#64748b] text-xs font-mono">
               <span className="flex items-center gap-1">
                 <Calendar className="w-3.5 h-3.5" />
                 <span>Published: {article.date}</span>
@@ -151,37 +151,37 @@ export default async function ArticlePage({ params }: Props) {
                 <span>Updated: {article.updatedDate || article.date}</span>
               </span>
               <span>•</span>
-              <span className="flex items-center gap-1 text-[#c8a15a]">
+              <span className="flex items-center gap-1 text-[#2563eb] font-semibold">
                 <Clock className="w-3.5 h-3.5" />
                 <span>{article.readTime}</span>
               </span>
             </div>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f2efe8] tracking-tight leading-tight font-serif-display">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0f172a] tracking-tight leading-tight font-serif-display">
             {article.title}
           </h1>
 
-          <p className="text-base sm:text-lg text-[#8b8f97] font-sans leading-relaxed">
+          <p className="text-base sm:text-lg text-[#475569] font-sans leading-relaxed">
             {article.subtitle}
           </p>
 
           {/* Visible Author Byline for Citability */}
-          <div className="pt-2 flex items-center gap-3 border-t border-[#22262e]">
-            <div className="w-9 h-9 rounded-full bg-[#111317] border border-[#22262e] flex items-center justify-center font-bold text-xs text-[#c8a15a]">
+          <div className="pt-2 flex items-center gap-3 border-t border-[#e3e8ef]">
+            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-600 to-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-sm">
               RJ
             </div>
             <div className="text-xs">
-              <div className="font-semibold text-[#f2efe8]">{article.author}</div>
-              <div className="text-[#8b8f97] text-[11px] font-mono">
+              <div className="font-semibold text-[#0f172a]">{article.author}</div>
+              <div className="text-[#64748b] text-[11px] font-mono">
                 B.Tech ICT · PDEU (2023–2027) · Gandhinagar, Gujarat
               </div>
             </div>
           </div>
 
           {/* Single Summary Block */}
-          <div className="p-4 rounded-xl bg-[#111317] border border-[#c8a15a]/40 text-xs text-[#f2efe8] leading-relaxed font-sans space-y-1">
-            <span className="font-mono text-[10px] text-[#c8a15a] uppercase block font-semibold">
+          <div className="p-4 rounded-xl bg-blue-50/40 border border-blue-200 text-xs text-[#0f172a] leading-relaxed font-sans space-y-1">
+            <span className="font-mono text-[10px] text-[#1d4ed8] uppercase block font-semibold">
               Summary
             </span>
             <p>{article.excerpt}</p>
@@ -217,12 +217,12 @@ export default async function ArticlePage({ params }: Props) {
                 <section
                   key={section.id}
                   id={section.id}
-                  className="space-y-4 scroll-mt-24 border-b border-[#22262e] pb-10"
+                  className="space-y-4 scroll-mt-24 border-b border-[#e3e8ef] pb-10"
                 >
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#f2efe8] tracking-tight font-sans">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#0f172a] tracking-tight font-sans">
                     {section.title}
                   </h2>
-                  <div className="text-sm sm:text-base text-[#8b8f97] leading-relaxed font-sans">
+                  <div className="text-sm sm:text-base text-[#475569] leading-relaxed font-sans">
                     <MarkdownRenderer content={section.content} />
                   </div>
                 </section>
@@ -232,11 +232,11 @@ export default async function ArticlePage({ params }: Props) {
             {/* Citations & References Section */}
             {article.citations && article.citations.length > 0 && (
               <section id="references" className="pt-6 space-y-4">
-                <div className="border-t border-[#22262e] pt-6">
-                  <span className="font-mono text-xs uppercase tracking-wider text-[#c8a15a]">
+                <div className="border-t border-[#e3e8ef] pt-6">
+                  <span className="font-mono text-xs uppercase tracking-wider text-[#2563eb] font-semibold">
                     References &amp; Citations
                   </span>
-                  <h3 className="text-lg font-bold text-[#f2efe8] mt-1 font-sans">
+                  <h3 className="text-lg font-bold text-[#0f172a] mt-1 font-sans">
                     Primary Sources &amp; Publications
                   </h3>
                 </div>
@@ -245,26 +245,26 @@ export default async function ArticlePage({ params }: Props) {
                   {article.citations.map((cite) => (
                     <div
                       key={cite.id}
-                      className="p-4 rounded-lg bg-[#111317] border border-[#22262e] text-xs space-y-1"
+                      className="p-4 rounded-lg bg-white border border-[#e3e8ef] text-xs space-y-1 shadow-sm"
                     >
                       <div className="flex items-start justify-between gap-2">
-                        <span className="font-bold text-[#f2efe8]">{cite.title}</span>
+                        <span className="font-bold text-[#0f172a]">{cite.title}</span>
                         {cite.url && (
                           <a
                             href={cite.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-[#c8a15a] hover:underline flex items-center gap-1 shrink-0 font-mono text-[11px]"
+                            className="text-[#2563eb] hover:underline flex items-center gap-1 shrink-0 font-mono text-[11px] font-medium"
                           >
                             <span>Source</span>
                             <ExternalLink className="w-3 h-3" />
                           </a>
                         )}
                       </div>
-                      <div className="text-[#8b8f97] font-mono text-[11px]">
+                      <div className="text-[#64748b] font-mono text-[11px]">
                         {cite.source} ({cite.year})
                       </div>
-                      <p className="text-[#8b8f97] text-[11px] pt-1">{cite.note}</p>
+                      <p className="text-[#475569] text-[11px] pt-1">{cite.note}</p>
                     </div>
                   ))}
                 </div>

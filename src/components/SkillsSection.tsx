@@ -49,46 +49,44 @@ export function SkillsSection() {
 
   return (
     <section id="skills" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
-      <div className="border-b border-[#22262e] pb-6 space-y-2">
-        <span className="font-mono text-xs uppercase tracking-wider text-[#c8a15a] font-semibold">
+      <div className="border-b border-[#e3e8ef] pb-6 space-y-2">
+        <span className="font-mono text-xs uppercase tracking-wider text-[#2563eb] font-semibold">
           Skills
         </span>
-        <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#f2efe8]">
+        <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#0f172a]">
           Skills
         </h2>
-        <p className="text-xs sm:text-sm text-[#8b8f97] max-w-2xl font-sans">
+        <p className="text-xs sm:text-sm text-[#475569] max-w-2xl font-sans">
           Technical skills, tools, and methodologies applied across projects and internships.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="space-y-8">
         {groups.map((group, idx) => (
           <div
             key={idx}
-            className="p-6 sm:p-7 rounded-2xl bg-[#111317] border border-[#22262e] space-y-6 flex flex-col justify-between"
+            className="p-6 sm:p-8 rounded-2xl bg-white border border-[#e3e8ef] shadow-xs space-y-5"
           >
-            <div className="space-y-4">
-              <div className="border-b border-[#22262e] pb-3">
-                <h3 className="text-lg sm:text-xl font-bold text-[#f2efe8] font-sans">
-                  {group.category}
-                </h3>
-                <p className="text-xs text-[#8b8f97] font-sans mt-0.5">
-                  {group.description}
-                </p>
-              </div>
+            <div className="border-b border-[#e3e8ef] pb-3 space-y-1">
+              <h3 className="text-lg sm:text-xl font-bold text-[#0f172a] font-sans">
+                {group.category}
+              </h3>
+              <p className="text-xs text-[#475569] font-sans">
+                {group.description}
+              </p>
+            </div>
 
-              <div className="divide-y divide-[#22262e]">
-                {group.skills.map((skill, sIdx) => (
-                  <div key={sIdx} className="py-2.5 flex flex-col space-y-0.5">
-                    <div className="text-xs font-mono font-bold text-[#f2efe8]">
-                      {skill.name}
-                    </div>
-                    <span className="text-[11px] text-[#8b8f97] leading-relaxed font-sans">
-                      {skill.context}
-                    </span>
-                  </div>
-                ))}
-              </div>
+            {/* Skills tags: soft tinted blue, hover changes to green tint, no glow */}
+            <div className="flex flex-wrap gap-2.5">
+              {group.skills.map((skill, sIdx) => (
+                <span
+                  key={sIdx}
+                  title={skill.context}
+                  className="px-3 py-1.5 rounded-lg bg-blue-50/70 border border-blue-200/60 text-[#1d4ed8] text-xs font-mono font-medium transition-colors hover:bg-emerald-50 hover:text-[#047857] hover:border-emerald-300/80 cursor-default shadow-2xs"
+                >
+                  {skill.name}
+                </span>
+              ))}
             </div>
           </div>
         ))}

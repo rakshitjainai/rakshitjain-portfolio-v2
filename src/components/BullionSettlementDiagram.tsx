@@ -41,12 +41,12 @@ export function BullionSettlementDiagram() {
   ];
 
   return (
-    <div className="w-full bg-[#111317] border border-[#22262e] rounded-xl p-5 sm:p-6 space-y-4">
-      <div className="border-b border-[#22262e] pb-3">
-        <h4 className="text-sm sm:text-base font-bold text-[#f2efe8] font-sans">
+    <div className="w-full bg-white border border-[#e3e8ef] rounded-xl p-5 sm:p-6 space-y-4 shadow-xs">
+      <div className="border-b border-[#e3e8ef] pb-3">
+        <h2 className="text-sm sm:text-base font-bold text-[#0f172a] font-sans">
           End-to-End Bullion Lifecycle: Vault to Electronic Settlement
-        </h4>
-        <p className="text-xs text-[#8b8f97] font-sans mt-0.5">
+        </h2>
+        <p className="text-xs text-[#475569] font-sans mt-0.5">
           Five structured stages connecting physical vault custody to dematerialized exchange settlement.
         </p>
       </div>
@@ -54,27 +54,31 @@ export function BullionSettlementDiagram() {
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse text-xs font-sans">
           <thead>
-            <tr className="bg-[#0a0b0d] border-b border-[#22262e]">
-              <th className="p-3 font-mono font-bold text-[#c8a15a] uppercase text-[11px] w-12">#</th>
-              <th className="p-3 font-mono font-bold text-[#f2efe8] uppercase text-[11px] w-48">Stage</th>
-              <th className="p-3 font-mono font-bold text-[#f2efe8] uppercase text-[11px] w-56">Entity Responsible</th>
-              <th className="p-3 font-mono font-bold text-[#f2efe8] uppercase text-[11px]">Workflow Description</th>
+            <tr className="bg-[#f6f8fb] border-b border-[#e3e8ef]">
+              <th className="p-3 font-mono font-bold text-[#2563eb] uppercase text-[11px] w-12">#</th>
+              <th className="p-3 font-mono font-bold text-[#0f172a] uppercase text-[11px] w-48">Stage</th>
+              <th className="p-3 font-mono font-bold text-[#0f172a] uppercase text-[11px] w-56">Entity Responsible</th>
+              <th className="p-3 font-mono font-bold text-[#0f172a] uppercase text-[11px]">Workflow Description</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#22262e]">
-            {stages.map((st) => {
+          <tbody className="divide-y divide-[#e3e8ef]">
+            {stages.map((st, sIdx) => {
               const Icon = st.icon;
+              const isEven = sIdx % 2 === 1;
               return (
-                <tr key={st.num} className="hover:bg-[#0a0b0d]/50 transition-colors">
-                  <td className="p-3 font-mono font-bold text-[#c8a15a]">{st.num}</td>
-                  <td className="p-3 font-semibold text-[#f2efe8]">
+                <tr
+                  key={st.num}
+                  className={`${isEven ? "bg-[#f8fafc]" : "bg-white"} hover:bg-blue-50/30 transition-colors`}
+                >
+                  <td className="p-3 font-mono font-bold text-[#2563eb]">{st.num}</td>
+                  <td className="p-3 font-semibold text-[#0f172a]">
                     <div className="flex items-center gap-2">
-                      <Icon className="w-3.5 h-3.5 text-[#c8a15a] shrink-0" />
+                      <Icon className="w-3.5 h-3.5 text-[#2563eb] shrink-0" />
                       <span>{st.stage}</span>
                     </div>
                   </td>
-                  <td className="p-3 font-mono text-xs text-[#8b8f97]">{st.entity}</td>
-                  <td className="p-3 text-xs text-[#8b8f97] leading-relaxed">{st.action}</td>
+                  <td className="p-3 font-mono text-xs text-[#475569] font-medium">{st.entity}</td>
+                  <td className="p-3 text-xs text-[#475569] leading-relaxed">{st.action}</td>
                 </tr>
               );
             })}

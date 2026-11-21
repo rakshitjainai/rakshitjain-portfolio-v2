@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, FileText, ArrowUpRight } from "lucide-react";
+import { Menu, X, FileText } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 
 export function Navbar() {
@@ -32,7 +32,7 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-[#0a0b0d]/92 backdrop-blur-md border-b border-[#22262e] py-3 shadow-lg"
+          ? "bg-white/92 backdrop-blur-md border-b border-[#e3e8ef] py-3 shadow-xs"
           : "bg-transparent py-4 sm:py-5"
       }`}
     >
@@ -41,13 +41,13 @@ export function Navbar() {
           {/* Identity Wordmark */}
           <Link
             href="/"
-            className="group flex flex-col items-start focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c8a15a] rounded"
+            className="group flex flex-col items-start focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] rounded"
           >
-            <span className="font-sans font-bold tracking-wider text-sm sm:text-base text-[#f2efe8] group-hover:text-white transition-colors">
+            <span className="font-sans font-bold tracking-wider text-sm sm:text-base text-[#0f172a] group-hover:text-[#2563eb] transition-colors">
               RAKSHIT JAIN
             </span>
-            <span className="font-mono text-[10px] tracking-widest text-[#8b8f97] group-hover:text-[#c8a15a] transition-colors uppercase">
-              PDEU (2023–2027) · Markets, Quant &amp; Tech
+            <span className="font-mono text-[10px] tracking-widest text-[#475569] group-hover:text-[#0ea5a4] transition-colors uppercase">
+              PDEU (2023–2027) · Markets, Quant &amp; Software
             </span>
           </Link>
 
@@ -63,15 +63,15 @@ export function Navbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`transition-colors py-1 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c8a15a] rounded ${
+                  className={`transition-colors py-1 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] rounded ${
                     isActive
-                      ? "text-[#c8a15a] font-semibold"
-                      : "text-[#8b8f97] hover:text-[#f2efe8]"
+                      ? "text-[#2563eb] font-semibold"
+                      : "text-[#475569] hover:text-[#0f172a]"
                   }`}
                 >
                   {item.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#c8a15a]" />
+                    <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#2563eb] via-[#0ea5a4] to-[#10b981]" />
                   )}
                 </Link>
               );
@@ -83,18 +83,18 @@ export function Navbar() {
             <a
               href={siteConfig.resume.primaryPdf}
               download={siteConfig.resume.filename}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-[#c8a15a] bg-[#c8a15a]/10 hover:bg-[#c8a15a] text-[#c8a15a] hover:text-[#0a0b0d] text-xs font-mono font-bold tracking-wider transition-all duration-150 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c8a15a] cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-[#e3e8ef] bg-white hover:border-[#2563eb]/50 hover:bg-[#f8fafc] text-[#0f172a] text-xs font-mono font-semibold tracking-wider transition-all duration-150 shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] cursor-pointer"
             >
-              <FileText className="w-3.5 h-3.5" />
+              <FileText className="w-3.5 h-3.5 text-[#2563eb]" />
               <span>Resume (PDF)</span>
             </a>
           </div>
 
-          {/* Mobile Menu Trigger (No duplicate resume button side-by-side) */}
+          {/* Mobile Menu Trigger */}
           <div className="flex md:hidden items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-md text-[#8b8f97] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c8a15a]"
+              className="p-2 rounded-md text-[#475569] hover:text-[#0f172a] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb]"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -105,7 +105,7 @@ export function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#111317] border-b border-[#22262e] px-6 py-6 space-y-4 animate-in fade-in duration-150">
+        <div className="md:hidden bg-white border-b border-[#e3e8ef] px-6 py-6 space-y-4 shadow-lg animate-in fade-in duration-150">
           <nav className="flex flex-col space-y-3 text-sm font-mono">
             {navItems.map((item) => {
               const isActive = item.href === pathname;
@@ -115,7 +115,7 @@ export function Navbar() {
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`py-1.5 ${
-                    isActive ? "text-[#c8a15a] font-bold" : "text-[#8b8f97]"
+                    isActive ? "text-[#2563eb] font-bold" : "text-[#475569]"
                   }`}
                 >
                   {item.label}
@@ -126,11 +126,10 @@ export function Navbar() {
               href={siteConfig.resume.primaryPdf}
               download={siteConfig.resume.filename}
               onClick={() => setMobileMenuOpen(false)}
-              className="pt-3 text-xs font-mono font-bold text-[#c8a15a] flex items-center gap-1.5 border-t border-[#22262e]"
+              className="pt-3 text-xs font-mono font-bold text-[#2563eb] flex items-center gap-1.5 border-t border-[#e3e8ef]"
             >
               <FileText className="w-3.5 h-3.5" />
               <span>Download Resume (PDF)</span>
-              <ArrowUpRight className="w-3 h-3" />
             </a>
           </nav>
         </div>

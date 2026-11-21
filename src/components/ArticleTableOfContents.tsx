@@ -29,8 +29,8 @@ export function ArticleTableOfContents({ items }: TOCProps) {
   }, [items]);
 
   return (
-    <nav className="p-4 bg-[#0a101f] border border-slate-800 rounded-xl space-y-3" aria-label="Table of contents">
-      <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#d4af37]">
+    <nav className="p-4 bg-white border border-[#e3e8ef] rounded-xl space-y-3 shadow-sm" aria-label="Table of contents">
+      <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#2563eb]">
         <List className="w-3.5 h-3.5" />
         <span>Table of Contents</span>
       </div>
@@ -42,10 +42,10 @@ export function ArticleTableOfContents({ items }: TOCProps) {
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
-                className={`block py-1 px-2 rounded transition-colors text-left ${
+                className={`block py-1.5 px-2.5 rounded transition-colors text-left ${
                   isActive
-                    ? "text-[#d4af37] bg-slate-900 font-medium"
-                    : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/50"
+                    ? "text-[#1d4ed8] bg-blue-50 font-semibold border-l-2 border-l-[#2563eb]"
+                    : "text-[#475569] hover:text-[#0f172a] hover:bg-slate-50"
                 }`}
               >
                 {item.label}

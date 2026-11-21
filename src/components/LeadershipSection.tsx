@@ -42,14 +42,14 @@ export function LeadershipSection() {
 
   return (
     <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
-      <div className="border-b border-[#22262e] pb-6 space-y-2">
-        <span className="font-mono text-xs uppercase tracking-wider text-[#c8a15a] font-semibold">
+      <div className="border-b border-[#e3e8ef] pb-6 space-y-2">
+        <span className="font-mono text-xs uppercase tracking-wider text-[#2563eb] font-semibold">
           Leadership
         </span>
-        <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#f2efe8]">
+        <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#0f172a]">
           Leadership
         </h2>
-        <p className="text-xs sm:text-sm text-[#8b8f97] max-w-2xl font-sans">
+        <p className="text-xs sm:text-sm text-[#475569] max-w-2xl font-sans">
           Campus leadership positions across technical event operations, club administration, and placement coordination.
         </p>
       </div>
@@ -58,42 +58,35 @@ export function LeadershipSection() {
         {leadershipRoles.map((lead, idx) => (
           <div
             key={idx}
-            className="p-6 sm:p-7 rounded-2xl bg-[#111317] border border-[#22262e] space-y-4 hover:border-[#c8a15a]/40 transition-colors flex flex-col justify-between"
+            className="p-6 sm:p-7 rounded-2xl bg-white border border-[#e3e8ef] shadow-xs hover:border-[#2563eb]/40 hover:shadow-md transition-all duration-200 space-y-4"
           >
-            <div className="space-y-3">
-              <div className="flex items-start justify-between gap-3 border-b border-[#22262e] pb-3">
-                <div>
-                  <span className="font-mono text-xs font-bold text-[#c8a15a]">
-                    {lead.role}
-                  </span>
-                  <h3 className="text-base sm:text-lg font-bold text-[#f2efe8] font-sans mt-0.5">
-                    {lead.organization}
-                  </h3>
-                </div>
-                <span className="font-mono text-[11px] text-[#8b8f97] shrink-0">
-                  {lead.period}
-                </span>
+            <div className="space-y-1 border-b border-[#e3e8ef] pb-3">
+              <span className="font-mono text-xs font-bold text-[#2563eb]">
+                {lead.role}
+              </span>
+              <h3 className="text-lg font-bold text-[#0f172a] font-sans">
+                {lead.organization}
+              </h3>
+              <div className="font-mono text-xs text-[#64748b] pt-0.5">
+                {lead.period}
               </div>
-
-              <p className="text-xs sm:text-sm text-[#8b8f97] font-sans leading-relaxed">
-                {lead.highlights}
-              </p>
             </div>
 
-            {/* Scope Strip (Only rendering verified numeric stats) */}
+            <p className="text-xs sm:text-sm text-[#334155] leading-relaxed font-sans">
+              {lead.highlights}
+            </p>
+
             {(lead.teamSize || lead.events) && (
-              <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-[#22262e] text-[11px] font-mono">
+              <div className="flex flex-wrap items-center gap-2 pt-1 font-mono text-[11px]">
                 {lead.teamSize && (
-                  <div className="px-2.5 py-1 rounded bg-[#0a0b0d] border border-[#22262e] flex items-center gap-1.5">
-                    <span className="text-[#8b8f97] text-[10px] uppercase">Team:</span>
-                    <span className="font-bold text-[#f2efe8]">{lead.teamSize}</span>
-                  </div>
+                  <span className="px-2.5 py-1 rounded bg-[#f8fafc] border border-[#e3e8ef] text-[#0f172a] font-medium">
+                    Team: {lead.teamSize}
+                  </span>
                 )}
                 {lead.events && (
-                  <div className="px-2.5 py-1 rounded bg-[#0a0b0d] border border-[#22262e] flex items-center gap-1.5">
-                    <span className="text-[#8b8f97] text-[10px] uppercase">Scope:</span>
-                    <span className="font-bold text-[#f2efe8]">{lead.events}</span>
-                  </div>
+                  <span className="px-2.5 py-1 rounded bg-[#f8fafc] border border-[#e3e8ef] text-[#0f172a] font-medium">
+                    Scope: {lead.events}
+                  </span>
                 )}
               </div>
             )}

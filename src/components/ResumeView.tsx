@@ -38,17 +38,17 @@ export function ResumeView({ track }: ResumeViewProps) {
   return (
     <div className="space-y-6">
       {/* Top action bar (hidden during print) */}
-      <div className="print:hidden flex flex-wrap items-center justify-between gap-4 p-4 bg-[#0a101f] border border-slate-800 rounded-xl">
+      <div className="print:hidden flex flex-wrap items-center justify-between gap-4 p-4 bg-[#f8fafc] border border-[#e3e8ef] rounded-xl shadow-sm">
         <div className="flex items-center gap-3">
           <Link
             href="/resume"
-            className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-white transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-[#475569] hover:text-[#0f172a] transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>All Resumes</span>
           </Link>
-          <span className="text-slate-700">|</span>
-          <span className="text-xs font-mono text-[#d4af37]">
+          <span className="text-slate-300">|</span>
+          <span className="text-xs font-mono text-[#2563eb] font-semibold">
             {trackTitle}
           </span>
         </div>
@@ -56,7 +56,7 @@ export function ResumeView({ track }: ResumeViewProps) {
         <div className="flex items-center gap-2">
           <button
             onClick={handlePrint}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#d4af37] text-slate-950 font-bold text-xs uppercase tracking-wider hover:bg-[#c5a880] transition-colors shadow-sm cursor-pointer"
+            className="btn-primary-gradient inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white font-bold text-xs uppercase tracking-wider shadow-sm cursor-pointer"
           >
             <Printer className="w-3.5 h-3.5" />
             <span>Print / Save as PDF</span>
@@ -65,7 +65,7 @@ export function ResumeView({ track }: ResumeViewProps) {
       </div>
 
       {/* The Printable Resume Paper Container */}
-      <div className="bg-white text-slate-900 font-sans p-8 sm:p-12 rounded-xl border border-slate-200 shadow-xl max-w-4xl mx-auto print:p-0 print:border-none print:shadow-none print:max-w-none print:text-black">
+      <div className="bg-white text-slate-900 font-sans p-8 sm:p-12 rounded-xl border border-[#e3e8ef] shadow-lg max-w-4xl mx-auto print:p-0 print:border-none print:shadow-none print:max-w-none print:text-black">
         {/* Header */}
         <header className="border-b-2 border-slate-900 pb-5 space-y-2">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">

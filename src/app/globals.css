@@ -1,24 +1,56 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #0a0b0d;
-  --color-surface: #111317;
-  --color-surface-hover: #181b21;
-  --color-ivory: #f2efe8;
-  --color-muted: #8b8f97;
-  --color-gold: #c8a15a;
-  --color-gold-hover: #dbb36c;
-  --color-hairline: #22262e;
+  --color-bg: #ffffff;
+  --color-bg-soft: #f6f8fb;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f8fafc;
+  --color-border: #e3e8ef;
+  --color-border-subtle: #edf2f7;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-text-subtle: #64748b;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  --color-teal-500: #0ea5a4;
+  --color-green-600: #059669;
+  --color-green-500: #10b981;
+  --color-ink-dark: #0b1220;
+  --color-on-ink: #e6edf7;
+  --color-on-ink-muted: #94a3b8;
 }
 
 :root {
-  --background: #0a0b0d;
-  --foreground: #f2efe8;
+  --bg: #ffffff;
+  --bg-soft: #f6f8fb;
+  --surface: #ffffff;
+  --surface-hover: #f8fafc;
+  --border: #e3e8ef;
+  --border-subtle: #edf2f7;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --text-subtle: #64748b;
+  --blue-600: #2563eb;
+  --blue-700: #1d4ed8;
+  --teal-500: #0ea5a4;
+  --green-600: #059669;
+  --green-500: #10b981;
+  --ink-dark: #0b1220;
+  --on-ink: #e6edf7;
+  --on-ink-muted: #94a3b8;
+
+  --brand-gradient: linear-gradient(110deg, #2563eb, #0ea5a4, #10b981);
+  --brand-gradient-hover: linear-gradient(110deg, #1d4ed8, #0d8281, #059669);
+  --brand-gradient-button: linear-gradient(110deg, #1d4ed8 0%, #0d8281 50%, #047857 100%);
+
+  --shadow-subtle: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+  --shadow-card: 0 4px 6px -1px rgba(15, 23, 42, 0.04), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-card-hover: 0 12px 20px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: var(--bg);
+  color: var(--text);
   font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
@@ -34,28 +66,153 @@ body {
   font-feature-settings: "tnum" 1, "zero" 1;
 }
 
-/* Custom hairline borders */
+/* Hairline borders */
 .border-hairline {
-  border-color: #22262e;
+  border-color: #e3e8ef;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0b0d;
+  background: #f8fafc;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #22262e;
-  border-radius: 3px;
+  background: #cbd5e1;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #333842;
+  background: #94a3b8;
+}
+
+/* Selection */
+::selection {
+  background: rgba(37, 99, 235, 0.16);
+  color: #0f172a;
+}
+
+/* Animations */
+@keyframes gradientShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes ambientDrift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(35px, -20px) scale(1.06);
+  }
+  100% {
+    transform: translate(-25px, 15px) scale(0.96);
+  }
+}
+
+@keyframes drawStroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.ambient-gradient-blob {
+  animation: ambientDrift 24s ease-in-out infinite alternate;
+}
+
+.name-gradient-shimmer {
+  background: linear-gradient(110deg, #2563eb 0%, #0ea5a4 50%, #10b981 100%);
+  background-size: 200% auto;
+  animation: gradientShimmer 9s ease infinite;
+}
+
+/* Primary Button with Gradient Shift */
+.btn-primary-gradient {
+  background: var(--brand-gradient-button);
+  background-size: 200% 100%;
+  background-position: left center;
+  color: #ffffff !important;
+  transition: background-position 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(29, 78, 216, 0.15);
+}
+
+.btn-primary-gradient:hover {
+  background-position: right center;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(29, 78, 216, 0.25);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background: #ffffff;
+  border: 1px solid #e3e8ef;
+  color: #0f172a;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-subtle);
+}
+
+.btn-secondary:hover {
+  background: #f8fafc;
+  border-color: rgba(37, 99, 235, 0.4);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card);
+}
+
+/* Card Interactive */
+.card-interactive {
+  background: #ffffff;
+  border: 1px solid #e3e8ef;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-interactive:hover {
+  border-color: rgba(37, 99, 235, 0.4);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Interactive Link Underline */
+.link-gradient-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-gradient-underline::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(110deg, #2563eb, #0ea5a4, #10b981);
+  transform-origin: bottom left;
+  transition: transform 0.25s ease-out;
+}
+
+.link-gradient-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Focus Visible */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 
 /* Accessibility: Reduced Motion */
@@ -63,10 +220,17 @@ body {
   *,
   ::before,
   ::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+  .ambient-gradient-blob {
+    display: none !important;
+  }
+  .name-gradient-shimmer {
+    animation: none !important;
+    background-position: 0% 50% !important;
   }
 }
 
@@ -112,14 +276,6 @@ body {
   h1, h2, h3, h4 {
     color: #000000 !important;
     page-break-after: avoid;
-  }
-
-  .text-ivory {
-    color: #111111 !important;
-  }
-
-  .text-muted {
-    color: #555555 !important;
   }
 
   .border-hairline {

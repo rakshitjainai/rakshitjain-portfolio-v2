@@ -76,41 +76,41 @@ export function SmaBacktestChart() {
   const sma50Path = makePath((d) => d.sma50);
 
   return (
-    <div className="w-full bg-[#111317] border border-[#22262e] rounded-xl p-5 sm:p-6 space-y-6">
+    <div className="w-full bg-white border border-[#e3e8ef] rounded-xl p-5 sm:p-6 space-y-6 shadow-xs">
       {/* Chart Header & Ticker Toggle */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#22262e] pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e3e8ef] pb-4">
         <div>
           <div className="flex items-center gap-2">
-            <Activity className="w-4 h-4 text-[#c8a15a]" />
-            <h4 className="text-base font-bold text-[#f2efe8]">
+            <Activity className="w-4 h-4 text-[#2563eb]" />
+            <h2 className="text-base font-bold text-[#0f172a]">
               20/50 SMA Crossover Strategy Simulation
-            </h4>
-            <span className="px-2 py-0.5 rounded bg-[#0a0b0d] border border-[#22262e] text-[10px] font-mono text-[#c8a15a] uppercase tracking-wider font-semibold">
+            </h2>
+            <span className="px-2 py-0.5 rounded bg-blue-50 border border-blue-200 text-[10px] font-mono text-[#1d4ed8] uppercase tracking-wider font-bold">
               Illustrative Sample
             </span>
           </div>
-          <p className="text-xs text-[#8b8f97] mt-1">
+          <p className="text-xs text-[#475569] mt-1">
             Illustrative sample path showing Golden Cross (Buy) and Death Cross (Exit to Cash) signals over a 15-interval sample cycle. Full multi-year backtest statistics are detailed below.
           </p>
         </div>
 
-        <div className="flex items-center gap-1.5 p-1 bg-[#0a0b0d] border border-[#22262e] rounded-lg">
+        <div className="flex items-center gap-1.5 p-1 bg-[#f8fafc] border border-[#e3e8ef] rounded-lg shrink-0">
           <button
             onClick={() => setSelectedStock("INFY")}
-            className={`px-3 py-1 text-xs font-mono rounded transition-colors cursor-pointer ${
+            className={`px-3 py-1 text-xs font-mono rounded transition-all cursor-pointer ${
               selectedStock === "INFY"
-                ? "bg-[#c8a15a] text-[#0a0b0d] font-bold"
-                : "text-[#8b8f97] hover:text-[#f2efe8]"
+                ? "bg-[#2563eb] text-white font-bold shadow-xs"
+                : "text-[#475569] hover:text-[#0f172a]"
             }`}
           >
             INFY
           </button>
           <button
             onClick={() => setSelectedStock("TATAINVEST")}
-            className={`px-3 py-1 text-xs font-mono rounded transition-colors cursor-pointer ${
+            className={`px-3 py-1 text-xs font-mono rounded transition-all cursor-pointer ${
               selectedStock === "TATAINVEST"
-                ? "bg-[#c8a15a] text-[#0a0b0d] font-bold"
-                : "text-[#8b8f97] hover:text-[#f2efe8]"
+                ? "bg-[#2563eb] text-white font-bold shadow-xs"
+                : "text-[#475569] hover:text-[#0f172a]"
             }`}
           >
             TATAINVEST
@@ -135,14 +135,14 @@ export function SmaBacktestChart() {
                   y1={y}
                   x2={width - padding.right}
                   y2={y}
-                  stroke="#22262e"
+                  stroke="#e3e8ef"
                   strokeDasharray="4 4"
                   strokeWidth="1"
                 />
                 <text
                   x={padding.left - 10}
                   y={y + 4}
-                  fill="#8b8f97"
+                  fill="#64748b"
                   fontSize="10"
                   fontFamily="monospace"
                   textAnchor="end"
@@ -159,7 +159,7 @@ export function SmaBacktestChart() {
               key={i}
               x={getX(i)}
               y={height - 10}
-              fill="#8b8f97"
+              fill="#64748b"
               fontSize="10"
               fontFamily="monospace"
               textAnchor="middle"
@@ -168,10 +168,32 @@ export function SmaBacktestChart() {
             </text>
           ))}
 
-          {/* Paths */}
-          <path d={pricePath} fill="none" stroke="#f2efe8" strokeWidth="2" />
-          <path d={sma20Path} fill="none" stroke="#c8a15a" strokeWidth="2" />
-          <path d={sma50Path} fill="none" stroke="#8b8f97" strokeWidth="1.5" strokeDasharray="5 3" />
+          {/* Paths with draw-in animation */}
+          <path
+            d={pricePath}
+            fill="none"
+            stroke="#0f172a"
+            strokeWidth="2"
+            strokeDasharray="2000"
+            strokeDashoffset="2000"
+            style={{ animation: "drawStroke 1.4s ease-out forwards" }}
+          />
+          <path
+            d={sma20Path}
+            fill="none"
+            stroke="#2563eb"
+            strokeWidth="2"
+            strokeDasharray="2000"
+            strokeDashoffset="2000"
+            style={{ animation: "drawStroke 1.4s ease-out 0.15s forwards" }}
+          />
+          <path
+            d={sma50Path}
+            fill="none"
+            stroke="#059669"
+            strokeWidth="1.8"
+            strokeDasharray="6 4"
+          />
 
           {/* Signals */}
           {data.map((d, i) => {
@@ -185,14 +207,15 @@ export function SmaBacktestChart() {
                   cx={x}
                   cy={y}
                   r="6"
-                  fill={isBuy ? "#10b981" : "#ef4444"}
-                  stroke="#0a0b0d"
+                  fill={isBuy ? "#059669" : "#dc2626"}
+                  stroke="#ffffff"
                   strokeWidth="2"
+                  className="shadow-sm"
                 />
                 <text
                   x={x}
                   y={isBuy ? y - 12 : y + 18}
-                  fill={isBuy ? "#34d399" : "#f87171"}
+                  fill={isBuy ? "#047857" : "#b91c1c"}
                   fontSize="9"
                   fontFamily="monospace"
                   fontWeight="bold"
@@ -206,28 +229,34 @@ export function SmaBacktestChart() {
         </svg>
       </div>
 
-      {/* Legend & Summary */}
-      <div className="pt-2 border-t border-[#22262e] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#8b8f97]">
-        <div className="flex items-center gap-4">
-          <span className="flex items-center gap-1.5">
-            <span className="w-3 h-0.5 bg-[#f2efe8]" />
-            <span>Price</span>
-          </span>
-          <span className="flex items-center gap-1.5">
-            <span className="w-3 h-0.5 bg-[#c8a15a]" />
-            <span>20-day SMA</span>
-          </span>
-          <span className="flex items-center gap-1.5">
-            <span className="w-3 h-0.5 bg-[#8b8f97] border-b border-dashed" />
-            <span>50-day SMA</span>
-          </span>
+      {/* Legend */}
+      <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-[#e3e8ef] text-xs font-mono">
+        <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+          <div className="flex items-center gap-1.5">
+            <span className="w-3 h-0.5 bg-[#0f172a]" />
+            <span className="text-[#0f172a] font-semibold">Price</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-3 h-0.5 bg-[#2563eb]" />
+            <span className="text-[#2563eb] font-semibold">20-Day SMA</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-3 h-0.5 bg-[#047857] border-t border-dashed border-[#047857]" />
+            <span className="text-[#047857] font-semibold">50-Day SMA</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#059669]" />
+            <span className="text-[#047857] font-semibold">Golden Cross (Long)</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#dc2626]" />
+            <span className="text-[#b91c1c] font-semibold">Death Cross (Cash)</span>
+          </div>
         </div>
 
-        <div className="text-[11px] text-[#c8a15a]">
-          {selectedStock === "INFY"
-            ? "INFY: Halved Max Drawdown (-36.4% → -18.2%) | Sharpe 0.35"
-            : "TATAINVEST: Trend Filter Regime Comparison"}
-        </div>
+        <span className="text-[#64748b] text-[11px]">
+          Sample Simulation Cycle
+        </span>
       </div>
     </div>
   );

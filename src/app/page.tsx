@@ -125,7 +125,7 @@ export default function HomePage() {
       <StructuredData data={websiteJsonLd} />
       <StructuredData data={organizationsJsonLd} />
 
-      <div className="w-full flex flex-col bg-[#0a0b0d]">
+      <div className="w-full flex flex-col bg-white">
         {/* 1. Hero */}
         <HeroSection />
 

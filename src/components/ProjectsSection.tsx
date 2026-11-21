@@ -51,22 +51,22 @@ export function ProjectsSection() {
 
   return (
     <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#22262e] pb-6">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#e3e8ef] pb-6">
         <div className="space-y-2">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#c8a15a] font-semibold">
+          <span className="font-mono text-xs uppercase tracking-wider text-[#2563eb] font-semibold">
             Projects
           </span>
-          <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#f2efe8]">
+          <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#0f172a]">
             Projects
           </h2>
-          <p className="text-xs sm:text-sm text-[#8b8f97] font-sans">
+          <p className="text-xs sm:text-sm text-[#475569] font-sans">
             Selected projects across quantitative finance, legal-tech product engineering, and systems programming.
           </p>
         </div>
 
         <Link
           href="/projects"
-          className="text-xs font-mono text-[#c8a15a] hover:underline flex items-center gap-1 shrink-0"
+          className="text-xs font-mono text-[#2563eb] hover:underline flex items-center gap-1 shrink-0 font-semibold"
         >
           <span>View all projects</span>
           <ArrowRight className="w-3.5 h-3.5" />
@@ -78,15 +78,21 @@ export function ProjectsSection() {
           <article
             key={study.id}
             id={study.id}
-            className="p-6 sm:p-8 rounded-2xl bg-[#111317] border border-[#22262e] space-y-6 hover:border-[#c8a15a]/40 transition-colors"
+            className="group relative p-6 sm:p-8 rounded-2xl bg-white border border-[#e3e8ef] shadow-xs hover:border-[#2563eb]/40 hover:shadow-md transition-all duration-200 space-y-6 overflow-hidden"
           >
+            {/* Top gradient accent line that brightens on hover */}
+            <div
+              aria-hidden="true"
+              className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#2563eb] via-[#0ea5a4] to-[#10b981] opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+            />
+
             {/* Case Study Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#22262e] pb-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#e3e8ef] pb-4">
               <div>
-                <span className="font-mono text-xs font-semibold text-[#c8a15a]">
+                <span className="font-mono text-xs font-bold text-[#2563eb]">
                   {study.category}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#f2efe8] font-sans mt-0.5">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#0f172a] font-sans mt-0.5">
                   {study.title}
                 </h3>
               </div>
@@ -97,7 +103,7 @@ export function ProjectsSection() {
                     href={study.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-[#c8a15a] bg-[#c8a15a]/10 hover:bg-[#c8a15a] text-[#c8a15a] hover:text-[#0a0b0d] text-xs font-mono font-bold transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-blue-200 bg-blue-50/70 hover:bg-[#2563eb] text-[#1d4ed8] hover:text-white text-xs font-mono font-bold transition-all shadow-2xs"
                   >
                     <span>Live Demo</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -108,42 +114,42 @@ export function ProjectsSection() {
 
             {/* Problem / What I did / Outcome / Stack Matrix */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-sans">
-              <div className="p-4 rounded-xl bg-[#0a0b0d] border border-[#22262e] space-y-1.5">
-                <span className="font-mono text-[10px] uppercase text-[#8b8f97] tracking-wider block font-semibold">
+              <div className="p-4 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] space-y-1.5">
+                <span className="font-mono text-[10px] uppercase text-[#64748b] tracking-wider block font-bold">
                   Problem
                 </span>
-                <p className="text-[#f2efe8] leading-relaxed">
+                <p className="text-[#334155] leading-relaxed">
                   {study.problem}
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#0a0b0d] border border-[#22262e] space-y-1.5">
-                <span className="font-mono text-[10px] uppercase text-[#c8a15a] tracking-wider block font-semibold">
+              <div className="p-4 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] space-y-1.5">
+                <span className="font-mono text-[10px] uppercase text-[#2563eb] tracking-wider block font-bold">
                   What I did
                 </span>
-                <p className="text-[#f2efe8] leading-relaxed">
+                <p className="text-[#334155] leading-relaxed">
                   {study.whatIDid}
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#0a0b0d] border border-[#22262e] space-y-1.5">
-                <span className="font-mono text-[10px] uppercase text-emerald-400 tracking-wider block font-semibold">
+              <div className="p-4 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] space-y-1.5">
+                <span className="font-mono text-[10px] uppercase text-[#047857] tracking-wider block font-bold">
                   Outcome
                 </span>
-                <p className="text-[#f2efe8] leading-relaxed">
+                <p className="text-[#334155] leading-relaxed">
                   {study.outcome}
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#0a0b0d] border border-[#22262e] space-y-2">
-                <span className="font-mono text-[10px] uppercase text-[#8b8f97] tracking-wider block font-semibold">
+              <div className="p-4 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] space-y-1.5">
+                <span className="font-mono text-[10px] uppercase text-[#64748b] tracking-wider block font-bold">
                   Stack
                 </span>
-                <div className="flex flex-wrap gap-1.5">
-                  {study.stack.map((tech, tIdx) => (
+                <div className="flex flex-wrap gap-1.5 pt-0.5">
+                  {study.stack.map((tech, sIdx) => (
                     <span
-                      key={tIdx}
-                      className="px-2 py-0.5 rounded bg-[#111317] border border-[#22262e] text-[11px] font-mono text-[#f2efe8]"
+                      key={sIdx}
+                      className="px-2 py-0.5 rounded bg-white border border-[#e3e8ef] text-[11px] font-mono text-[#0f172a] font-medium"
                     >
                       {tech}
                     </span>
@@ -152,7 +158,7 @@ export function ProjectsSection() {
               </div>
             </div>
 
-            {/* Embedded Chart for Backtest */}
+            {/* Embedded Chart for Quantitative Backtesting Engine */}
             {study.hasChart && (
               <div className="pt-2">
                 <SmaBacktestChart />

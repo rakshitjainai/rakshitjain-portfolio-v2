@@ -41,14 +41,14 @@ export default function ResearchPage() {
       <div className="pt-24 sm:pt-32 pb-20 space-y-8">
         {/* Source Grounding Banner */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-4 bg-[#111317] border border-[#22262e] rounded-xl flex items-center justify-between gap-4 text-xs font-mono">
-            <div className="flex items-center gap-2 text-[#8b8f97]">
-              <ShieldCheck className="w-4 h-4 text-[#c8a15a] shrink-0" />
+          <div className="p-4 bg-[#f8fafc] border border-[#e3e8ef] rounded-xl flex items-center justify-between gap-4 text-xs font-mono shadow-sm">
+            <div className="flex items-center gap-2 text-[#475569]">
+              <ShieldCheck className="w-4 h-4 text-[#059669] shrink-0" />
               <span>
                 All papers cite primary regulatory authorities (IFSCA, RBI, DGFT, World Gold Council) and empirical backtest datasets.
               </span>
             </div>
-            <span className="text-[10px] text-[#c8a15a] bg-[#c8a15a]/10 px-2 py-0.5 rounded border border-[#c8a15a]/20 shrink-0">
+            <span className="text-[10px] text-[#047857] bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/80 shrink-0 font-semibold">
               Citations Included
             </span>
           </div>

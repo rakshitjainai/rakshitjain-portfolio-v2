@@ -23,14 +23,14 @@ export function ContactSection() {
 
   return (
     <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
-      <div className="border-b border-[#22262e] pb-6 space-y-2">
-        <span className="font-mono text-xs uppercase tracking-wider text-[#c8a15a] font-semibold">
+      <div className="border-b border-[#e3e8ef] pb-6 space-y-2">
+        <span className="font-mono text-xs uppercase tracking-wider text-[#2563eb] font-semibold">
           Contact
         </span>
-        <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#f2efe8]">
+        <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#0f172a]">
           Contact
         </h2>
-        <p className="text-xs sm:text-sm text-[#8b8f97] max-w-2xl font-sans">
+        <p className="text-xs sm:text-sm text-[#475569] max-w-2xl font-sans">
           The best way to reach me is email, phone or WhatsApp.
         </p>
       </div>
@@ -38,12 +38,12 @@ export function ContactSection() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Direct Action Cards (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
-          <div className="p-6 sm:p-8 rounded-2xl bg-[#111317] border border-[#22262e] space-y-6">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-[#e3e8ef] shadow-xs space-y-6">
             <div className="space-y-1">
-              <h3 className="text-lg font-bold text-[#f2efe8] font-sans">
+              <h3 className="text-lg font-bold text-[#0f172a] font-sans">
                 Direct Communication
               </h3>
-              <p className="text-xs text-[#8b8f97] font-sans">
+              <p className="text-xs text-[#475569] font-sans">
                 Reach out directly via your preferred channel.
               </p>
             </div>
@@ -52,27 +52,27 @@ export function ContactSection() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <a
                 href={`mailto:${siteConfig.author.email}?subject=Hello%20Rakshit`}
-                className="p-4 rounded-xl bg-[#0a0b0d] border border-[#22262e] hover:border-[#c8a15a] transition-all flex flex-col items-center justify-center text-center space-y-2 group"
+                className="p-4 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] hover:border-[#2563eb]/60 hover:bg-blue-50/40 transition-all flex flex-col items-center justify-center text-center space-y-2 group"
               >
-                <div className="w-10 h-10 rounded-full bg-[#111317] border border-[#22262e] flex items-center justify-center text-[#c8a15a] group-hover:scale-105 transition-transform">
+                <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-[#2563eb] group-hover:scale-105 transition-transform">
                   <Mail className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-xs font-mono font-bold text-[#f2efe8] block">Email Me</span>
-                  <span className="text-[10px] font-mono text-[#8b8f97]">Direct inbox</span>
+                  <span className="text-xs font-mono font-bold text-[#0f172a] block">Email Me</span>
+                  <span className="text-[10px] font-mono text-[#64748b]">Direct inbox</span>
                 </div>
               </a>
 
               <a
                 href={`tel:${siteConfig.author.phone}`}
-                className="p-4 rounded-xl bg-[#0a0b0d] border border-[#22262e] hover:border-[#c8a15a] transition-all flex flex-col items-center justify-center text-center space-y-2 group"
+                className="p-4 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] hover:border-[#2563eb]/60 hover:bg-blue-50/40 transition-all flex flex-col items-center justify-center text-center space-y-2 group"
               >
-                <div className="w-10 h-10 rounded-full bg-[#111317] border border-[#22262e] flex items-center justify-center text-[#c8a15a] group-hover:scale-105 transition-transform">
+                <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-[#2563eb] group-hover:scale-105 transition-transform">
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-xs font-mono font-bold text-[#f2efe8] block">Call Me</span>
-                  <span className="text-[10px] font-mono text-[#8b8f97]">{siteConfig.author.phoneDisplay}</span>
+                  <span className="text-xs font-mono font-bold text-[#0f172a] block">Call Me</span>
+                  <span className="text-[10px] font-mono text-[#64748b]">{siteConfig.author.phoneDisplay}</span>
                 </div>
               </a>
 
@@ -80,38 +80,38 @@ export function ContactSection() {
                 href={siteConfig.author.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 rounded-xl bg-[#0a0b0d] border border-[#22262e] hover:border-[#22c55e] transition-all flex flex-col items-center justify-center text-center space-y-2 group"
+                className="p-4 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] hover:border-emerald-400/70 hover:bg-emerald-50/40 transition-all flex flex-col items-center justify-center text-center space-y-2 group"
               >
-                <div className="w-10 h-10 rounded-full bg-[#111317] border border-[#22262e] flex items-center justify-center text-[#22c55e] group-hover:scale-105 transition-transform">
+                <div className="w-10 h-10 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-[#059669] group-hover:scale-105 transition-transform">
                   <MessageSquare className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-xs font-mono font-bold text-[#f2efe8] block">WhatsApp Me</span>
-                  <span className="text-[10px] font-mono text-[#8b8f97]">Instant callback request</span>
+                  <span className="text-xs font-mono font-bold text-[#0f172a] block">WhatsApp Me</span>
+                  <span className="text-[10px] font-mono text-[#64748b]">Instant callback</span>
                 </div>
               </a>
             </div>
 
             {/* Plain text fallback with copy helpers */}
-            <div className="p-4 rounded-xl bg-[#0a0b0d] border border-[#22262e] space-y-3">
-              <span className="font-mono text-[10px] uppercase tracking-wider text-[#8b8f97] block font-semibold">
+            <div className="p-4 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] space-y-3">
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#64748b] block font-bold">
                 Direct Contact Details
               </span>
 
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono pt-1 border-t border-[#22262e]">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono pt-1 border-t border-[#e3e8ef]">
                 <div className="flex items-center gap-2">
-                  <Mail className="w-3.5 h-3.5 text-[#c8a15a]" />
-                  <span className="text-[#8b8f97]">Email:</span>
-                  <span className="text-[#f2efe8] select-all">{siteConfig.author.email}</span>
+                  <Mail className="w-3.5 h-3.5 text-[#2563eb]" />
+                  <span className="text-[#64748b]">Email:</span>
+                  <span className="text-[#0f172a] font-semibold select-all">{siteConfig.author.email}</span>
                 </div>
                 <button
                   onClick={handleCopyEmail}
-                  className="inline-flex items-center gap-1 text-[11px] text-[#c8a15a] hover:underline self-start sm:self-auto cursor-pointer"
+                  className="inline-flex items-center gap-1 text-[11px] text-[#1d4ed8] hover:underline self-start sm:self-auto cursor-pointer font-semibold"
                 >
                   {copiedEmail ? (
                     <>
-                      <Check className="w-3 h-3 text-emerald-400" />
-                      <span className="text-emerald-400">Copied</span>
+                      <Check className="w-3 h-3 text-emerald-600" />
+                      <span className="text-emerald-700 font-bold">Copied</span>
                     </>
                   ) : (
                     <>
@@ -122,20 +122,20 @@ export function ContactSection() {
                 </button>
               </div>
 
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono pt-2 border-t border-[#22262e]">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono pt-2 border-t border-[#e3e8ef]">
                 <div className="flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-[#c8a15a]" />
-                  <span className="text-[#8b8f97]">Phone:</span>
-                  <span className="text-[#f2efe8] select-all">{siteConfig.author.phoneDisplay}</span>
+                  <Phone className="w-3.5 h-3.5 text-[#2563eb]" />
+                  <span className="text-[#64748b]">Phone:</span>
+                  <span className="text-[#0f172a] font-semibold select-all">{siteConfig.author.phoneDisplay}</span>
                 </div>
                 <button
                   onClick={handleCopyPhone}
-                  className="inline-flex items-center gap-1 text-[11px] text-[#c8a15a] hover:underline self-start sm:self-auto cursor-pointer"
+                  className="inline-flex items-center gap-1 text-[11px] text-[#1d4ed8] hover:underline self-start sm:self-auto cursor-pointer font-semibold"
                 >
                   {copiedPhone ? (
                     <>
-                      <Check className="w-3 h-3 text-emerald-400" />
-                      <span className="text-emerald-400">Copied</span>
+                      <Check className="w-3 h-3 text-emerald-600" />
+                      <span className="text-emerald-700 font-bold">Copied</span>
                     </>
                   ) : (
                     <>
@@ -151,12 +151,12 @@ export function ContactSection() {
 
         {/* Channels & Location (5 cols) */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="p-6 sm:p-8 rounded-2xl bg-[#111317] border border-[#22262e] space-y-6">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-[#e3e8ef] shadow-xs space-y-6">
             <div className="space-y-1">
-              <h3 className="text-lg font-bold text-[#f2efe8] font-sans">
+              <h3 className="text-lg font-bold text-[#0f172a] font-sans">
                 Profiles &amp; Location
               </h3>
-              <p className="text-xs text-[#8b8f97] font-sans">
+              <p className="text-xs text-[#475569] font-sans">
                 Online profiles and base location.
               </p>
             </div>
@@ -166,34 +166,34 @@ export function ContactSection() {
                 href={siteConfig.author.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-between p-3.5 rounded-xl border border-[#22262e] hover:border-slate-400 bg-[#0a0b0d] text-xs font-mono text-[#f2efe8] transition-colors group"
+                className="w-full inline-flex items-center justify-between p-3.5 rounded-xl border border-[#e3e8ef] hover:border-[#2563eb]/50 bg-[#f8fafc] text-xs font-mono font-medium text-[#0f172a] transition-all group"
               >
                 <div className="flex items-center gap-2.5">
-                  <LinkedinIcon className="w-4 h-4 text-[#38bdf8]" />
+                  <LinkedinIcon className="w-4 h-4 text-[#0284c7]" />
                   <span>LinkedIn Profile</span>
                 </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#8b8f97] group-hover:text-white" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#64748b] group-hover:text-[#2563eb] transition-colors" />
               </a>
 
               <a
                 href={siteConfig.author.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-between p-3.5 rounded-xl border border-[#22262e] hover:border-slate-400 bg-[#0a0b0d] text-xs font-mono text-[#f2efe8] transition-colors group"
+                className="w-full inline-flex items-center justify-between p-3.5 rounded-xl border border-[#e3e8ef] hover:border-[#2563eb]/50 bg-[#f8fafc] text-xs font-mono font-medium text-[#0f172a] transition-all group"
               >
                 <div className="flex items-center gap-2.5">
-                  <GithubIcon className="w-4 h-4" />
+                  <GithubIcon className="w-4 h-4 text-[#0f172a]" />
                   <span>GitHub Profile</span>
                 </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#8b8f97] group-hover:text-white" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#64748b] group-hover:text-[#2563eb] transition-colors" />
               </a>
             </div>
 
-            <div className="pt-2 border-t border-[#22262e] flex items-start gap-2.5 text-xs font-mono text-[#8b8f97]">
-              <MapPin className="w-4 h-4 text-[#c8a15a] shrink-0 mt-0.5" />
+            <div className="pt-2 border-t border-[#e3e8ef] flex items-start gap-2.5 text-xs font-mono text-[#475569]">
+              <MapPin className="w-4 h-4 text-[#2563eb] shrink-0 mt-0.5" />
               <div>
-                <span className="font-bold text-[#f2efe8] block">Gandhinagar, Gujarat, India</span>
-                <span className="text-[11px]">Pandit Deendayal Energy University (PDEU)</span>
+                <span className="font-bold text-[#0f172a] block">Gandhinagar, Gujarat, India</span>
+                <span className="text-[11px] text-[#64748b]">Pandit Deendayal Energy University (PDEU)</span>
               </div>
             </div>
           </div>

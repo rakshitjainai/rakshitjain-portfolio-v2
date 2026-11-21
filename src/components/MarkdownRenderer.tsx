@@ -21,7 +21,7 @@ function renderInline(text: string): React.ReactNode[] {
         tokens.push(
           <code
             key={`code-${keyIdx++}`}
-            className="px-1.5 py-0.5 rounded bg-[#0a0b0d] border border-[#22262e] font-mono text-[11px] text-[#c8a15a]"
+            className="px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono text-[11px] text-[#1d4ed8]"
           >
             {codeText}
           </code>
@@ -49,7 +49,7 @@ function renderInline(text: string): React.ReactNode[] {
         tokens.push(
           <span
             key={`math-${keyIdx++}`}
-            className="font-mono text-xs text-[#c8a15a] px-1 bg-[#0a0b0d] border border-[#22262e]/70 rounded font-semibold"
+            className="font-mono text-xs text-[#0f172a] px-1 bg-blue-50 border border-blue-200/70 rounded font-semibold"
           >
             {mathText}
           </span>
@@ -65,7 +65,7 @@ function renderInline(text: string): React.ReactNode[] {
       if (endIdx !== -1) {
         const boldText = remaining.slice(2, endIdx);
         tokens.push(
-          <strong key={`bold-${keyIdx++}`} className="text-[#f2efe8] font-semibold">
+          <strong key={`bold-${keyIdx++}`} className="text-[#0f172a] font-semibold">
             {renderInline(boldText)}
           </strong>
         );
@@ -80,7 +80,7 @@ function renderInline(text: string): React.ReactNode[] {
       if (endIdx !== -1) {
         const italicText = remaining.slice(1, endIdx);
         tokens.push(
-          <em key={`italic-${keyIdx++}`} className="text-[#f2efe8]/90 italic">
+          <em key={`italic-${keyIdx++}`} className="text-[#334155] italic">
             {renderInline(italicText)}
           </em>
         );
@@ -100,7 +100,7 @@ function renderInline(text: string): React.ReactNode[] {
           href={linkUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#c8a15a] hover:underline font-medium"
+          className="text-[#2563eb] hover:underline font-medium"
         >
           {linkText}
         </a>
@@ -194,14 +194,14 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
       }
       if (i < lines.length) i++; // skip closing ```
       blocks.push(
-        <div key={`codeblock-${blockKey++}`} className="my-6 rounded-xl overflow-hidden border border-[#22262e] bg-[#0a0b0d]">
+        <div key={`codeblock-${blockKey++}`} className="my-6 rounded-xl overflow-hidden border border-[#e3e8ef] bg-[#0b1220]">
           {lang && (
-            <div className="px-4 py-2 bg-[#111317] border-b border-[#22262e] text-[11px] font-mono text-[#8b8f97] uppercase tracking-wider flex items-center justify-between">
+            <div className="px-4 py-2 bg-[#121927] border-b border-slate-700 text-[11px] font-mono text-slate-300 uppercase tracking-wider flex items-center justify-between">
               <span>{lang}</span>
-              <span className="text-[#c8a15a]">Script</span>
+              <span className="text-[#38bdf8]">Script</span>
             </div>
           )}
-          <pre className="p-4 overflow-x-auto font-mono text-xs text-[#f2efe8] leading-relaxed">
+          <pre className="p-4 overflow-x-auto font-mono text-xs text-[#f8fafc] leading-relaxed">
             <code>{codeLines.join("\n")}</code>
           </pre>
         </div>
@@ -237,12 +237,12 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
       blocks.push(
         <div
           key={`math-block-${blockKey++}`}
-          className="my-5 p-4 rounded-xl bg-[#0a0b0d] border border-[#22262e] text-center space-y-1 shadow-sm"
+          className="my-5 p-4 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] border-l-4 border-l-[#2563eb] text-center space-y-1 shadow-sm"
         >
-          <span className="text-[10px] font-mono text-[#c8a15a] uppercase tracking-wider block font-semibold">
+          <span className="text-[10px] font-mono text-[#2563eb] uppercase tracking-wider block font-semibold">
             Formula
           </span>
-          <div className="font-mono text-xs sm:text-sm text-[#f2efe8] font-bold tracking-wide overflow-x-auto py-1">
+          <div className="font-mono text-xs sm:text-sm text-[#0f172a] font-bold tracking-wide overflow-x-auto py-1">
             {formattedFormula}
           </div>
         </div>
@@ -270,22 +270,22 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
       );
 
       blocks.push(
-        <div key={`table-${blockKey++}`} className="my-6 overflow-x-auto rounded-xl border border-[#22262e]">
+        <div key={`table-${blockKey++}`} className="my-6 overflow-x-auto rounded-xl border border-[#e3e8ef] shadow-sm">
           <table className="w-full text-left border-collapse text-xs font-sans">
             <thead>
-              <tr className="bg-[#111317] border-b border-[#22262e]">
+              <tr className="bg-[#f8fafc] border-b border-[#e3e8ef]">
                 {headerCells.map((cell, cIdx) => (
-                  <th key={cIdx} className="p-3.5 font-mono font-bold text-[#f2efe8] tracking-wider text-[11px] uppercase">
+                  <th key={cIdx} className="p-3.5 font-mono font-bold text-[#0f172a] tracking-wider text-[11px] uppercase">
                     {renderInline(cell)}
                   </th>
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#22262e] bg-[#0a0b0d]/70">
+            <tbody className="divide-y divide-[#e3e8ef] bg-white">
               {bodyRows.map((row, rIdx) => (
-                <tr key={rIdx} className="hover:bg-[#111317]/50 transition-colors">
+                <tr key={rIdx} className="hover:bg-slate-50 transition-colors">
                   {row.map((cell, cIdx) => (
-                    <td key={cIdx} className="p-3.5 text-[#8b8f97] leading-relaxed">
+                    <td key={cIdx} className="p-3.5 text-[#475569] leading-relaxed">
                       {renderInline(cell)}
                     </td>
                   ))}
@@ -302,7 +302,7 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
     if (line.trim().startsWith("### ")) {
       const headingText = line.trim().replace(/^###\s+/, "");
       blocks.push(
-        <h3 key={`h3-${blockKey++}`} className="text-lg sm:text-xl font-bold font-serif-display text-[#f2efe8] mt-8 mb-3 pt-2">
+        <h3 key={`h3-${blockKey++}`} className="text-lg sm:text-xl font-bold font-serif-display text-[#0f172a] mt-8 mb-3 pt-2">
           {renderInline(headingText)}
         </h3>
       );
@@ -313,7 +313,7 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
     if (line.trim().startsWith("#### ")) {
       const headingText = line.trim().replace(/^####\s+/, "");
       blocks.push(
-        <h4 key={`h4-${blockKey++}`} className="text-sm font-bold font-sans text-[#f2efe8] mt-5 mb-2">
+        <h4 key={`h4-${blockKey++}`} className="text-sm font-bold font-sans text-[#0f172a] mt-5 mb-2">
           {renderInline(headingText)}
         </h4>
       );
@@ -329,7 +329,7 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
         i++;
       }
       blocks.push(
-        <ul key={`ul-${blockKey++}`} className="space-y-2.5 my-4 pl-5 list-disc text-sm text-[#8b8f97] leading-relaxed font-sans marker:text-[#c8a15a]">
+        <ul key={`ul-${blockKey++}`} className="space-y-2.5 my-4 pl-5 list-disc text-sm text-[#475569] leading-relaxed font-sans marker:text-[#2563eb]">
           {listItems.map((item, lIdx) => (
             <li key={lIdx}>{renderInline(item)}</li>
           ))}
@@ -346,7 +346,7 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
         i++;
       }
       blocks.push(
-        <ol key={`ol-${blockKey++}`} className="space-y-2.5 my-4 pl-5 list-decimal text-sm text-[#8b8f97] leading-relaxed font-sans marker:text-[#c8a15a] marker:font-mono">
+        <ol key={`ol-${blockKey++}`} className="space-y-2.5 my-4 pl-5 list-decimal text-sm text-[#475569] leading-relaxed font-sans marker:text-[#2563eb] marker:font-mono">
           {listItems.map((item, lIdx) => (
             <li key={lIdx}>{renderInline(item)}</li>
           ))}
@@ -380,7 +380,7 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
 
     if (paraLines.length > 0) {
       blocks.push(
-        <p key={`p-${blockKey++}`} className="text-sm sm:text-base text-[#8b8f97] leading-relaxed font-sans mb-4">
+        <p key={`p-${blockKey++}`} className="text-sm sm:text-base text-[#475569] leading-relaxed font-sans mb-4">
           {renderInline(paraLines.join(" "))}
         </p>
       );

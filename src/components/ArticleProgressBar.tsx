@@ -20,9 +20,9 @@ export function ArticleProgressBar() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 h-1 z-50 bg-slate-900/40">
+    <div className="fixed top-0 left-0 right-0 h-0.5 z-50 bg-[#e3e8ef]/60">
       <div
-        className="h-full bg-gradient-to-r from-[#d4af37] to-[#38bdf8] transition-all duration-100"
+        className="h-full bg-gradient-to-r from-[#2563eb] via-[#0ea5a4] to-[#059669] transition-all duration-100"
         style={{ width: `${completion}%` }}
       />
     </div>

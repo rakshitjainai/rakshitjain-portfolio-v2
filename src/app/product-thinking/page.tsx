@@ -68,13 +68,13 @@ export default function ProductThinkingPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 space-y-12 pb-20">
         {/* Header & Product Perspective */}
         <section className="max-w-3xl space-y-3">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#c8a15a] font-semibold">
+          <span className="font-mono text-xs uppercase tracking-wider text-[#2563eb] font-semibold">
             Product Perspective
           </span>
-          <h1 className="text-3xl sm:text-5xl font-serif-display font-bold text-[#f2efe8] tracking-tight">
+          <h1 className="text-3xl sm:text-5xl font-serif-display font-bold text-[#0f172a] tracking-tight">
             Product Thinking &amp; Development
           </h1>
-          <p className="text-sm sm:text-base text-[#8b8f97] leading-relaxed font-sans">
+          <p className="text-sm sm:text-base text-[#475569] leading-relaxed font-sans">
             &ldquo;My interest in product management comes from working across technical development
             and real-world workflows. I enjoy understanding a problem before thinking about the solution,
             and exploring how technology can make a process more useful and accessible.&rdquo;
@@ -83,21 +83,21 @@ export default function ProductThinkingPage() {
 
         {/* Transferable Capabilities (Bullet-based) */}
         <section className="space-y-4">
-          <div className="border-b border-[#22262e] pb-2">
-            <h2 className="text-lg font-bold text-[#f2efe8]">Transferable Product Capabilities</h2>
+          <div className="border-b border-[#e3e8ef] pb-2">
+            <h2 className="text-lg font-bold text-[#0f172a]">Transferable Product Capabilities</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {capabilities.map((c, i) => (
               <div
                 key={i}
-                className="p-5 rounded-xl bg-[#111317] border border-[#22262e] space-y-1.5"
+                className="p-5 rounded-xl bg-white border border-[#e3e8ef] space-y-1.5 shadow-sm hover:border-blue-200 transition-colors"
               >
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold text-[#c8a15a]">0{i + 1}</span>
-                  <h3 className="text-sm font-bold text-[#f2efe8]">{c.title}</h3>
+                  <span className="font-mono text-xs font-bold text-[#2563eb]">0{i + 1}</span>
+                  <h3 className="text-sm font-bold text-[#0f172a]">{c.title}</h3>
                 </div>
-                <p className="text-xs text-[#8b8f97] leading-relaxed font-sans">{c.bullet}</p>
+                <p className="text-xs text-[#475569] leading-relaxed font-sans">{c.bullet}</p>
               </div>
             ))}
           </div>
@@ -105,12 +105,12 @@ export default function ProductThinkingPage() {
 
         {/* Case Study: LawPrix */}
         <section className="space-y-6">
-          <div className="border-b border-[#22262e] pb-2 flex items-center justify-between">
+          <div className="border-b border-[#e3e8ef] pb-2 flex items-center justify-between">
             <div>
-              <span className="font-mono text-[10px] uppercase text-[#c8a15a] block font-semibold">
+              <span className="font-mono text-[10px] uppercase text-[#2563eb] block font-semibold">
                 Supporting Case Study
               </span>
-              <h2 className="text-xl sm:text-2xl font-bold text-[#f2efe8] font-sans mt-0.5">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#0f172a] font-sans mt-0.5">
                 LawPrix — Transparent Legal Matchmaking
               </h2>
             </div>
@@ -118,7 +118,7 @@ export default function ProductThinkingPage() {
               href="https://lawprix.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-mono text-[#c8a15a] hover:underline"
+              className="inline-flex items-center gap-1 text-xs font-mono text-[#2563eb] hover:underline font-medium"
             >
               <span>lawprix.com</span>
               <ExternalLink className="w-3 h-3" />
@@ -126,21 +126,21 @@ export default function ProductThinkingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-sans">
-            <div className="p-5 rounded-xl bg-[#111317] border border-[#22262e] space-y-2">
-              <span className="font-mono text-[10px] uppercase text-rose-400 block font-semibold">
+            <div className="p-5 rounded-xl bg-rose-50/50 border border-rose-200/80 space-y-2">
+              <span className="font-mono text-[10px] uppercase text-rose-700 block font-semibold">
                 Problem in Legal Services
               </span>
-              <p className="text-[#8b8f97] leading-relaxed">
+              <p className="text-[#334155] leading-relaxed">
                 Most directories rank lawyers based on who pays the highest sponsorship fees, rather
                 than actual case expertise. First-time users face extreme information asymmetry and opaque fees.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-[#111317] border border-[#22262e] space-y-2">
-              <span className="font-mono text-[10px] uppercase text-[#c8a15a] block font-semibold">
+            <div className="p-5 rounded-xl bg-blue-50/40 border border-blue-200 space-y-2">
+              <span className="font-mono text-[10px] uppercase text-[#1d4ed8] block font-semibold">
                 Product Architecture
               </span>
-              <p className="text-[#8b8f97] leading-relaxed">
+              <p className="text-[#334155] leading-relaxed">
                 Replaced paid bidding with a criteria-driven matching system: case categorization across
                 4 domains, Bar Council lawyer verification, and milestone progress tracking.
               </p>
@@ -151,14 +151,14 @@ export default function ProductThinkingPage() {
           <LegalTechWorkflowDiagram />
 
           {/* Summary Bullets */}
-          <div className="p-5 rounded-xl bg-[#111317] border border-[#22262e] space-y-3 font-sans">
-            <h3 className="text-sm font-bold text-[#f2efe8]">Product Decisions &amp; Learning</h3>
-            <ul className="text-xs text-[#8b8f97] space-y-1.5 list-disc list-inside">
-              <li><strong className="text-[#f2efe8]">Case Categorization:</strong> Designed structured intake across corporate, criminal, family, and property law.</li>
-              <li><strong className="text-[#f2efe8]">Lawyer Verification:</strong> Checked Bar Council enrollment numbers to eliminate unverified representations.</li>
-              <li><strong className="text-[#f2efe8]">Milestone Tracking:</strong> Built transparent status tracking for filings, hearings, and documents.</li>
-              <li><strong className="text-[#f2efe8]">Technical Implementation:</strong> Built responsive client interfaces in React.js with Python backend endpoints.</li>
-              <li><strong className="text-[#f2efe8]">Core Learning:</strong> Good product design in regulated spaces requires building trust directly into the workflow.</li>
+          <div className="p-5 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] space-y-3 font-sans shadow-sm">
+            <h3 className="text-sm font-bold text-[#0f172a]">Product Decisions &amp; Learning</h3>
+            <ul className="text-xs text-[#475569] space-y-1.5 list-disc list-inside">
+              <li><strong className="text-[#0f172a]">Case Categorization:</strong> Designed structured intake across corporate, criminal, family, and property law.</li>
+              <li><strong className="text-[#0f172a]">Lawyer Verification:</strong> Checked Bar Council enrollment numbers to eliminate unverified representations.</li>
+              <li><strong className="text-[#0f172a]">Milestone Tracking:</strong> Built transparent status tracking for filings, hearings, and documents.</li>
+              <li><strong className="text-[#0f172a]">Technical Implementation:</strong> Built responsive client interfaces in React.js with Python backend endpoints.</li>
+              <li><strong className="text-[#0f172a]">Core Learning:</strong> Good product design in regulated spaces requires building trust directly into the workflow.</li>
             </ul>
           </div>
         </section>
