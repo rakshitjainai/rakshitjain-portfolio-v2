@@ -31,7 +31,6 @@ export const articlesData: ArticleItem[] = [
       { id: "institutional-onboarding", label: "6. Institutional Onboarding: Qualified Jewellers & Compliance" },
       { id: "operational-observations", label: "7. Observations from Exposure to Bullion Operations" },
       { id: "technology-and-future", label: "8. Technology's Role in Modern Financial Market Infrastructure" },
-      { id: "references", label: "9. Regulatory References & Citations" },
     ],
     keyTakeaways: [
       "Historically, India relied on Nominated Banks and agencies to import bullion on a consignment basis, resulting in fragmented OTC premiums and lack of transparent domestic price discovery.",
@@ -43,25 +42,24 @@ export const articlesData: ArticleItem[] = [
       {
         id: "ifsca-bullion-reg-2020",
         title: "International Financial Services Centres Authority (Bullion Exchange) Regulations, 2020",
-        source: "The Gazette of India (IFSCA Notification)",
+        source: "The Gazette of India Extraordinary, Part III, Section 4 (Notification No. IFSCA/2020-21/GN/REG004)",
         year: "2020",
-        url: "https://ifsca.gov.in/Regulations",
+        url: "https://ifsca.gov.in/Document/Legal/bullion-exchange-regulations-202012122020054716.pdf",
         note: "Statutory framework governing the establishment, membership, and operation of Bullion Exchanges in IFSC.",
       },
       {
         id: "rbi-qualified-jeweller-2022",
-        title: "Direct Import of Gold by Qualified Jewellers through IIBX",
-        source: "Reserve Bank of India Circular RBI/2021-2022/171 (A.P. DIR Series Circular No. 24)",
+        title: "Direct Import of Gold by Qualified Jewellers through India International Bullion Exchange IFSC Ltd. (IIBX)",
+        source: "Reserve Bank of India, Circular No. RBI/2022-2023/57, A.P. (DIR Series) Circular No. 04",
         year: "2022",
-        url: "https://www.rbi.org.in",
-        note: "Permitted eligible Indian jewellers to access IIBX for direct bullion procurement under advance payment mechanisms.",
+        url: "https://www.rbi.org.in/Scripts/BS_CircularIndexDisplay.aspx?Id=12323",
+        note: "Authorized eligible Indian jewellers to access IIBX for direct bullion procurement under advance payment mechanisms.",
       },
       {
         id: "iibx-operating-guidelines",
         title: "IIBX Business Rules and Operating Guidelines",
         source: "India International Bullion Exchange IFSC Limited",
         year: "2023",
-        url: "https://www.iibx.com.in",
         note: "Detailed operational specifications for vaulting, depository accounting, settlement schedules, and delivery manifests.",
       },
       {
@@ -69,7 +67,6 @@ export const articlesData: ArticleItem[] = [
         title: "India Gold Market Series: Regulatory & Structural Transformation",
         source: "World Gold Council",
         year: "2023",
-        url: "https://www.gold.org",
         note: "Macroeconomic analysis of Indian demand patterns, import flows, and structural market formalization.",
       },
     ],
@@ -176,15 +173,6 @@ Future efficiencies will hinge on several key technological developments:
 - **Advanced Pre-Trade Risk Engines:** Processing cross-collateralization and real-time intraday margin calculations across multi-asset portfolios in microsecond latencies.
 
 By grounding financial market infrastructure in high-performance software, exchanges like IIBX can lower operational costs, enhance transparency, and position India as a global bullion pricing hub.`,
-      },
-      {
-        id: "references",
-        title: "9. Regulatory References & Citations",
-        content: `1. **International Financial Services Centres Authority (Bullion Exchange) Regulations, 2020.** Published in the Gazette of India Extraordinary, Part III, Section 4 (December 2020). Regulates Bullion Exchanges, Clearing Corporations, and Depository operations within IFSC.
-2. **Reserve Bank of India (RBI).** *Direct Import of Gold by Qualified Jewellers through India International Bullion Exchange (IIBX).* Circular No. RBI/2021-2022/171, A.P. (DIR Series) Circular No. 24, dated March 01, 2022.
-3. **India International Bullion Exchange IFSC Limited (IIBX).** *Business Rules, Trading Protocols, and Vaulting Standards.* Official publications and member circulars (2022–2024).
-4. **Directorate General of Foreign Trade (DGFT), Ministry of Commerce and Industry.** *Trade Notice on Direct Bullion Import Procedures for Qualified Jewellers.* Government of India.
-5. **World Gold Council.** *Gold Demand Trends & Market Infrastructure Reform.* Global Research & Market Intelligence Reports (2022–2024).`,
       },
     ],
   },
@@ -459,7 +447,7 @@ For an aspiring quant or analyst, building this backtester provided several endu
       { id: "trading-ux", label: "4. Trading Terminal UX: Cognitive Load vs Information Density" },
       { id: "compliance-as-code", label: "5. Compliance as Code: Programmatic Regulatory Engines" },
       { id: "engineering-in-regulated-spaces", label: "6. Product Engineering in High-Consequence Environments" },
-      { id: "transferable-product-lessons", label: "7. Transferable Product Lessons: LawPrix and RegMate" },
+      { id: "transferable-product-lessons", label: "7. Transferable Product Lessons: LawPrix" },
       { id: "emerging-frontiers", label: "8. Emerging Frontiers: Dematerialization & Micro-Workflows" },
       { id: "conclusion", label: "9. Concluding Perspective: The Engineer-Analyst Catalyst" },
     ],
@@ -471,11 +459,12 @@ For an aspiring quant or analyst, building this backtester provided several endu
     ],
     citations: [
       {
-        id: "bis-fintech-infrastructure",
-        title: "FinTech and Market Structure in Financial Services",
-        source: "Bank for International Settlements (BIS) Financial Stability Board",
-        year: "2021",
-        note: "Comprehensive report analyzing institutional friction and regulatory technology adoption across global markets.",
+        id: "fsb-fintech-market-structure",
+        title: "FinTech and Market Structure in Financial Services: Market Developments and Potential Financial Stability Implications",
+        source: "Financial Stability Board (FSB)",
+        year: "2019",
+        url: "https://www.fsb.org/2019/02/fintech-and-market-structure-in-financial-services-market-developments-and-potential-financial-stability-implications/",
+        note: "Comprehensive report analyzing institutional market structure and technology adoption across global financial markets.",
       },
       {
         id: "norman-design-everyday-things",
@@ -489,14 +478,8 @@ For an aspiring quant or analyst, building this backtester provided several endu
         title: "The Use of Supervisory and Regulatory Technology by Authorities and Regulated Institutions",
         source: "Financial Stability Board (FSB)",
         year: "2020",
+        url: "https://www.fsb.org/2020/10/the-use-of-supervisory-and-regulatory-technology-by-authorities-and-regulated-institutions-market-developments-and-financial-stability-implications/",
         note: "Analysis of automated reporting, compliance ingestion, and multi-agency identifier reconciliation.",
-      },
-      {
-        id: "twyman-financial-ux",
-        title: "Designing Data-Dense Interfaces for Financial Applications",
-        source: "Association for Computing Machinery (ACM Digital Library)",
-        year: "2022",
-        note: "Field study on visual ergonomics, latency thresholds, and error prevention in institutional trading dashboards.",
       },
     ],
     contentSections: [
@@ -577,6 +560,8 @@ Traditionally, financial regulation is disseminated as dense natural language ci
 ### Translating Law into Logic
 In an engineered system, regulatory rules are modeled programmatically as deterministic logic trees and validation schemas:
 
+Note: The net worth (USD 3,000,000) and track record (3 years) thresholds in this code snippet are placeholder values for illustration, not official IIBX statutory requirements.
+
 \`\`\`typescript
 // Conceptual model: Compliance as Code verification rule
 interface EntityComplianceProfile {
@@ -624,19 +609,16 @@ Product teams operating in regulated environments must adhere to strict architec
       },
       {
         id: "transferable-product-lessons",
-        title: "7. Transferable Product Lessons: LawPrix and RegMate",
+        title: "7. Transferable Product Lessons: LawPrix",
         content: `These principles of workflow analysis and trust architecture were foundational when I worked on independent technical and product initiatives:
 
-### 1. LawPrix: Removing Friction and Biased Incentives
+### LawPrix: Removing Friction and Biased Incentives
 When researching the legal services space in India, I discovered that the fundamental issue was not a shortage of lawyers, but **severe information asymmetry and trust deficit**. Traditional legal directories monetize by selling banner placements and priority rankings to whoever pays the highest advertising fee, regardless of case competence.
 
 In architecting LawPrix, we re-centered the product around **workflow transparency and verified credentials**:
 - **Criteria-Based Routing:** Users input specific case attributes (practice domain, jurisdiction, urgency level) through an intake flow, matching them with advocates qualified in that specific niche.
 - **Verification Pipeline:** Implementing Bar Council registration checks to ensure zero uncredentialed representation.
-- **Case Milestone Tracking:** Translating opaque legal proceedings into structured status stages, reducing user anxiety and maintaining transparent communication between client and counsel.
-
-### 2. RegMate: Deconstructing Regulatory Complexity
-Similarly, when analyzing GIFT City's regulatory architecture, the challenge was translating complex IFSCA Fund Management Entity (FME) and Bullion regulations into structured, digestible learning and self-assessment modules. Building RegMate required breaking down multi-page gazette notifications into atomic compliance checks, proving that structured software architecture can demystify even the most intimidating statutory frameworks.`,
+- **Case Milestone Tracking:** Translating opaque legal proceedings into structured status stages, reducing user anxiety and maintaining transparent communication between client and counsel.`,
       },
       {
         id: "emerging-frontiers",

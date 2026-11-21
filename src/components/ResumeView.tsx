@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Printer, ArrowLeft, ShieldCheck } from "lucide-react";
+import { Printer, ArrowLeft } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 
 interface ResumeViewProps {
@@ -210,9 +210,6 @@ export function ResumeView({ track }: ResumeViewProps) {
                   <span className="font-bold text-slate-950">Market Sentiment Analyzer &amp; Backtesting Engine</span>
                   <span className="text-slate-600"> | Python, Pandas, NumPy, Matplotlib, yFinance</span>
                 </div>
-                <span className="font-mono text-xs text-slate-600 font-medium">
-                  Dec 2025 – Mar 2026
-                </span>
               </div>
               <ul className="list-disc list-outside pl-4 space-y-0.5 text-xs text-slate-700">
                 <li>
@@ -234,9 +231,6 @@ export function ResumeView({ track }: ResumeViewProps) {
                   <span className="font-bold text-slate-950">LawPrix — Transparent Legal Matchmaking</span>
                   <span className="text-slate-600"> | React.js, Python, REST APIs, Tailwind CSS</span>
                 </div>
-                <span className="font-mono text-xs text-slate-600 font-medium">
-                  Aug 2025 – Jul 2026
-                </span>
               </div>
               <ul className="list-disc list-outside pl-4 space-y-0.5 text-xs text-slate-700">
                 <li>
@@ -255,9 +249,6 @@ export function ResumeView({ track }: ResumeViewProps) {
                   <span className="font-bold text-slate-950">Custom Unix Command Shell</span>
                   <span className="text-slate-600"> | C, POSIX APIs, Linux, GCC</span>
                 </div>
-                <span className="font-mono text-xs text-slate-600 font-medium">
-                  Oct 2025 – Nov 2025
-                </span>
               </div>
               <ul className="list-disc list-outside pl-4 space-y-0.5 text-xs text-slate-700">
                 <li>
@@ -317,10 +308,7 @@ export function ResumeView({ track }: ResumeViewProps) {
 
         {/* Footer Note */}
         <footer className="pt-4 border-t border-slate-200 text-[10px] text-slate-500 flex items-center justify-between">
-          <div className="flex items-center gap-1">
-            <ShieldCheck className="w-3 h-3 text-slate-700" />
-            <span>Factual, verifiable resume. Verified dates follow official LinkedIn record.</span>
-          </div>
+          <span>Rakshit Jain · B.Tech ICT, PDEU</span>
           <span>Gandhinagar, Gujarat, India</span>
         </footer>
       </div>

@@ -5,11 +5,24 @@ import { ProjectsSection } from "@/components/ProjectsSection";
 import { StructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Projects & Quantitative Models | Rakshit Jain",
+  title: "Projects",
   description:
-    "Technical case studies including the 20/50 SMA backtest engine, LawPrix legal-tech matchmaking, and custom Unix shell in C.",
+    "Selected engineering projects including the 20/50 SMA backtesting engine, LawPrix legal-tech platform, and custom POSIX command shell in C.",
   alternates: {
     canonical: `${siteConfig.url}/projects`,
+  },
+  openGraph: {
+    type: "website",
+    url: `${siteConfig.url}/projects`,
+    title: "Projects | Rakshit Jain",
+    description:
+      "Selected engineering projects including the 20/50 SMA backtesting engine, LawPrix legal-tech platform, and custom POSIX command shell in C.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projects | Rakshit Jain",
+    description:
+      "Selected engineering projects including the 20/50 SMA backtesting engine, LawPrix legal-tech platform, and custom POSIX command shell in C.",
   },
 };
 

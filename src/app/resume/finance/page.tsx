@@ -5,11 +5,24 @@ import { siteConfig } from "@/data/siteConfig";
 import { StructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Financial Markets Resume | Rakshit Jain",
+  title: "Financial Markets Resume",
   description:
-    "Resume of Rakshit Jain emphasizing financial market exposure, Anand Rathi IIBX operations, and Python quantitative strategy backtesting.",
+    "Financial markets resume of Rakshit Jain: Anand Rathi GIFT City bullion desk, IIBX order execution, BDR settlement, and client onboarding compliance.",
   alternates: {
     canonical: `${siteConfig.url}/resume/finance`,
+  },
+  openGraph: {
+    type: "website",
+    url: `${siteConfig.url}/resume/finance`,
+    title: "Financial Markets Resume | Rakshit Jain",
+    description:
+      "Financial markets resume of Rakshit Jain: Anand Rathi GIFT City bullion desk, IIBX order execution, BDR settlement, and client onboarding compliance.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Financial Markets Resume | Rakshit Jain",
+    description:
+      "Financial markets resume of Rakshit Jain: Anand Rathi GIFT City bullion desk, IIBX order execution, BDR settlement, and client onboarding compliance.",
   },
 };
 

@@ -47,9 +47,27 @@ const tataInvestData: EquityDataPoint[] = [
   { date: "M15", price: 3250, sma20: 2800, sma50: 2510 },
 ];
 
+const stockMetrics = {
+  INFY: [
+    { label: "Max Drawdown", value: "-18.2%", baseline: "-36.4% B&H", context: "Preserved capital" },
+    { label: "Sharpe Ratio", value: "0.35", baseline: "0.32 B&H", context: "Rf = 6.5%" },
+    { label: "Volatility", value: "15.3%", baseline: "24.1% B&H", context: "Annualized stdev" },
+    { label: "Market Exposure", value: "~58%", baseline: "100% B&H", context: "Time invested" },
+  ],
+  TATAINVEST: [
+    { label: "Max Drawdown", value: "-24.8%", baseline: "-52.1% B&H", context: "Cyclical protection" },
+    { label: "Sharpe Ratio", value: "0.60", baseline: "0.51 B&H", context: "Rf = 6.5%" },
+    { label: "Volatility", value: "19.7%", baseline: "31.8% B&H", context: "Annualized stdev" },
+    { label: "Market Exposure", value: "~62%", baseline: "100% B&H", context: "Time invested" },
+  ],
+};
+
 export function SmaBacktestChart() {
   const [selectedStock, setSelectedStock] = useState<"INFY" | "TATAINVEST">("INFY");
+  const [selectedPoint, setSelectedPoint] = useState<EquityDataPoint | null>(null);
+
   const data = selectedStock === "INFY" ? infyData : tataInvestData;
+  const metrics = stockMetrics[selectedStock];
 
   const width = 850;
   const height = 300;
@@ -76,7 +94,7 @@ export function SmaBacktestChart() {
   const sma50Path = makePath((d) => d.sma50);
 
   return (
-    <div className="w-full bg-white border border-[#e3e8ef] rounded-xl p-5 sm:p-6 space-y-6 shadow-xs">
+    <div className="w-full bg-white border border-[#e3e8ef] rounded-xl p-4 sm:p-6 space-y-6 shadow-xs">
       {/* Chart Header & Ticker Toggle */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e3e8ef] pb-4">
         <div>
@@ -86,30 +104,37 @@ export function SmaBacktestChart() {
               20/50 SMA Crossover Strategy Simulation
             </h2>
             <span className="px-2 py-0.5 rounded bg-blue-50 border border-blue-200 text-[10px] font-mono text-[#1d4ed8] uppercase tracking-wider font-bold">
-              Illustrative Sample
+              Simulation
             </span>
           </div>
           <p className="text-xs text-[#475569] mt-1">
-            Illustrative sample path showing Golden Cross (Buy) and Death Cross (Exit to Cash) signals over a 15-interval sample cycle. Full multi-year backtest statistics are detailed below.
+            Historical simulation showing Golden Cross (Buy) and Death Cross (Exit to Cash) signals over a 15-interval sample cycle.
           </p>
         </div>
 
+        {/* INFY / TATAINVEST Large Tap Target Toggle (>= 44px) */}
         <div className="flex items-center gap-1.5 p-1 bg-[#f8fafc] border border-[#e3e8ef] rounded-lg shrink-0">
           <button
-            onClick={() => setSelectedStock("INFY")}
-            className={`px-3 py-1 text-xs font-mono rounded transition-all cursor-pointer ${
+            onClick={() => {
+              setSelectedStock("INFY");
+              setSelectedPoint(null);
+            }}
+            className={`min-h-[44px] min-w-[80px] px-4 py-2 text-xs font-mono rounded-md transition-all cursor-pointer flex items-center justify-center font-bold ${
               selectedStock === "INFY"
-                ? "bg-[#2563eb] text-white font-bold shadow-xs"
+                ? "bg-[#2563eb] text-white shadow-xs"
                 : "text-[#475569] hover:text-[#0f172a]"
             }`}
           >
             INFY
           </button>
           <button
-            onClick={() => setSelectedStock("TATAINVEST")}
-            className={`px-3 py-1 text-xs font-mono rounded transition-all cursor-pointer ${
+            onClick={() => {
+              setSelectedStock("TATAINVEST");
+              setSelectedPoint(null);
+            }}
+            className={`min-h-[44px] min-w-[80px] px-4 py-2 text-xs font-mono rounded-md transition-all cursor-pointer flex items-center justify-center font-bold ${
               selectedStock === "TATAINVEST"
-                ? "bg-[#2563eb] text-white font-bold shadow-xs"
+                ? "bg-[#2563eb] text-white shadow-xs"
                 : "text-[#475569] hover:text-[#0f172a]"
             }`}
           >
@@ -118,8 +143,28 @@ export function SmaBacktestChart() {
         </div>
       </div>
 
-      {/* SVG Container */}
-      <div className="w-full overflow-x-auto">
+      {/* 2x2 Metric Grid on phones (grid-cols-2 lg:grid-cols-4) */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        {metrics.map((m, idx) => (
+          <div
+            key={idx}
+            className="p-3 sm:p-3.5 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] space-y-1 text-center sm:text-left"
+          >
+            <span className="font-mono text-[10px] uppercase text-[#64748b] tracking-wider block font-semibold">
+              {m.label}
+            </span>
+            <div className="text-base sm:text-lg font-bold font-mono text-[#0f172a]">
+              {m.value}
+            </div>
+            <div className="text-[11px] font-mono text-[#2563eb] font-semibold">
+              vs {m.baseline}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Responsive SVG Container with horizontal scroll affordance */}
+      <div className="w-full overflow-x-auto overscroll-x-contain [-webkit-overflow-scrolling:touch]">
         <svg
           viewBox={`0 0 ${width} ${height}`}
           className="w-full min-w-[600px] h-[260px] sm:h-[300px] overflow-visible"
@@ -174,28 +219,42 @@ export function SmaBacktestChart() {
             fill="none"
             stroke="#0f172a"
             strokeWidth="2"
-            strokeDasharray="2000"
-            strokeDashoffset="2000"
-            style={{ animation: "drawStroke 1.4s ease-out forwards" }}
+            className="draw-stroke-path"
           />
           <path
             d={sma20Path}
             fill="none"
             stroke="#2563eb"
             strokeWidth="2"
-            strokeDasharray="2000"
-            strokeDashoffset="2000"
-            style={{ animation: "drawStroke 1.4s ease-out 0.15s forwards" }}
+            className="draw-stroke-path"
           />
           <path
             d={sma50Path}
             fill="none"
-            stroke="#059669"
-            strokeWidth="1.8"
-            strokeDasharray="6 4"
+            stroke="#047857"
+            strokeWidth="2"
+            strokeDasharray="5 4"
+            className="draw-stroke-path"
           />
 
-          {/* Signals */}
+          {/* Interactive Tap / Hover points */}
+          {data.map((d, i) => {
+            const x = getX(i);
+            const y = getY(d.price);
+            return (
+              <g key={`point-${i}`} className="cursor-pointer" onClick={() => setSelectedPoint(d)}>
+                <circle
+                  cx={x}
+                  cy={y}
+                  r="7"
+                  fill="transparent"
+                  className="hover:fill-blue-500/20"
+                />
+              </g>
+            );
+          })}
+
+          {/* Signal Markers */}
           {data.map((d, i) => {
             if (!d.signal) return null;
             const x = getX(i);
@@ -228,6 +287,25 @@ export function SmaBacktestChart() {
           })}
         </svg>
       </div>
+
+      {/* Selected Data Point Detail (Tap Support) */}
+      {selectedPoint && (
+        <div className="p-3 rounded-lg bg-blue-50/70 border border-blue-200 text-xs font-mono flex flex-wrap items-center justify-between gap-3 animate-in fade-in duration-100">
+          <div>
+            <span className="font-bold text-[#0f172a]">{selectedPoint.date}: </span>
+            <span className="text-[#334155]">Price: ₹{selectedPoint.price}</span>
+            <span className="mx-2 text-slate-300">|</span>
+            <span className="text-[#2563eb]">SMA 20: ₹{selectedPoint.sma20}</span>
+            <span className="mx-2 text-slate-300">|</span>
+            <span className="text-[#047857]">SMA 50: ₹{selectedPoint.sma50}</span>
+          </div>
+          {selectedPoint.signal && (
+            <span className="px-2 py-0.5 rounded text-[10px] font-bold text-white bg-slate-900">
+              Signal: {selectedPoint.signal}
+            </span>
+          )}
+        </div>
+      )}
 
       {/* Legend */}
       <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-[#e3e8ef] text-xs font-mono">

@@ -28,7 +28,7 @@ export interface ProjectItem {
   slug: string;
   subtitle: string;
   category: "Quantitative Analysis" | "Product Development" | "Systems Engineering" | "FinTech & Compliance";
-  period: string;
+  period?: string;
   featured: boolean;
   summary: string;
   problem: string;

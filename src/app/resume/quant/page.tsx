@@ -5,11 +5,24 @@ import { siteConfig } from "@/data/siteConfig";
 import { StructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Quantitative Research Resume | Rakshit Jain",
+  title: "Quantitative Analysis Resume",
   description:
-    "Curriculum Vitae of Rakshit Jain emphasizing quantitative research, Python strategy backtesting, risk metrics evaluation, and data pipelines.",
+    "Quantitative research resume of Rakshit Jain: 20/50 SMA crossover strategy backtesting in Python, Sharpe ratio analysis, and maximum drawdown reduction.",
   alternates: {
     canonical: `${siteConfig.url}/resume/quant`,
+  },
+  openGraph: {
+    type: "website",
+    url: `${siteConfig.url}/resume/quant`,
+    title: "Quantitative Analysis Resume | Rakshit Jain",
+    description:
+      "Quantitative research resume of Rakshit Jain: 20/50 SMA crossover strategy backtesting in Python, Sharpe ratio analysis, and maximum drawdown reduction.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Quantitative Analysis Resume | Rakshit Jain",
+    description:
+      "Quantitative research resume of Rakshit Jain: 20/50 SMA crossover strategy backtesting in Python, Sharpe ratio analysis, and maximum drawdown reduction.",
   },
 };
 

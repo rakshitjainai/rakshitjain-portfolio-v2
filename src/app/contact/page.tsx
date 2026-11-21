@@ -5,11 +5,24 @@ import { ContactSection } from "@/components/ContactSection";
 import { StructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Contact | Rakshit Jain",
+  title: "Contact",
   description:
-    "Get in touch with Rakshit Jain via email, phone, or WhatsApp.",
+    "Get in touch with Rakshit Jain via email, phone, or WhatsApp. Student at PDEU working across financial markets operations and full-stack development.",
   alternates: {
     canonical: `${siteConfig.url}/contact`,
+  },
+  openGraph: {
+    type: "website",
+    url: `${siteConfig.url}/contact`,
+    title: "Contact | Rakshit Jain",
+    description:
+      "Get in touch with Rakshit Jain via email, phone, or WhatsApp. Student at PDEU working across financial markets operations and full-stack development.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact | Rakshit Jain",
+    description:
+      "Get in touch with Rakshit Jain via email, phone, or WhatsApp. Student at PDEU working across financial markets operations and full-stack development.",
   },
 };
 

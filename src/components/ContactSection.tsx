@@ -52,9 +52,9 @@ export function ContactSection() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <a
                 href={`mailto:${siteConfig.author.email}?subject=Hello%20Rakshit`}
-                className="p-4 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] hover:border-[#2563eb]/60 hover:bg-blue-50/40 transition-all flex flex-col items-center justify-center text-center space-y-2 group"
+                className="w-full min-h-[48px] p-3.5 sm:p-4 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] hover:border-[#2563eb]/60 hover:bg-blue-50/40 transition-all flex sm:flex-col items-center justify-start sm:justify-center gap-3 text-left sm:text-center group"
               >
-                <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-[#2563eb] group-hover:scale-105 transition-transform">
+                <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-[#2563eb] group-hover:scale-105 transition-transform shrink-0">
                   <Mail className="w-4 h-4" />
                 </div>
                 <div>
@@ -65,9 +65,9 @@ export function ContactSection() {
 
               <a
                 href={`tel:${siteConfig.author.phone}`}
-                className="p-4 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] hover:border-[#2563eb]/60 hover:bg-blue-50/40 transition-all flex flex-col items-center justify-center text-center space-y-2 group"
+                className="w-full min-h-[48px] p-3.5 sm:p-4 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] hover:border-[#2563eb]/60 hover:bg-blue-50/40 transition-all flex sm:flex-col items-center justify-start sm:justify-center gap-3 text-left sm:text-center group"
               >
-                <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-[#2563eb] group-hover:scale-105 transition-transform">
+                <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-[#2563eb] group-hover:scale-105 transition-transform shrink-0">
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
@@ -80,14 +80,14 @@ export function ContactSection() {
                 href={siteConfig.author.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] hover:border-emerald-400/70 hover:bg-emerald-50/40 transition-all flex flex-col items-center justify-center text-center space-y-2 group"
+                className="w-full min-h-[48px] p-3.5 sm:p-4 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] hover:border-emerald-400/70 hover:bg-emerald-50/40 transition-all flex sm:flex-col items-center justify-start sm:justify-center gap-3 text-left sm:text-center group"
               >
-                <div className="w-10 h-10 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-[#059669] group-hover:scale-105 transition-transform">
+                <div className="w-10 h-10 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-[#059669] group-hover:scale-105 transition-transform shrink-0">
                   <MessageSquare className="w-4 h-4" />
                 </div>
                 <div>
                   <span className="text-xs font-mono font-bold text-[#0f172a] block">WhatsApp Me</span>
-                  <span className="text-[10px] font-mono text-[#64748b]">Instant callback</span>
+                  <span className="text-[10px] font-mono text-[#64748b]">Message on WhatsApp</span>
                 </div>
               </a>
             </div>
@@ -106,16 +106,17 @@ export function ContactSection() {
                 </div>
                 <button
                   onClick={handleCopyEmail}
-                  className="inline-flex items-center gap-1 text-[11px] text-[#1d4ed8] hover:underline self-start sm:self-auto cursor-pointer font-semibold"
+                  className="min-h-[44px] inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs text-[#1d4ed8] hover:bg-blue-50 self-start sm:self-auto cursor-pointer font-semibold transition-colors"
+                  aria-label="Copy email address to clipboard"
                 >
                   {copiedEmail ? (
                     <>
-                      <Check className="w-3 h-3 text-emerald-600" />
-                      <span className="text-emerald-700 font-bold">Copied</span>
+                      <Check className="w-3.5 h-3.5 text-emerald-600" />
+                      <span className="text-emerald-700 font-bold" aria-live="polite">Copied</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3 h-3" />
+                      <Copy className="w-3.5 h-3.5" />
                       <span>Copy email</span>
                     </>
                   )}
@@ -130,16 +131,17 @@ export function ContactSection() {
                 </div>
                 <button
                   onClick={handleCopyPhone}
-                  className="inline-flex items-center gap-1 text-[11px] text-[#1d4ed8] hover:underline self-start sm:self-auto cursor-pointer font-semibold"
+                  className="min-h-[44px] inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs text-[#1d4ed8] hover:bg-blue-50 self-start sm:self-auto cursor-pointer font-semibold transition-colors"
+                  aria-label="Copy phone number to clipboard"
                 >
                   {copiedPhone ? (
                     <>
-                      <Check className="w-3 h-3 text-emerald-600" />
-                      <span className="text-emerald-700 font-bold">Copied</span>
+                      <Check className="w-3.5 h-3.5 text-emerald-600" />
+                      <span className="text-emerald-700 font-bold" aria-live="polite">Copied</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3 h-3" />
+                      <Copy className="w-3.5 h-3.5" />
                       <span>Copy phone</span>
                     </>
                   )}

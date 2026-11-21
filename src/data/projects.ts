@@ -8,7 +8,6 @@ export const projectsData: ProjectItem[] = [
     subtitle:
       "Python-based systematic backtesting engine implementing a 20/50 SMA crossover strategy benchmarked against Buy & Hold on Indian equities.",
     category: "Quantitative Analysis",
-    period: "Dec 2025 – Mar 2026",
     featured: true,
     summary:
       "Engineered a Python backtesting system to test dual moving average crossover signals on real market data, evaluating risk-adjusted returns and drawdown control.",
@@ -66,7 +65,6 @@ export const projectsData: ProjectItem[] = [
     subtitle:
       "Legal-tech web application matching clients with verified advocates based on specialization and urgency rather than paid promotion.",
     category: "Product Development",
-    period: "Aug 2025 – Jul 2026",
     featured: true,
     summary:
       "Designed an AI-assisted legal-tech platform addressing credential opacity and sponsored ranking bias in Indian legal services.",
@@ -111,56 +109,12 @@ export const projectsData: ProjectItem[] = [
     verifiedBadges: ["Live Product", "Buildathon Award Winner", "User Tested"],
   },
   {
-    id: "regmate",
-    title: "RegMate — GIFT City Regulatory Compliance System",
-    slug: "regmate",
-    subtitle:
-      "Interactive compliance reference and self-assessment portal for International Financial Services Centres Authority (IFSCA) regulations.",
-    category: "FinTech & Compliance",
-    period: "May 2026 – Aug 2026",
-    featured: false,
-    summary:
-      "Structured compliance guide and readiness assessment platform for GIFT City IFSC entities.",
-    problem:
-      "IFSCA regulatory circulars for Fund Management Entities (FMEs) and Bullion participants are dense and hard to navigate for new applicants.",
-    approach:
-      "Translated regulatory requirements into structured data models, interactive checklists, and readiness tests.",
-    contribution: [
-      "Regulatory data modeling: Deconstructed IFSCA circulars into structured JSON requirements.",
-      "Full-stack development: Built REST APIs with Node.js/Express and client interfaces with React.",
-      "Institutional readiness checks: Formatted mandatory capital and documentation checklists.",
-    ],
-    techStack: ["React", "Node.js", "Express", "MongoDB", "REST APIs", "IFSCA Guidelines"],
-    metrics: [
-      {
-        label: "Coverage",
-        value: "IFSCA FME & Bullion",
-        benchmark: "Official Rules",
-        context: "GIFT City frameworks",
-      },
-      {
-        label: "Architecture",
-        value: "Decoupled Full Stack",
-        benchmark: "React + Express",
-        context: "Fast compliance lookup",
-      },
-    ],
-    outcome:
-      "Created an organized digital readiness tool for entities preparing for IFSC compliance setup.",
-    learnings:
-      "Demonstrated how 'Compliance as Code' turns complex legal frameworks into actionable programmatic validations.",
-    githubUrl: "https://github.com/rakshitjainai/demogiftcity",
-    researchLink: "/research/financial-workflows-and-fintech-products",
-    verifiedBadges: ["Full Stack", "IFSCA Frameworks", "GitHub Verified"],
-  },
-  {
     id: "custom-shell-in-c",
     title: "Custom Unix Shell in C",
     slug: "custom-shell-in-c",
     subtitle:
       "Interactive command-line interpreter in C implementing process control, piping, and I/O redirection.",
     category: "Systems Engineering",
-    period: "Oct 2025 – Nov 2025",
     featured: false,
     summary:
       "Systems programming project implementing core POSIX operating system operations.",

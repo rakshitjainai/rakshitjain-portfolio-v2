@@ -6,11 +6,24 @@ import { ArticlesSection } from "@/components/ArticlesSection";
 import { StructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Research & Analytical Papers | Rakshit Jain",
+  title: "Research",
   description:
-    "Original research papers examining India's bullion market architecture (IIBX), quantitative SMA backtests, and financial workflow engineering.",
+    "Analytical research papers on India International Bullion Exchange (IIBX) mechanics, 20/50 SMA backtest friction, and financial workflow product design.",
   alternates: {
     canonical: `${siteConfig.url}/research`,
+  },
+  openGraph: {
+    type: "website",
+    url: `${siteConfig.url}/research`,
+    title: "Research | Rakshit Jain",
+    description:
+      "Analytical research papers on India International Bullion Exchange (IIBX) mechanics, 20/50 SMA backtest friction, and financial workflow product design.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Research | Rakshit Jain",
+    description:
+      "Analytical research papers on India International Bullion Exchange (IIBX) mechanics, 20/50 SMA backtest friction, and financial workflow product design.",
   },
 };
 

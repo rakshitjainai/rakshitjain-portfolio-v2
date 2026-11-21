@@ -48,6 +48,11 @@
   --shadow-card-hover: 0 12px 20px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+}
+
 body {
   background-color: var(--bg);
   color: var(--text);
@@ -55,6 +60,23 @@ body {
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+button, a, input, select, textarea {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(37, 99, 235, 0.1);
+}
+
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+@media (hover: none) {
+  button:active, a:active {
+    opacity: 0.85;
+    transform: scale(0.98);
+  }
 }
 
 .font-serif-display {
@@ -125,6 +147,12 @@ body {
   to {
     stroke-dashoffset: 0;
   }
+}
+
+.draw-stroke-path {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: drawStroke 1.4s ease-out forwards;
 }
 
 .ambient-gradient-blob {
@@ -231,6 +259,10 @@ textarea:focus-visible {
   .name-gradient-shimmer {
     animation: none !important;
     background-position: 0% 50% !important;
+  }
+  .draw-stroke-path {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
   }
 }
 

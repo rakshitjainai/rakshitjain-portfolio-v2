@@ -27,7 +27,7 @@ export function ProjectsSection() {
         "Traditional legal directories rank lawyers based on sponsorship bidding rather than domain expertise, creating fee opacity and information asymmetry for clients.",
       whatIDid:
         "Co-developed the client intake workflow and criteria-based routing architecture across 4 legal domains. Integrated Bar Council registration checks and milestone tracking.",
-      stack: ["React.js", "Python", "REST APIs", "CSS3"],
+      stack: ["React.js", "Python", "REST APIs", "Tailwind CSS"],
       outcome:
         "Won 2nd Runner-Up at the national Tutedude Buildathon 2025 hackathon. Shipped a responsive web application with verified milestone tracking.",
       liveUrl: "https://lawprix.com/",

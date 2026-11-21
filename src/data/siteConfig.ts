@@ -4,7 +4,11 @@ export const siteConfig = {
   shortTitle: "Rakshit Jain",
   description:
     "Personal website of Rakshit Jain, B.Tech ICT student at PDEU working across financial markets, quantitative analysis, and software engineering.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://rakshitjain-portfolio-v2.vercel.app",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL &&
+    !process.env.NEXT_PUBLIC_SITE_URL.includes("vercel.app")
+      ? process.env.NEXT_PUBLIC_SITE_URL
+      : "https://www.rakshitjain.in",
   author: {
     name: "Rakshit Jain",
     role: "B.Tech ICT Student (2023–2027)",
@@ -122,7 +126,7 @@ export const siteConfig = {
       highlights: [
         "LawPrix: LegalTech case routing platform based on specialization",
         "Credential verification framework & milestone tracking",
-        "RegMate: GIFT City regulatory compliance & assessment workflow",
+        "Tutedude Buildathon 2025: 2nd Runner-Up national award",
         "Workflow deconstruction, requirements modeling & technical feasibility",
       ],
       quickLink: "/product-thinking",

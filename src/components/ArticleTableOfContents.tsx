@@ -57,3 +57,41 @@ export function ArticleTableOfContents({ items }: TOCProps) {
     </nav>
   );
 }
+
+export function MobileTableOfContents({ items }: TOCProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <nav className="p-3 bg-[#f8fafc] border border-[#e3e8ef] rounded-xl text-xs font-sans shadow-xs" aria-label="On this page">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between py-1 px-1 text-left font-mono text-xs font-bold text-[#0f172a] cursor-pointer min-h-[44px]"
+        aria-expanded={isOpen}
+      >
+        <span className="flex items-center gap-2 text-[#2563eb]">
+          <List className="w-4 h-4" />
+          <span>On this page ({items.length} sections)</span>
+        </span>
+        <span className="text-[#64748b] font-mono text-[11px]">
+          {isOpen ? "Collapse ▲" : "Expand ▼"}
+        </span>
+      </button>
+
+      {isOpen && (
+        <ul className="mt-2.5 pt-2.5 border-t border-[#e3e8ef] space-y-1 text-xs animate-in fade-in duration-150">
+          {items.map((item) => (
+            <li key={item.id}>
+              <a
+                href={`#${item.id}`}
+                onClick={() => setIsOpen(false)}
+                className="block py-2 px-2.5 rounded text-[#334155] hover:text-[#0f172a] hover:bg-white active:bg-blue-50 transition-colors"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </nav>
+  );
+}

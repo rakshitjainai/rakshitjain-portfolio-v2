@@ -6,11 +6,24 @@ import { LegalTechWorkflowDiagram } from "@/components/LegalTechWorkflowDiagram"
 import { StructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Product Thinking & Development | Rakshit Jain",
+  title: "Product Thinking",
   description:
-    "Problem identification, user research, workflow analysis, and case study on LawPrix legal-tech matchmaking.",
+    "Product case study and workflow analysis on LawPrix, featuring criteria-based routing, lawyer verification, and transparent milestone tracking.",
   alternates: {
     canonical: `${siteConfig.url}/product-thinking`,
+  },
+  openGraph: {
+    type: "website",
+    url: `${siteConfig.url}/product-thinking`,
+    title: "Product Thinking | Rakshit Jain",
+    description:
+      "Product case study and workflow analysis on LawPrix, featuring criteria-based routing, lawyer verification, and transparent milestone tracking.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Product Thinking | Rakshit Jain",
+    description:
+      "Product case study and workflow analysis on LawPrix, featuring criteria-based routing, lawyer verification, and transparent milestone tracking.",
   },
 };
 

@@ -16,9 +16,22 @@ import { ContactSection } from "@/components/ContactSection";
 export const metadata: Metadata = {
   title: "Rakshit Jain | B.Tech ICT, PDEU",
   description:
-    "Rakshit Jain: B.Tech ICT student at PDEU working across financial markets, quantitative research and software.",
+    "Rakshit Jain: B.Tech ICT student at PDEU working across financial markets operations, quantitative research, and full-stack software development.",
   alternates: {
     canonical: siteConfig.url,
+  },
+  openGraph: {
+    type: "website",
+    url: siteConfig.url,
+    title: "Rakshit Jain | B.Tech ICT, PDEU",
+    description:
+      "Rakshit Jain: B.Tech ICT student at PDEU working across financial markets operations, quantitative research, and full-stack software development.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rakshit Jain | B.Tech ICT, PDEU",
+    description:
+      "Rakshit Jain: B.Tech ICT student at PDEU working across financial markets operations, quantitative research, and full-stack software development.",
   },
 };
 

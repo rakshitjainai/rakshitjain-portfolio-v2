@@ -6,11 +6,24 @@ import { siteConfig } from "@/data/siteConfig";
 import { StructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Resume | Rakshit Jain",
+  title: "Resume",
   description:
-    "Resume of Rakshit Jain: B.Tech ICT at PDEU (2023–2027), GIFT City IIBX bullion desk, full-stack React/Node.js development, and Python quantitative backtesting.",
+    "Resume of Rakshit Jain: B.Tech ICT at PDEU (2023–2027), Anand Rathi IIBX bullion operations, Python quantitative analysis, and full-stack software.",
   alternates: {
     canonical: `${siteConfig.url}/resume`,
+  },
+  openGraph: {
+    type: "website",
+    url: `${siteConfig.url}/resume`,
+    title: "Resume | Rakshit Jain",
+    description:
+      "Resume of Rakshit Jain: B.Tech ICT at PDEU (2023–2027), Anand Rathi IIBX bullion operations, Python quantitative analysis, and full-stack software.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Resume | Rakshit Jain",
+    description:
+      "Resume of Rakshit Jain: B.Tech ICT at PDEU (2023–2027), Anand Rathi IIBX bullion operations, Python quantitative analysis, and full-stack software.",
   },
 };
 
@@ -268,7 +281,7 @@ export default function ResumePage() {
               <div className="space-y-1">
                 <div className="flex items-baseline justify-between text-xs">
                   <span className="font-bold text-[#0f172a]">LawPrix — Legal Services Matchmaking</span>
-                  <span className="font-mono text-[#64748b]">React.js, Python, REST APIs</span>
+                  <span className="font-mono text-[#64748b]">React.js, Python, REST APIs, Tailwind CSS</span>
                 </div>
                 <p className="text-[#475569]">
                   Developed a client-lawyer matching platform routing inquiries by legal specialization and verified Bar Council credentials. Won 2nd Runner-Up at the national Tutedude Buildathon 2025.

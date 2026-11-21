@@ -11,7 +11,7 @@ import {
 import { articlesData } from "@/data/articles";
 import { siteConfig } from "@/data/siteConfig";
 import { ArticleProgressBar } from "@/components/ArticleProgressBar";
-import { ArticleTableOfContents } from "@/components/ArticleTableOfContents";
+import { ArticleTableOfContents, MobileTableOfContents } from "@/components/ArticleTableOfContents";
 import { BullionSettlementDiagram } from "@/components/BullionSettlementDiagram";
 import { SmaBacktestChart } from "@/components/SmaBacktestChart";
 import { LegalTechWorkflowDiagram } from "@/components/LegalTechWorkflowDiagram";
@@ -33,12 +33,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = articlesData.find((a) => a.slug === slug);
 
   if (!article) {
-    return { title: "Article Not Found | Rakshit Jain" };
+    return { title: "Article Not Found" };
   }
 
+  const metaTitles: Record<string, string> = {
+    "iibx-and-indias-bullion-market": "IIBX & India Bullion Market Architecture",
+    "sma-strategy-backtesting": "20/50 SMA Crossover Backtest & Strategy Analysis",
+    "financial-workflows-and-fintech-products": "Financial Workflows to FinTech Products",
+  };
+
+  const metaDescriptions: Record<string, string> = {
+    "iibx-and-indias-bullion-market":
+      "In-depth analysis of India International Bullion Exchange (IIBX), Bullion Depository Receipts (BDRs), vault custody, and Qualified Jeweller onboarding.",
+    "sma-strategy-backtesting":
+      "Quantitative evaluation of a 20/50 SMA crossover strategy on INFY and TATAINVEST, analyzing Sharpe ratio, drawdown reduction, and market frictions.",
+    "financial-workflows-and-fintech-products":
+      "Product engineering analysis on bridging the interface gap in institutional finance, Compliance as Code, and lessons from the LawPrix platform.",
+  };
+
+  const metaTitle = metaTitles[slug] || article.title;
+  const metaDescription = metaDescriptions[slug] || article.excerpt;
+
   return {
-    title: `${article.title.slice(0, 50)} | Rakshit Jain`,
-    description: article.excerpt.slice(0, 150),
+    title: metaTitle,
+    description: metaDescription,
     authors: [{ name: article.author, url: siteConfig.url }],
     alternates: {
       canonical: `${siteConfig.url}/research/${article.slug}`,
@@ -46,12 +64,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       type: "article",
       url: `${siteConfig.url}/research/${article.slug}`,
-      title: article.title,
-      description: article.excerpt,
+      title: `${metaTitle} | Rakshit Jain`,
+      description: metaDescription,
       publishedTime: article.date,
       modifiedTime: article.updatedDate || article.date,
       authors: [article.author],
       tags: article.tags,
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: `${metaTitle} — Rakshit Jain`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${metaTitle} | Rakshit Jain`,
+      description: metaDescription,
+      images: ["/opengraph-image"],
     },
   };
 }
@@ -185,6 +217,11 @@ export default async function ArticlePage({ params }: Props) {
               Summary
             </span>
             <p>{article.excerpt}</p>
+          </div>
+
+          {/* Mobile Collapsible "On this page" TOC (Visible on < lg screens) */}
+          <div className="block lg:hidden pt-2">
+            <MobileTableOfContents items={article.tableOfContents} />
           </div>
         </header>
 

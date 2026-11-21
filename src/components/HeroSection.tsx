@@ -38,7 +38,7 @@ export function HeroSection() {
   ];
 
   return (
-    <section className="relative min-h-[85vh] flex flex-col justify-between pt-24 sm:pt-28 pb-10 px-4 sm:px-6 lg:px-8 border-b border-[#e3e8ef] bg-white overflow-hidden">
+    <section className="relative min-h-[85svh] flex flex-col justify-between pt-[calc(6rem+env(safe-area-inset-top,0px))] pb-10 px-4 sm:px-6 lg:px-8 border-b border-[#e3e8ef] bg-white overflow-hidden">
       {/* 4. Single ambient background element drifting slowly behind the heading */}
       <div
         aria-hidden="true"
@@ -53,9 +53,9 @@ export function HeroSection() {
         <div className="space-y-3">
           <h1
             className="font-serif-display font-bold text-[#0f172a] tracking-tight leading-[0.92] select-none uppercase"
-            style={{ fontSize: "clamp(3rem, 10.5vw, 9.8rem)" }}
+            style={{ fontSize: "clamp(3rem, 10.5vw, 9.8rem)", textTransform: "uppercase" }}
           >
-            RAKSHIT JAIN
+            Rakshit Jain
           </h1>
 
           {/* Shimmer Accent Line (8-12s loop, animated background-position) */}

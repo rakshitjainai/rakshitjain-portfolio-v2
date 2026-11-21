@@ -18,6 +18,18 @@ const nextConfig: NextConfig = {
         destination: "/about",
         permanent: true,
       },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "rakshitjain.in" }],
+        destination: "https://www.rakshitjain.in/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "rakshitjain-portfolio-v2.vercel.app" }],
+        destination: "https://www.rakshitjain.in/:path*",
+        permanent: true,
+      },
     ];
   },
 };

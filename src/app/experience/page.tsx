@@ -9,11 +9,24 @@ import { BullionSettlementDiagram } from "@/components/BullionSettlementDiagram"
 import { StructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Experience | Rakshit Jain",
+  title: "Experience",
   description:
-    "Internships across Anand Rathi at GIFT City, full-stack engineering at Certopus Inc., and industrial systems at the Department of Atomic Energy.",
+    "Internship experience across Anand Rathi at GIFT City IIBX bullion desk, full-stack engineering at Certopus, and industrial systems at Atomic Energy.",
   alternates: {
     canonical: `${siteConfig.url}/experience`,
+  },
+  openGraph: {
+    type: "website",
+    url: `${siteConfig.url}/experience`,
+    title: "Experience | Rakshit Jain",
+    description:
+      "Internship experience across Anand Rathi at GIFT City IIBX bullion desk, full-stack engineering at Certopus, and industrial systems at Atomic Energy.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Experience | Rakshit Jain",
+    description:
+      "Internship experience across Anand Rathi at GIFT City IIBX bullion desk, full-stack engineering at Certopus, and industrial systems at Atomic Energy.",
   },
 };
 

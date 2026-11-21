@@ -13,11 +13,24 @@ import { educationData } from "@/data/education";
 import { StructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "About | Rakshit Jain",
+  title: "About",
   description:
-    "Background of Rakshit Jain: B.Tech ICT student at PDEU working across financial markets operations, quantitative research, and software engineering.",
+    "Background of Rakshit Jain: B.Tech ICT student at PDEU combining financial market operations at GIFT City with software engineering and quantitative models.",
   alternates: {
     canonical: `${siteConfig.url}/about`,
+  },
+  openGraph: {
+    type: "profile",
+    url: `${siteConfig.url}/about`,
+    title: "About | Rakshit Jain",
+    description:
+      "Background of Rakshit Jain: B.Tech ICT student at PDEU combining financial market operations at GIFT City with software engineering and quantitative models.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About | Rakshit Jain",
+    description:
+      "Background of Rakshit Jain: B.Tech ICT student at PDEU combining financial market operations at GIFT City with software engineering and quantitative models.",
   },
 };
 

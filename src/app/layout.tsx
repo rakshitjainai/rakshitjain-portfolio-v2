@@ -8,7 +8,11 @@ import { siteConfig } from "@/data/siteConfig";
 import { Analytics } from "@vercel/analytics/react";
 
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
   themeColor: "#FFFFFF",
+  colorScheme: "light",
 };
 
 const inter = Inter({
@@ -36,35 +40,19 @@ export const metadata: Metadata = {
     template: "%s | Rakshit Jain",
   },
   description:
-    "Rakshit Jain: B.Tech ICT student at PDEU working across financial markets, quantitative research and software.",
-  keywords: [
-    "Rakshit Jain",
-    "Rakshit Jain PDEU",
-    "Financial Markets",
-    "Quantitative Analysis",
-    "Software Engineering",
-    "IIBX Bullion Trading",
-    "GIFT City IFSC",
-    "Anand Rathi IFSC",
-    "Python Backtesting",
-    "SMA Crossover",
-    "LawPrix",
-    "Product Management",
-    "Gandhinagar",
-    "Gujarat",
-  ],
+    "Rakshit Jain: B.Tech ICT student at PDEU working across financial markets operations, quantitative research, and full-stack software development.",
   authors: [{ name: "Rakshit Jain", url: siteConfig.url }],
   creator: "Rakshit Jain",
   alternates: {
     canonical: siteConfig.url,
   },
   openGraph: {
-    type: "profile",
+    type: "website",
     locale: "en_IN",
     url: siteConfig.url,
     title: "Rakshit Jain | B.Tech ICT, PDEU",
     description:
-      "Rakshit Jain: B.Tech ICT student at PDEU working across financial markets, quantitative research and software.",
+      "Rakshit Jain: B.Tech ICT student at PDEU working across financial markets operations, quantitative research, and full-stack software development.",
     siteName: "Rakshit Jain",
     images: [
       {
@@ -79,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Rakshit Jain | B.Tech ICT, PDEU",
     description:
-      "Rakshit Jain: B.Tech ICT student at PDEU working across financial markets, quantitative research and software.",
+      "Rakshit Jain: B.Tech ICT student at PDEU working across financial markets operations, quantitative research, and full-stack software development.",
     images: ["/opengraph-image"],
   },
   robots: {

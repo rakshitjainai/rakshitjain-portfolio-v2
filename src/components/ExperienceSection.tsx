@@ -141,7 +141,7 @@ export function ExperienceSection() {
                       ›
                     </span>
                     <span>
-                      <strong className="text-[#0f172a] font-semibold">{b.verb}</strong> {b.text.slice(b.verb.length).trimStart()}
+                      <strong className="text-[#0f172a] font-semibold">{b.verb}</strong> {b.text}
                     </span>
                   </li>
                 ))}

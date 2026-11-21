@@ -5,11 +5,24 @@ import { siteConfig } from "@/data/siteConfig";
 import { StructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Software Engineering Resume | Rakshit Jain",
+  title: "Software Engineering Resume",
   description:
-    "Resume of Rakshit Jain emphasizing full-stack engineering, React, Node.js, Python, and C systems programming.",
+    "Software engineering resume of Rakshit Jain: full-stack web applications with React.js and Node.js, REST APIs, and POSIX systems programming in C.",
   alternates: {
     canonical: `${siteConfig.url}/resume/tech`,
+  },
+  openGraph: {
+    type: "website",
+    url: `${siteConfig.url}/resume/tech`,
+    title: "Software Engineering Resume | Rakshit Jain",
+    description:
+      "Software engineering resume of Rakshit Jain: full-stack web applications with React.js and Node.js, REST APIs, and POSIX systems programming in C.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Software Engineering Resume | Rakshit Jain",
+    description:
+      "Software engineering resume of Rakshit Jain: full-stack web applications with React.js and Node.js, REST APIs, and POSIX systems programming in C.",
   },
 };
 
