@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowLeft, FileText, LayoutGrid } from "lucide-react";
+import { siteConfig } from "@/data/siteConfig";
 
 export default function NotFound() {
   return (
@@ -14,25 +15,26 @@ export default function NotFound() {
             Page Not Found
           </h1>
           <p className="text-xs sm:text-sm text-[#8b8f97] leading-relaxed">
-            The requested route does not exist. Use the shortcuts below to review my candidate profile.
+            The requested route does not exist. Use the links below to navigate the site.
           </p>
         </div>
 
         <div className="pt-2 flex flex-col gap-2.5">
-          <Link
-            href="/resume"
-            className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#c8a15a] hover:bg-[#dbb36c] text-[#0a0b0d] text-xs font-bold uppercase tracking-wider transition-colors"
+          <a
+            href={siteConfig.resume.primaryPdf}
+            download={siteConfig.resume.filename}
+            className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#c8a15a] hover:bg-[#dbb36c] text-[#0a0b0d] text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
           >
             <FileText className="w-4 h-4" />
             <span>Download Resume (PDF)</span>
-          </Link>
+          </a>
 
           <Link
             href="/projects"
             className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-[#22262e] hover:border-slate-500 bg-[#0a0b0d] text-[#f2efe8] text-xs font-mono transition-colors"
           >
             <LayoutGrid className="w-4 h-4 text-[#c8a15a]" />
-            <span>View Selected Projects</span>
+            <span>View Projects</span>
           </Link>
 
           <Link

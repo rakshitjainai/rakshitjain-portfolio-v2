@@ -1,6 +1,5 @@
 import React from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
   TrendingUp,
   Activity,
@@ -8,16 +7,15 @@ import {
   Compass,
   ArrowRight,
   GraduationCap,
-  Award,
 } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 import { educationData } from "@/data/education";
 import { StructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "About Rakshit Jain | Candidate Background",
+  title: "About | Rakshit Jain",
   description:
-    "Candidate overview of Rakshit Jain: B.Tech ICT student at PDEU, GIFT City bullion desk operations intern, full-stack software engineer, and quant analyst.",
+    "Background of Rakshit Jain: B.Tech ICT student at PDEU working across financial markets operations, quantitative research, and software engineering.",
   alternates: {
     canonical: `${siteConfig.url}/about`,
   },
@@ -63,7 +61,7 @@ export default function AboutPage() {
       color: "#c8a15a",
     },
     {
-      title: "Product Management",
+      title: "Product Development",
       desc: "Workflow analysis, requirements modeling, criteria-based matchmaking logic, and user friction reduction.",
       icon: Compass,
       color: "#c8a15a",
@@ -78,7 +76,7 @@ export default function AboutPage() {
         {/* Header */}
         <section className="max-w-3xl space-y-3">
           <span className="font-mono text-xs uppercase tracking-wider text-[#c8a15a] font-semibold">
-            Candidate Profile
+            Background
           </span>
           <h1 className="text-3xl sm:text-5xl font-serif-display font-bold text-[#f2efe8] tracking-tight">
             Markets, Quantitative Analysis &amp; Software
@@ -117,10 +115,10 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Short Summary of Relevant Experience */}
+        {/* Relevant Experience Summary */}
         <section className="space-y-4">
           <div className="border-b border-[#22262e] pb-2">
-            <h2 className="text-lg font-bold text-[#f2efe8]">Relevant Experience Summary</h2>
+            <h2 className="text-lg font-bold text-[#f2efe8]">Experience Summary</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -178,15 +176,14 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <Link
-            href="/Rakshit-Jain-Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#c8a15a] text-[#0a0b0d] font-bold text-xs uppercase tracking-wider hover:bg-[#dbb36c] transition-colors shrink-0 font-mono"
+          <a
+            href={siteConfig.resume.primaryPdf}
+            download={siteConfig.resume.filename}
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#c8a15a] text-[#0a0b0d] font-bold text-xs uppercase tracking-wider hover:bg-[#dbb36c] transition-colors shrink-0 font-mono cursor-pointer"
           >
             <span>Resume (PDF)</span>
             <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+          </a>
         </section>
       </div>
     </>

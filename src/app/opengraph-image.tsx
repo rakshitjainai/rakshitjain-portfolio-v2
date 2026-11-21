@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Rakshit Jain — Finance, Quant and Software Intern Candidate";
+export const alt = "Rakshit Jain — Financial Markets, Quantitative Research & Software";
 export const size = {
   width: 1200,
   height: 630,
@@ -40,7 +40,7 @@ export default async function Image() {
                 width: "8px",
                 height: "8px",
                 borderRadius: "50%",
-                backgroundColor: "#10B981",
+                backgroundColor: "#C8A15A",
               }}
             />
             <span
@@ -51,7 +51,7 @@ export default async function Image() {
                 textTransform: "uppercase",
               }}
             >
-              Seeking Summer 2027 Internships
+              PDEU ICT (2023–2027)
             </span>
           </div>
 
@@ -64,7 +64,7 @@ export default async function Image() {
               fontWeight: 600,
             }}
           >
-            PDEU ICT &apos;27 · GIFT City Experience
+            Financial Markets · Quant · Software
           </span>
         </div>
 
@@ -90,7 +90,7 @@ export default async function Image() {
               fontWeight: 500,
             }}
           >
-            Markets, Quantitative Analysis &amp; Software Engineering
+            Financial Markets, Quantitative Research &amp; Software
           </p>
           <p
             style={{
@@ -101,7 +101,7 @@ export default async function Image() {
               lineHeight: 1.4,
             }}
           >
-            GIFT City IIBX Bullion Desk · Python Backtesting · Full-Stack React &amp; Node.js · LawPrix (Tutedude 2nd Runner-Up)
+            GIFT City IIBX Bullion Desk · Python Backtesting · Full-Stack React &amp; Node.js · Systems in C
           </p>
         </div>
 
@@ -115,10 +115,10 @@ export default async function Image() {
           }}
         >
           <span style={{ fontSize: "16px", color: "#8B8F97" }}>
-            Gandhinagar / Ahmedabad, Gujarat, India (Open to Remote &amp; Relocate)
+            Gandhinagar, Gujarat, India
           </span>
           <span style={{ fontSize: "16px", color: "#F2EFE8", fontWeight: 600 }}>
-            rakshitjain.in · rakshitindia2019@gmail.com
+            rakshitindia2019@gmail.com
           </span>
         </div>
       </div>

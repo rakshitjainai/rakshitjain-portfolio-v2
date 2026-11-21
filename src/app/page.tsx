@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { siteConfig } from "@/data/siteConfig";
 import { StructuredData } from "@/components/StructuredData";
-import { RecruiterHero } from "@/components/RecruiterHero";
+import { HeroSection } from "@/components/HeroSection";
 import { RoleCards } from "@/components/RoleCards";
 import { ExperienceSection } from "@/components/ExperienceSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
@@ -14,9 +14,9 @@ import { AboutSection } from "@/components/AboutSection";
 import { ContactSection } from "@/components/ContactSection";
 
 export const metadata: Metadata = {
-  title: "Rakshit Jain | Finance, Quant and Software Intern Candidate | PDEU",
+  title: "Rakshit Jain | B.Tech ICT, PDEU",
   description:
-    "B.Tech ICT student at PDEU seeking Summer 2027 internships across Markets, Quant and Product. GIFT City bullion desk & full-stack experience.",
+    "Rakshit Jain: B.Tech ICT student at PDEU working across financial markets, quantitative research and software.",
   alternates: {
     canonical: siteConfig.url,
   },
@@ -30,6 +30,7 @@ export default function HomePage() {
     jobTitle: "Student, B.Tech ICT",
     url: siteConfig.url,
     email: `mailto:${siteConfig.author.email}`,
+    telephone: siteConfig.author.phone,
     sameAs: [siteConfig.author.linkedin, siteConfig.author.github],
     worksFor: {
       "@type": "CollegeOrUniversity",
@@ -84,10 +85,10 @@ export default function HomePage() {
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Rakshit Jain Portfolio",
+    name: "Rakshit Jain",
     url: siteConfig.url,
     description:
-      "Recruiter-aligned candidate portfolio of Rakshit Jain, B.Tech ICT student at PDEU seeking Summer 2027 internships in Markets, Quant and Product.",
+      "Personal website of Rakshit Jain, B.Tech ICT student at PDEU working across financial markets, quantitative research and software.",
   };
 
   const organizationsJsonLd = {
@@ -125,34 +126,34 @@ export default function HomePage() {
       <StructuredData data={organizationsJsonLd} />
 
       <div className="w-full flex flex-col bg-[#0a0b0d]">
-        {/* 1. Recruiter-First Hero (Above the fold 30-sec test) */}
-        <RecruiterHero />
+        {/* 1. Hero */}
+        <HeroSection />
 
-        {/* 2. What I can do for your team (3 role cards) */}
+        {/* 2. Areas of Experience */}
         <RoleCards />
 
-        {/* 3. Experience (3 roles, 3 bullets each) */}
+        {/* 3. Experience */}
         <ExperienceSection />
 
-        {/* 4. Selected Projects (3 case studies + chart) */}
+        {/* 4. Selected Projects */}
         <ProjectsSection />
 
-        {/* 5. Leadership (4 role cards with scope) */}
+        {/* 5. Leadership */}
         <LeadershipSection />
 
-        {/* 6. Skills Matrix (Plain scannable table grouped by 3 categories) */}
+        {/* 6. Skills */}
         <SkillsSection />
 
-        {/* 7. Education & Recognition (PDEU + honors) */}
+        {/* 7. Education */}
         <EducationSection />
 
-        {/* 8. Writing & Research (3 articles with read times) */}
+        {/* 8. Writing */}
         <ArticlesSection />
 
-        {/* 9. Short About (Max 90 words + photo placeholder) */}
+        {/* 9. About */}
         <AboutSection />
 
-        {/* 10. Contact Section (Form, copy email, Cal placeholder, 24h reply) */}
+        {/* 10. Contact */}
         <ContactSection />
       </div>
     </>

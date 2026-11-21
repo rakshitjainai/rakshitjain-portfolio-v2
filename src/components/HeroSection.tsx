@@ -1,15 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
-import { FileText, Mail, Copy, Check, ArrowDown } from "lucide-react";
+import { FileText, Mail, Copy, Check } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { siteConfig } from "@/data/siteConfig";
 
-export function RecruiterHero() {
+export function HeroSection() {
   const [copied, setCopied] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(siteConfig.author.email);
@@ -20,71 +17,59 @@ export function RecruiterHero() {
   const proofFacts = [
     {
       num: "GIFT City",
-      label: "Bullion Desk",
-      desc: "Anand Rathi IFSC terminal operations & BDR workflows",
+      label: "Bullion Desk Exposure",
+      desc: "Anand Rathi IFSC terminal monitoring and BDR settlement workflows",
     },
     {
-      num: "2 Internships",
-      label: "Completed in 2026",
-      desc: "Capital markets operations + remote full-stack engineering",
+      num: "3 Roles",
+      label: "Technical Experience",
+      desc: "Capital markets desk, remote full-stack engineering, and DAE training portal",
     },
     {
-      num: "2nd Runner-Up",
-      label: "Buildathon Podium",
-      desc: "National hackathon award for LawPrix legal-tech platform",
+      num: "Podium",
+      label: "Tutedude Buildathon",
+      desc: "2nd Runner-Up for LawPrix legal-tech platform",
     },
     {
-      num: "4 Leadership Roles",
-      label: "Campus Scope",
-      desc: "Operations & logistics head for CSI PDEU, Nucleus, Placement Cell",
+      num: "4 Positions",
+      label: "Campus Leadership",
+      desc: "Logistics and operations head across CSI, Nucleus, and placement liaison",
     },
   ];
 
   return (
-    <section className="relative min-h-[92vh] flex flex-col justify-between pt-24 sm:pt-28 pb-10 px-4 sm:px-6 lg:px-8 border-b border-[#22262e] bg-[#0a0b0d]">
-      <div className="max-w-7xl w-full mx-auto space-y-8 my-auto">
-        {/* Availability Pill */}
-        <div className="inline-flex flex-wrap items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#111317] border border-[#22262e] text-xs font-mono text-[#8b8f97]">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span className="text-[#c8a15a] font-semibold">Available from [TODO: date]</span>
-          <span className="text-[#8b8f97]">|</span>
-          <span className="text-[#f2efe8]">Gandhinagar / Ahmedabad, open to relocate and remote</span>
-        </div>
-
-        {/* 1. Huge Name: clamp(4rem, 14vw, 13rem) */}
+    <section className="relative min-h-[85vh] flex flex-col justify-between pt-24 sm:pt-28 pb-10 px-4 sm:px-6 lg:px-8 border-b border-[#22262e] bg-[#0a0b0d]">
+      <div className="max-w-7xl w-full mx-auto space-y-6 my-auto">
+        {/* Name Heading (Reduced 15-20% for clean responsive scaling) */}
         <div className="space-y-3">
           <h1
             className="font-serif-display font-bold text-[#f2efe8] tracking-tight leading-[0.92] select-none uppercase"
-            style={{ fontSize: "clamp(3.8rem, 13.5vw, 12.5rem)" }}
+            style={{ fontSize: "clamp(3rem, 10.5vw, 9.8rem)" }}
           >
             RAKSHIT JAIN
           </h1>
 
-          {/* 2. One-line role statement */}
+          {/* Neutral role statement (no "seeking", no year-of-study claim) */}
           <p className="text-base sm:text-xl lg:text-2xl text-[#c8a15a] font-sans font-medium tracking-tight">
-            B.Tech ICT student at PDEU | Markets, Quant and Product | Seeking Summer 2027 internships
+            B.Tech ICT, PDEU (2023–2027) · Financial Markets, Quantitative Research &amp; Software
           </p>
         </div>
 
-        {/* 4. Action CTAs & Socials */}
+        {/* Action CTAs & Socials */}
         <div className="flex flex-wrap items-center gap-3 pt-2">
           {/* Primary CTA */}
-          <Link
-            href="/Rakshit-Jain-Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#c8a15a] hover:bg-[#dbb36c] text-[#0a0b0d] font-mono font-bold text-xs uppercase tracking-wider transition-all duration-150 shadow-md hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c8a15a]"
+          <a
+            href={siteConfig.resume.primaryPdf}
+            download={siteConfig.resume.filename}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#c8a15a] hover:bg-[#dbb36c] text-[#0a0b0d] font-mono font-bold text-xs uppercase tracking-wider transition-all duration-150 shadow-md hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c8a15a] cursor-pointer"
           >
             <FileText className="w-4 h-4" />
             <span>Download resume (PDF)</span>
-          </Link>
+          </a>
 
           {/* Secondary CTA */}
           <a
-            href={`mailto:${siteConfig.author.email}?subject=Internship%20Inquiry%20-%20Rakshit%20Jain`}
+            href={`mailto:${siteConfig.author.email}?subject=Hello%20Rakshit`}
             className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-[#22262e] hover:border-slate-400 bg-[#111317] hover:bg-[#181b21] text-[#f2efe8] font-mono text-xs font-semibold tracking-wider transition-all duration-150 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c8a15a]"
           >
             <Mail className="w-4 h-4 text-[#c8a15a]" />
@@ -94,7 +79,7 @@ export function RecruiterHero() {
           {/* Copy Email Helper */}
           <button
             onClick={handleCopyEmail}
-            className="inline-flex items-center gap-1.5 px-3.5 py-3 rounded-lg border border-[#22262e] hover:border-slate-500 bg-[#111317] text-[#8b8f97] hover:text-[#f2efe8] text-xs font-mono transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c8a15a]"
+            className="inline-flex items-center gap-1.5 px-3.5 py-3 rounded-lg border border-[#22262e] hover:border-slate-500 bg-[#111317] text-[#8b8f97] hover:text-[#f2efe8] text-xs font-mono transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c8a15a] cursor-pointer"
             title="Copy email to clipboard"
             aria-label="Copy email address"
           >
@@ -135,8 +120,8 @@ export function RecruiterHero() {
         </div>
       </div>
 
-      {/* 5. Proof Strip: 4 Hard Facts */}
-      <div className="max-w-7xl w-full mx-auto pt-10 border-t border-[#22262e]">
+      {/* Proof Strip: 4 Factual Cards */}
+      <div className="max-w-7xl w-full mx-auto pt-8 border-t border-[#22262e]">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {proofFacts.map((fact, idx) => (
             <div
@@ -155,16 +140,10 @@ export function RecruiterHero() {
             </div>
           ))}
         </div>
-
-        {/* Scan Hint */}
-        <div className="pt-4 flex items-center justify-between text-[11px] font-mono text-[#8b8f97]">
-          <span>Designed for a 30-second recruiter decision</span>
-          <span className="flex items-center gap-1">
-            <span>Scroll for role breakdown &amp; proof</span>
-            <ArrowDown className="w-3 h-3 text-[#c8a15a]" />
-          </span>
-        </div>
       </div>
     </section>
   );
 }
+
+// Keep Hero export alias
+export { HeroSection as Hero };

@@ -5,8 +5,8 @@ import { ArrowRight, TrendingUp, Cpu, Layout } from "lucide-react";
 export function RoleCards() {
   const roles = [
     {
-      title: "Markets & Operations Analyst",
-      jobTitles: "Financial Markets Analyst · Trading Operations Intern · Equity Research Trainee",
+      title: "Markets & Operations",
+      focus: "Bullion Trading · Settlement Workflows · Risk Monitoring",
       icon: TrendingUp,
       skills: [
         "Bullion trading workflows",
@@ -16,17 +16,17 @@ export function RoleCards() {
         "KYC, GST & IEC documentation checks",
         "Financial market infrastructure",
       ],
-      proof: {
+      project: {
         title: "Anand Rathi GIFT City Bullion Desk",
-        detail: "3-month institutional internship on IIBX desk; handled terminal monitoring and jeweller KYC validation.",
+        detail: "Institutional internship on IIBX desk; terminal monitoring and jeweller KYC validation.",
         linkText: "Review desk operations",
         href: "/experience#anand-rathi",
       },
-      resumeHref: "/resume#finance",
+      resumeHref: "/resume/finance",
     },
     {
-      title: "Quantitative & Data Analyst",
-      jobTitles: "Quantitative Research Intern · Data Analyst · Quantitative Developer",
+      title: "Quantitative Analysis",
+      focus: "Strategy Backtesting · Risk Metrics · Python Modeling",
       icon: Cpu,
       skills: [
         "Python (Pandas, NumPy)",
@@ -36,17 +36,17 @@ export function RoleCards() {
         "Zero look-ahead position shifting",
         "Historical equity data via yFinance",
       ],
-      proof: {
+      project: {
         title: "Market Sentiment Analyzer",
-        detail: "Cut INFY max drawdown from -36.4% to -18.2% and lowered volatility to 15.3% (Sharpe 0.35).",
+        detail: "Halved INFY max drawdown from -36.4% to -18.2% and lowered volatility to 15.3% (Sharpe 0.35).",
         linkText: "Inspect backtest model",
         href: "/projects#market-sentiment-analyzer",
       },
-      resumeHref: "/resume#quant",
+      resumeHref: "/resume/quant",
     },
     {
-      title: "Product & Full-Stack Engineer",
-      jobTitles: "Associate Product Manager · Full-Stack Engineer Intern · FinTech Product Analyst",
+      title: "Software Engineering",
+      focus: "Full-Stack Web · Systems in C · Workflow Architecture",
       icon: Layout,
       skills: [
         "React.js & Next.js",
@@ -56,28 +56,25 @@ export function RoleCards() {
         "Criteria-based matchmaking logic",
         "C systems programming & Linux POSIX",
       ],
-      proof: {
+      project: {
         title: "LawPrix (Buildathon 2nd Runner-Up)",
-        detail: "Built transparent legal matching platform with Bar Council verification; national award winner.",
+        detail: "Legal matchmaking platform with Bar Council verification; national award winner.",
         linkText: "View product case study",
         href: "/projects#lawprix",
       },
-      resumeHref: "/resume#tech",
+      resumeHref: "/resume/tech",
     },
   ];
 
   return (
-    <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
       <div className="border-b border-[#22262e] pb-6 space-y-2">
         <span className="font-mono text-xs uppercase tracking-wider text-[#c8a15a] font-semibold">
-          Recruiter Alignment
+          Focus
         </span>
         <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#f2efe8]">
-          What I can do for your team
+          Areas of Experience
         </h2>
-        <p className="text-xs sm:text-sm text-[#8b8f97] max-w-2xl font-sans">
-          Directly mapped to the internship and entry-level titles your hiring team searches for, backed by hard project proof.
-        </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -101,13 +98,13 @@ export function RoleCards() {
                     {role.title}
                   </h3>
                   <p className="font-mono text-[11px] text-[#c8a15a] leading-tight">
-                    {role.jobTitles}
+                    {role.focus}
                   </p>
                 </div>
 
                 <div className="space-y-2 pt-2 border-t border-[#22262e]">
                   <span className="font-mono text-[10px] uppercase text-[#8b8f97] tracking-wider block">
-                    Core Capabilities
+                    Key Skills
                   </span>
                   <ul className="text-xs text-[#f2efe8] space-y-1 font-sans">
                     {role.skills.map((skill, sIdx) => (
@@ -123,19 +120,19 @@ export function RoleCards() {
               <div className="space-y-3 pt-4 border-t border-[#22262e]">
                 <div className="p-3 rounded-lg bg-[#0a0b0d] border border-[#22262e] space-y-1">
                   <span className="font-mono text-[10px] uppercase text-[#c8a15a] font-semibold block">
-                    Proof Project
+                    Representative Project
                   </span>
                   <div className="text-xs font-bold text-[#f2efe8]">
-                    {role.proof.title}
+                    {role.project.title}
                   </div>
                   <p className="text-[11px] text-[#8b8f97] leading-relaxed">
-                    {role.proof.detail}
+                    {role.project.detail}
                   </p>
                   <Link
-                    href={role.proof.href}
+                    href={role.project.href}
                     className="text-[11px] font-mono text-[#c8a15a] hover:underline inline-flex items-center gap-1 pt-1"
                   >
-                    <span>{role.proof.linkText}</span>
+                    <span>{role.project.linkText}</span>
                     <ArrowRight className="w-3 h-3" />
                   </Link>
                 </div>
@@ -144,7 +141,7 @@ export function RoleCards() {
                   href={role.resumeHref}
                   className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg border border-[#22262e] hover:border-slate-500 bg-[#111317] hover:bg-[#181b21] text-xs font-mono text-[#f2efe8] transition-colors"
                 >
-                  <span>See resume for this role</span>
+                  <span>View track resume</span>
                   <ArrowRight className="w-3 h-3 text-[#c8a15a]" />
                 </Link>
               </div>

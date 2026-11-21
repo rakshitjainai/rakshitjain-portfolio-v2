@@ -6,10 +6,7 @@ import {
   Calendar,
   Clock,
   ArrowLeft,
-  BookOpen,
-  CheckCircle2,
   ExternalLink,
-  Share2,
 } from "lucide-react";
 import { articlesData } from "@/data/articles";
 import { siteConfig } from "@/data/siteConfig";
@@ -19,6 +16,7 @@ import { BullionSettlementDiagram } from "@/components/BullionSettlementDiagram"
 import { SmaBacktestChart } from "@/components/SmaBacktestChart";
 import { LegalTechWorkflowDiagram } from "@/components/LegalTechWorkflowDiagram";
 import { StructuredData } from "@/components/StructuredData";
+import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -176,15 +174,15 @@ export default async function ArticlePage({ params }: Props) {
             <div className="text-xs">
               <div className="font-semibold text-[#f2efe8]">{article.author}</div>
               <div className="text-[#8b8f97] text-[11px] font-mono">
-                B.Tech ICT Student · PDEU (2023–2027) · Gandhinagar, Gujarat
+                B.Tech ICT · PDEU (2023–2027) · Gandhinagar, Gujarat
               </div>
             </div>
           </div>
 
-          {/* 2-Sentence Summary Block */}
+          {/* Single Summary Block */}
           <div className="p-4 rounded-xl bg-[#111317] border border-[#c8a15a]/40 text-xs text-[#f2efe8] leading-relaxed font-sans space-y-1">
             <span className="font-mono text-[10px] text-[#c8a15a] uppercase block font-semibold">
-              Article Summary
+              Summary
             </span>
             <p>{article.excerpt}</p>
           </div>
@@ -194,22 +192,6 @@ export default async function ArticlePage({ params }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Main Article Body */}
           <article className="lg:col-span-8 space-y-10">
-            {/* Key Takeaways Callout */}
-            <div className="p-6 bg-[#111317] border border-[#22262e] rounded-xl space-y-3">
-              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#c8a15a]">
-                <BookOpen className="w-4 h-4" />
-                <span>Executive Summary &amp; Key Takeaways</span>
-              </div>
-              <ul className="space-y-2 text-xs sm:text-sm text-[#f2efe8]">
-                {article.keyTakeaways.map((takeaway, i) => (
-                  <li key={i} className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#c8a15a] mt-0.5 shrink-0" />
-                    <span className="leading-relaxed">{takeaway}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             {/* In-article Visualizations */}
             {slug === "iibx-and-indias-bullion-market" && (
               <div className="space-y-2">
@@ -229,7 +211,7 @@ export default async function ArticlePage({ params }: Props) {
               </div>
             )}
 
-            {/* Content Sections */}
+            {/* Content Sections rendered via MarkdownRenderer */}
             <div className="space-y-12">
               {article.contentSections.map((section) => (
                 <section
@@ -240,8 +222,8 @@ export default async function ArticlePage({ params }: Props) {
                   <h2 className="text-xl sm:text-2xl font-bold text-[#f2efe8] tracking-tight font-sans">
                     {section.title}
                   </h2>
-                  <div className="text-sm sm:text-base text-[#8b8f97] leading-relaxed font-sans space-y-4 whitespace-pre-line">
-                    {section.content}
+                  <div className="text-sm sm:text-base text-[#8b8f97] leading-relaxed font-sans">
+                    <MarkdownRenderer content={section.content} />
                   </div>
                 </section>
               ))}
@@ -252,10 +234,10 @@ export default async function ArticlePage({ params }: Props) {
               <section id="references" className="pt-6 space-y-4">
                 <div className="border-t border-[#22262e] pt-6">
                   <span className="font-mono text-xs uppercase tracking-wider text-[#c8a15a]">
-                    Bibliography &amp; Statutory Citations
+                    References &amp; Citations
                   </span>
                   <h3 className="text-lg font-bold text-[#f2efe8] mt-1 font-sans">
-                    Primary Sources &amp; Referenced Publications
+                    Primary Sources &amp; Publications
                   </h3>
                 </div>
 
@@ -294,24 +276,6 @@ export default async function ArticlePage({ params }: Props) {
           <aside className="lg:col-span-4 hidden lg:block">
             <div className="sticky top-28 space-y-6">
               <ArticleTableOfContents items={article.tableOfContents} />
-
-              {/* Author Card */}
-              <div className="p-5 rounded-xl bg-[#111317] border border-[#22262e] space-y-3 text-xs">
-                <span className="font-mono text-[10px] uppercase text-[#c8a15a] font-semibold block">
-                  Author Dossier
-                </span>
-                <div className="font-bold text-[#f2efe8]">{article.author}</div>
-                <p className="text-[#8b8f97] leading-relaxed">
-                  Third-year ICT undergraduate at PDEU Gandhinagar focusing on bullion market infrastructure, quantitative analysis, and product management.
-                </p>
-                <Link
-                  href="/resume"
-                  className="text-[#c8a15a] hover:underline flex items-center gap-1 font-mono pt-1"
-                >
-                  <span>Candidate resume</span>
-                  <ExternalLink className="w-3 h-3" />
-                </Link>
-              </div>
             </div>
           </aside>
         </div>

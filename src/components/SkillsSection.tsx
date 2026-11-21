@@ -6,7 +6,7 @@ export function SkillsSection() {
       category: "Markets & Quant",
       description: "Exchange infrastructure, quantitative analysis, trading operations, and risk metrics",
       skills: [
-        { name: "Python", context: "Primary modeling language (vectorized backtesting, data processing)" },
+        { name: "Python", context: "Primary modeling language for backtesting and time-series data processing" },
         { name: "Pandas & NumPy", context: "Vectorized time series transformations and rolling calculations" },
         { name: "Backtesting", context: "20/50 SMA crossover strategy evaluation with 1-day shifted execution" },
         { name: "Risk Metrics", context: "CAGR, Sharpe Ratio (Rf = 6.5%), Maximum Drawdown, volatility" },
@@ -22,7 +22,7 @@ export function SkillsSection() {
       category: "Engineering",
       description: "Full-stack web development, systems programming, and database interfaces",
       skills: [
-        { name: "React.js & Next.js", context: "Component architecture, client state, SSR, and App Router" },
+        { name: "React.js & Next.js", context: "Component architecture, client state, and App Router" },
         { name: "Node.js & Express", context: "Backend REST API endpoints, routing, and middleware" },
         { name: "C", context: "Systems programming: POSIX APIs, fork, execvp, pipes, file redirection" },
         { name: "SQL", context: "Relational database schema queries and data consistency" },
@@ -48,16 +48,16 @@ export function SkillsSection() {
   ];
 
   return (
-    <section id="skills" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+    <section id="skills" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
       <div className="border-b border-[#22262e] pb-6 space-y-2">
         <span className="font-mono text-xs uppercase tracking-wider text-[#c8a15a] font-semibold">
-          Technical Inventory
+          Skills
         </span>
         <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#f2efe8]">
-          Skills Matrix
+          Skills
         </h2>
         <p className="text-xs sm:text-sm text-[#8b8f97] max-w-2xl font-sans">
-          Plain, scannable table grouped by domain. Exact keywords matched to internship job descriptions. No bars or percentages.
+          Technical skills, tools, and methodologies applied across projects and internships.
         </p>
       </div>
 
@@ -80,9 +80,8 @@ export function SkillsSection() {
               <div className="divide-y divide-[#22262e]">
                 {group.skills.map((skill, sIdx) => (
                   <div key={sIdx} className="py-2.5 flex flex-col space-y-0.5">
-                    <div className="text-xs font-mono font-bold text-[#f2efe8] flex items-center justify-between">
-                      <span>{skill.name}</span>
-                      <span className="text-[10px] text-[#c8a15a] font-normal">verified in code / ops</span>
+                    <div className="text-xs font-mono font-bold text-[#f2efe8]">
+                      {skill.name}
                     </div>
                     <span className="text-[11px] text-[#8b8f97] leading-relaxed font-sans">
                       {skill.context}

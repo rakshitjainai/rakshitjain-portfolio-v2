@@ -11,7 +11,7 @@ import { StructuredData } from "@/components/StructuredData";
 export const metadata: Metadata = {
   title: "Experience | Rakshit Jain",
   description:
-    "Institutional internships across Anand Rathi at GIFT City, full-stack development at Certopus Inc., and industrial systems at the Department of Atomic Energy.",
+    "Internships across Anand Rathi at GIFT City, full-stack engineering at Certopus Inc., and industrial systems at the Department of Atomic Energy.",
   alternates: {
     canonical: `${siteConfig.url}/experience`,
   },
@@ -50,7 +50,7 @@ export default function ExperiencePage() {
           <div className="border-b border-[#22262e] pb-3 flex items-center justify-between">
             <div>
               <span className="font-mono text-xs uppercase text-[#c8a15a] block font-semibold">
-                Operational Lifecycle
+                Operational Workflow
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-[#f2efe8] font-sans mt-0.5">
                 IIBX Bullion Depository Receipt (BDR) Settlement Lifecycle
@@ -60,7 +60,7 @@ export default function ExperiencePage() {
               href="/research/iibx-and-indias-bullion-market"
               className="text-xs font-mono text-[#c8a15a] hover:underline flex items-center gap-1 shrink-0"
             >
-              <span>Read research paper</span>
+              <span>Read article</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
@@ -71,26 +71,25 @@ export default function ExperiencePage() {
         {/* Leadership Section */}
         <LeadershipSection />
 
-        {/* Quick CTA to Resume */}
+        {/* Resume Download Card */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="p-6 bg-[#111317] border border-[#22262e] rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="space-y-1">
               <h3 className="text-base font-bold text-[#f2efe8]">
-                Looking for a formal copy for internal review?
+                Resume Download
               </h3>
               <p className="text-xs text-[#8b8f97]">
-                Download Rakshit-Jain-Resume.pdf for the official 1-page summary.
+                Download the one-page resume summary ({siteConfig.resume.filename}).
               </p>
             </div>
-            <Link
-              href="/Rakshit-Jain-Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#c8a15a] text-[#0a0b0d] font-bold text-xs uppercase tracking-wider hover:bg-[#dbb36c] transition-colors shrink-0 font-mono"
+            <a
+              href={siteConfig.resume.primaryPdf}
+              download={siteConfig.resume.filename}
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#c8a15a] text-[#0a0b0d] font-bold text-xs uppercase tracking-wider hover:bg-[#dbb36c] transition-colors shrink-0 font-mono cursor-pointer"
             >
               <FileText className="w-3.5 h-3.5" />
               <span>Download Resume (PDF)</span>
-            </Link>
+            </a>
           </div>
         </section>
       </div>

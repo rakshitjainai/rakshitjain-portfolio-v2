@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Building, Calendar, MapPin, Wrench } from "lucide-react";
+import { ArrowRight, Calendar, MapPin, Wrench } from "lucide-react";
 
 export function ExperienceSection() {
   const experiences = [
@@ -13,16 +13,16 @@ export function ExperienceSection() {
       summary: "Bullion trading desk operations on the India International Bullion Exchange (IIBX) at GIFT City IFSC.",
       bullets: [
         {
-          verb: "Operated",
-          text: "live trading terminals and market watch feeds on the IIBX bullion desk, tracking intraday bid-ask quotes in USD per troy ounce to assist daily execution monitoring.",
+          verb: "Observed",
+          text: "live trading terminals and market watch feeds on the IIBX bullion desk, tracking intraday bid-ask quotes in USD per troy ounce to monitor order execution.",
         },
         {
           verb: "Mapped",
-          text: "dematerialized Bullion Depository Receipt (BDR) settlement workflows, auditing custodian transfer stages across empanelled vaults to ensure error-free clearing reconciliation.",
+          text: "dematerialized Bullion Depository Receipt (BDR) settlement workflows across custodian transfer stages in empanelled vaults to understand clearing reconciliation.",
         },
         {
-          verb: "Audited",
-          text: "institutional compliance dossiers (PAN, GSTIN, and IEC) for Qualified Jewellers, flagging documentation discrepancies before regulatory submission to IFSCA.",
+          verb: "Reviewed",
+          text: "institutional client onboarding documentation (PAN, GSTIN, and IEC) for Qualified Jewellers against IFSCA compliance requirements.",
         },
       ],
       tools: ["Trading Terminals", "BDR Registry", "IFSCA Bullion Regulations", "Excel", "Compliance Trackers"],
@@ -37,7 +37,7 @@ export function ExperienceSection() {
       bullets: [
         {
           verb: "Engineered",
-          text: "responsive client features in React.js and backend REST endpoints in Node.js, delivering production modules on schedule within daily sprint timelines.",
+          text: "responsive client features in React.js and backend REST endpoints in Node.js, delivering production modules within daily sprint timelines.",
         },
         {
           verb: "Integrated",
@@ -60,7 +60,7 @@ export function ExperienceSection() {
       bullets: [
         {
           verb: "Developed",
-          text: "an internal training record web application in PHP and MySQL for the plant Training Section, replacing spreadsheet logs with centralized relational recordkeeping.",
+          text: "an internal training record web application in PHP and MySQL for the plant Training Section, replacing manual spreadsheet logs with centralized relational recordkeeping.",
         },
         {
           verb: "Configured",
@@ -68,7 +68,7 @@ export function ExperienceSection() {
         },
         {
           verb: "Inspected",
-          text: "industrial process instrumentation, control valves, and transmitters across operational units, earning a 'Very Good' supervisory evaluation rating.",
+          text: "industrial process instrumentation, control valves, actuators, and transmitters across operational units.",
         },
       ],
       tools: ["PHP", "MySQL", "Apache Server", "Linux", "Industrial I&C Systems"],
@@ -76,17 +76,17 @@ export function ExperienceSection() {
   ];
 
   return (
-    <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#22262e] pb-6">
         <div className="space-y-2">
           <span className="font-mono text-xs uppercase tracking-wider text-[#c8a15a] font-semibold">
-            Track Record
+            Experience
           </span>
           <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#f2efe8]">
-            Work Experience
+            Experience
           </h2>
           <p className="text-xs sm:text-sm text-[#8b8f97] font-sans">
-            Three roles. Three action-oriented proof points each.
+            Internships in financial market operations, full-stack engineering, and internal web applications.
           </p>
         </div>
 
@@ -129,18 +129,20 @@ export function ExperienceSection() {
               </div>
             </div>
 
-            {/* 3 Bullets: action verb + what + measurable outcome */}
+            {/* Bullets: What I worked on */}
             <div className="space-y-3">
-              <span className="font-mono text-[10px] uppercase text-[#8b8f97] tracking-wider block">
-                Key Contributions &amp; Measurable Outcomes
+              <span className="font-mono text-[10px] uppercase text-[#8b8f97] tracking-wider block font-semibold">
+                What I worked on
               </span>
               <ul className="space-y-2.5 text-xs sm:text-sm text-[#f2efe8] font-sans leading-relaxed">
                 {exp.bullets.map((b, bIdx) => (
                   <li key={bIdx} className="flex items-start gap-2">
                     <span className="font-mono text-[#c8a15a] font-bold text-xs mt-0.5">
-                      [{b.verb}]
+                      ›
                     </span>
-                    <span>{b.text}</span>
+                    <span>
+                      <strong className="text-[#f2efe8] font-semibold">{b.verb}</strong> {b.text.slice(b.verb.length).trimStart()}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -150,7 +152,7 @@ export function ExperienceSection() {
             <div className="pt-4 border-t border-[#22262e] flex flex-wrap items-center gap-2">
               <span className="text-[11px] font-mono text-[#8b8f97] flex items-center gap-1 mr-2">
                 <Wrench className="w-3 h-3 text-[#c8a15a]" />
-                <span>Tools used:</span>
+                <span>Tools:</span>
               </span>
               {exp.tools.map((tool, tIdx) => (
                 <span

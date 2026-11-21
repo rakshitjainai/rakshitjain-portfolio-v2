@@ -70,7 +70,7 @@ body {
   }
 }
 
-/* Recruiter Resume Print Stylesheet */
+/* Resume Print Stylesheet */
 @media print {
   @page {
     margin: 12mm 15mm;

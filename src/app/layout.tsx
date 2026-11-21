@@ -27,17 +27,17 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Rakshit Jain | Finance, Quant and Software Intern Candidate | PDEU",
+    default: "Rakshit Jain | B.Tech ICT, PDEU",
     template: "%s | Rakshit Jain",
   },
   description:
-    "B.Tech ICT student at PDEU seeking Summer 2027 internships across Markets, Quant and Product. GIFT City bullion desk & full-stack experience.",
+    "Rakshit Jain: B.Tech ICT student at PDEU working across financial markets, quantitative research and software.",
   keywords: [
     "Rakshit Jain",
     "Rakshit Jain PDEU",
-    "Finance Intern",
-    "Quantitative Analyst Intern",
-    "Software Engineer Intern",
+    "Financial Markets",
+    "Quantitative Analysis",
+    "Software Engineering",
     "IIBX Bullion Trading",
     "GIFT City IFSC",
     "Anand Rathi IFSC",
@@ -57,24 +57,24 @@ export const metadata: Metadata = {
     type: "profile",
     locale: "en_IN",
     url: siteConfig.url,
-    title: "Rakshit Jain | Finance, Quant and Software Intern Candidate | PDEU",
+    title: "Rakshit Jain | B.Tech ICT, PDEU",
     description:
-      "B.Tech ICT student at PDEU seeking Summer 2027 internships across Markets, Quant and Product. GIFT City bullion desk & full-stack experience.",
-    siteName: "Rakshit Jain Portfolio",
+      "Rakshit Jain: B.Tech ICT student at PDEU working across financial markets, quantitative research and software.",
+    siteName: "Rakshit Jain",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Rakshit Jain — Markets, Quant and Product Intern Candidate",
+        alt: "Rakshit Jain — Financial Markets, Quantitative Research & Software",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rakshit Jain | Finance, Quant and Software Intern Candidate | PDEU",
+    title: "Rakshit Jain | B.Tech ICT, PDEU",
     description:
-      "B.Tech ICT student at PDEU seeking Summer 2027 internships across Markets, Quant and Product. GIFT City bullion desk & full-stack experience.",
+      "Rakshit Jain: B.Tech ICT student at PDEU working across financial markets, quantitative research and software.",
     images: ["/opengraph-image"],
   },
   robots: {

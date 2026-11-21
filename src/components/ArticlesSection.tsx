@@ -1,21 +1,21 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Clock, BookOpen } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 import { articlesData } from "@/data/articles";
 
 export function ArticlesSection() {
   return (
-    <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#22262e] pb-6">
         <div className="space-y-2">
           <span className="font-mono text-xs uppercase tracking-wider text-[#c8a15a] font-semibold">
-            Technical Research
+            Writing
           </span>
           <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#f2efe8]">
-            Writing &amp; Research
+            Writing
           </h2>
           <p className="text-xs sm:text-sm text-[#8b8f97] font-sans">
-            Three published technical research essays examining market architecture, quantitative strategy rules, and FinTech workflows.
+            Three articles on market structure, a quantitative strategy and fintech workflows.
           </p>
         </div>
 
@@ -23,7 +23,7 @@ export function ArticlesSection() {
           href="/research"
           className="text-xs font-mono text-[#c8a15a] hover:underline flex items-center gap-1 shrink-0"
         >
-          <span>View research archive</span>
+          <span>View all articles</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </Link>
       </div>
@@ -52,7 +52,7 @@ export function ArticlesSection() {
                 </Link>
               </h3>
 
-              {/* 2-Sentence Summary Block */}
+              {/* Summary Block */}
               <div className="p-3 rounded-lg bg-[#0a0b0d] border border-[#22262e] text-xs text-[#8b8f97] leading-relaxed font-sans">
                 <span className="font-mono text-[10px] text-[#c8a15a] uppercase block font-semibold mb-1">
                   Summary
@@ -67,7 +67,7 @@ export function ArticlesSection() {
                 href={`/research/${article.slug}`}
                 className="text-[#c8a15a] hover:underline inline-flex items-center gap-1"
               >
-                <span>Read paper</span>
+                <span>Read article</span>
                 <ArrowRight className="w-3 h-3" />
               </Link>
             </div>

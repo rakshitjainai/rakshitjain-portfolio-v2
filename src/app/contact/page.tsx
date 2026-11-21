@@ -5,9 +5,9 @@ import { ContactSection } from "@/components/ContactSection";
 import { StructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Contact & Recruiter Inquiries | Rakshit Jain",
+  title: "Contact | Rakshit Jain",
   description:
-    "Direct contact channel for recruiters and hiring managers. Email rakshitindia2019@gmail.com with guaranteed 24-hour response time.",
+    "Get in touch with Rakshit Jain via email, phone, or WhatsApp.",
   alternates: {
     canonical: `${siteConfig.url}/contact`,
   },

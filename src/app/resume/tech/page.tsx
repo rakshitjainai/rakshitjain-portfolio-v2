@@ -5,9 +5,12 @@ import { siteConfig } from "@/data/siteConfig";
 import { StructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Software Engineering & Full Stack Developer Resume",
+  title: "Software Engineering Resume | Rakshit Jain",
   description:
-    "Curriculum Vitae of Rakshit Jain emphasizing full-stack engineering, React, Node.js, Python, systems programming, and product development.",
+    "Resume of Rakshit Jain emphasizing full-stack engineering, React, Node.js, Python, and C systems programming.",
+  alternates: {
+    canonical: `${siteConfig.url}/resume/tech`,
+  },
 };
 
 export default function TechResumePage() {
@@ -30,7 +33,7 @@ export default function TechResumePage() {
       {
         "@type": "ListItem",
         position: 3,
-        name: "Software Engineering CV",
+        name: "Software Engineering Track",
         item: `${siteConfig.url}/resume/tech`,
       },
     ],

@@ -1,7 +1,5 @@
 import React from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight, Code2 } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { StructuredData } from "@/components/StructuredData";

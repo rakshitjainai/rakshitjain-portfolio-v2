@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Mail, ArrowUpRight, MapPin, Clock } from "lucide-react";
+import { Mail, ArrowUpRight, MapPin, Phone, MessageSquare } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { siteConfig } from "@/data/siteConfig";
 
@@ -22,54 +22,53 @@ export function Footer() {
               </span>
             </div>
             <p className="text-[#8b8f97] text-xs sm:text-sm leading-relaxed max-w-sm">
-              B.Tech ICT student at Pandit Deendayal Energy University (2023–2027). Seeking Summer 2027
-              internships across trading operations, quantitative research, and software engineering.
+              B.Tech ICT student at Pandit Deendayal Energy University (2023–2027) working across financial markets operations, quantitative research, and software engineering.
             </p>
-            <div className="flex items-center gap-2 pt-1 text-xs text-[#8b8f97] font-mono">
-              <Clock className="w-3.5 h-3.5 text-[#c8a15a]" />
-              <span>Response guarantee: I reply within 24 hours</span>
-            </div>
             <div className="flex items-center gap-2 text-xs text-[#8b8f97] font-mono">
               <MapPin className="w-3.5 h-3.5 text-[#8b8f97]" />
-              <span>Gandhinagar / Ahmedabad, Gujarat, India (Open to remote &amp; relocate)</span>
+              <span>Gandhinagar, Gujarat, India</span>
             </div>
           </div>
 
-          {/* Quick Recruiter Links */}
+          {/* Site Pages */}
           <div className="space-y-3">
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#f2efe8]">
-              Recruiter Links
+              Pages
             </h4>
             <ul className="space-y-2 text-xs font-mono">
               <li>
-                <Link
-                  href="/Rakshit-Jain-Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <a
+                  href={siteConfig.resume.primaryPdf}
+                  download={siteConfig.resume.filename}
                   className="text-[#c8a15a] hover:underline flex items-center gap-1"
                 >
-                  <span>Primary Resume (PDF)</span>
+                  <span>Resume (PDF)</span>
                   <ArrowUpRight className="w-3 h-3" />
-                </Link>
+                </a>
               </li>
               <li>
                 <Link href="/resume" className="hover:text-white transition-colors">
-                  Web Resume &amp; Role Tracks
+                  Resume &amp; Tracks
                 </Link>
               </li>
               <li>
                 <Link href="/experience" className="hover:text-white transition-colors">
-                  Work Experience
+                  Experience
                 </Link>
               </li>
               <li>
                 <Link href="/projects" className="hover:text-white transition-colors">
-                  Selected Projects
+                  Projects
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="hover:text-white transition-colors">
-                  Recruiter &amp; AI FAQ
+                <Link href="/research" className="hover:text-white transition-colors">
+                  Writing
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-white transition-colors">
+                  About
                 </Link>
               </li>
             </ul>
@@ -112,7 +111,7 @@ export function Footer() {
                   href="/research/sma-strategy-backtesting"
                   className="hover:text-[#f2efe8] transition-colors line-clamp-1"
                 >
-                  SMA Crossover Backtesting Analysis
+                  SMA Crossover Backtesting
                 </Link>
               </li>
             </ul>
@@ -125,11 +124,28 @@ export function Footer() {
             </h4>
             <div className="space-y-2 text-xs font-mono">
               <a
-                href={`mailto:${siteConfig.author.email}?subject=Internship%20Inquiry%20-%20Rakshit%20Jain`}
+                href={`mailto:${siteConfig.author.email}?subject=Hello%20Rakshit`}
                 className="flex items-center gap-2 hover:text-white transition-colors group"
               >
                 <Mail className="w-3.5 h-3.5 text-[#8b8f97] group-hover:text-[#c8a15a]" />
                 <span className="truncate">{siteConfig.author.email}</span>
+              </a>
+              <a
+                href={`tel:${siteConfig.author.phone}`}
+                className="flex items-center gap-2 hover:text-white transition-colors group"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#8b8f97] group-hover:text-[#c8a15a]" />
+                <span>{siteConfig.author.phoneDisplay}</span>
+              </a>
+              <a
+                href={siteConfig.author.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-white transition-colors group"
+              >
+                <MessageSquare className="w-3.5 h-3.5 text-[#22c55e]" />
+                <span>WhatsApp</span>
+                <ArrowUpRight className="w-3 h-3 text-[#8b8f97]" />
               </a>
               <a
                 href={siteConfig.author.linkedin}
@@ -138,7 +154,7 @@ export function Footer() {
                 className="flex items-center gap-2 hover:text-white transition-colors group"
               >
                 <LinkedinIcon className="w-3.5 h-3.5 text-[#8b8f97] group-hover:text-[#c8a15a]" />
-                <span>LinkedIn Profile</span>
+                <span>LinkedIn</span>
                 <ArrowUpRight className="w-3 h-3 text-[#8b8f97]" />
               </a>
               <a
@@ -148,7 +164,7 @@ export function Footer() {
                 className="flex items-center gap-2 hover:text-white transition-colors group"
               >
                 <GithubIcon className="w-3.5 h-3.5 text-[#8b8f97] group-hover:text-white" />
-                <span>GitHub Profile</span>
+                <span>GitHub</span>
                 <ArrowUpRight className="w-3 h-3 text-[#8b8f97]" />
               </a>
             </div>

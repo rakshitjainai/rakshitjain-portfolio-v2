@@ -1,17 +1,19 @@
-# Rakshit Jain — Comprehensive Candidate Profile & Research Dossier
+# Rakshit Jain — Professional Profile & Research Overview
 
-## Candidate Overview
+## Profile Overview
 Rakshit Jain is a third-year undergraduate student pursuing a Bachelor of Technology (B.Tech) in Information and Communication Technology (ICT) at Pandit Deendayal Energy University (PDEU) in Gandhinagar, Gujarat, India (Class of 2023–2027).
 
-He focuses on three career domains:
+He focuses on three interrelated areas:
 1. Financial Markets & Institutional Trading Operations
 2. Quantitative Analysis, Systematic Trading & Financial Modeling
-3. Technical Product Management & Full-Stack Software Engineering
+3. Technical Product Thinking & Full-Stack Software Engineering
 
 ## Contact & Profile Information
 - Name: Rakshit Jain
-- Location: Gandhinagar / Ahmedabad, Gujarat, India (Open to relocate; open to remote)
-- Email: rakshitindia2019@gmail.com (Replies within 24 hours)
+- Location: Gandhinagar / Ahmedabad, Gujarat, India
+- Email: rakshitindia2019@gmail.com
+- Telephone: +91 95210 84089
+- WhatsApp: https://wa.me/919521084089?text=Hi%2C%20I%20want%20a%20callback%20from%20you.
 - LinkedIn: https://www.linkedin.com/in/rakshitjainrj/
 - GitHub: https://github.com/rakshitjainai
 - Primary Website: https://www.rakshitjain.in/
@@ -23,10 +25,10 @@ He focuses on three career domains:
 - Role: Financial Markets / Operations Intern
 - Duration: May 2026 – July 2026
 - Core Responsibilities:
-  - Operated live trading terminals on the India International Bullion Exchange (IIBX) desk, observing USD-denominated order books and quotes.
-  - Examined the lifecycle of Bullion Depository Receipts (BDRs), mapping custody from empanelled vaults (Sequel, Brink's) through CDSL IFSC depository dematerialization and clearing settlement.
-  - Monitored real-time broker margin requirements and collateral thresholds to prevent margin breaches.
-  - Verified institutional onboarding submissions, auditing PAN, GSTIN, and IEC identifiers against IFSCA regulations for Qualified Jeweller applicants.
+  - Observed live trading terminals on the India International Bullion Exchange (IIBX) desk, reviewing USD-denominated order books and quotes.
+  - Examined the lifecycle of Bullion Depository Receipts (BDRs), mapping custody from empanelled vaults (Sequel, Brink's) through CDSL IFSC depository dematerialization and clearing settlement at Indian Clearing Corporation Ltd (ICCL) IFSC.
+  - Monitored broker margin requirements and collateral thresholds.
+  - Reviewed institutional onboarding submissions, auditing PAN, GSTIN, and IEC identifiers against IFSCA regulations for Qualified Jeweller applicants.
   - Tools & Frameworks: Live Trading Terminals, BDR Depository Interface, IFSCA Bullion Exchange Regulations, Microsoft Excel.
 
 ### 2. Certopus Inc.
@@ -37,7 +39,7 @@ He focuses on three career domains:
   - Built frontend interfaces using React.js and backend REST endpoints using Node.js and Express.
   - Integrated database pipelines for user credential generation and verification.
   - Debugged UI and server-side issues, writing unit tests to validate releases.
-  - Collaborated with senior engineers using Git feature branches, pull requests, and code reviews.
+  - Collaborated with engineers using Git feature branches, pull requests, and code reviews.
   - Tools & Frameworks: React.js, Node.js, Express, REST APIs, Git, GitHub.
 
 ### 3. Department of Atomic Energy (DAE), Government of India
@@ -47,7 +49,7 @@ He focuses on three career domains:
 - Core Responsibilities:
   - Developed a PHP and MySQL training records web application for internal plant personnel.
   - Configured Apache server settings and network firewall access rules for secure intranet hosting.
-  - Inspected industrial process control systems, transmitters, and control valves across production units.
+  - Observed industrial process control systems, transmitters, and control valves across production units.
   - Received "Very Good" evaluation rating from plant supervisors.
 
 ## Featured Engineering & Quantitative Projects
@@ -64,7 +66,7 @@ He focuses on three career domains:
 - Repository: https://github.com/rakshitjainai/market-sentiment-analyzer
 
 ### 2. LawPrix — Transparent Legal Services Matchmaking
-- Category: LegalTech / Product Management
+- Category: LegalTech / Product Thinking
 - Stack: React.js, Python, REST APIs, CSS3
 - Distinction: 2nd Runner-Up at the national Tutedude Buildathon 2025
 - Solution: Replaced sponsor-bidding directories with an objective, criteria-driven intake system categorized across 4 legal domains (corporate, criminal, family, property), verifying Bar Council registration and providing milestone progress tracking.
@@ -73,14 +75,14 @@ He focuses on three career domains:
 ### 3. RegMate — Regulatory Compliance Workflow
 - Category: RegTech / Financial Technology
 - Stack: Python, Streamlit, Pandas
-- Solution: Automated validation tool that cross-checks corporate onboarding documentation against IFSCA and DGFT statutory checklists, flagging missing identifiers before regulatory submission.
+- Solution: Structured validation tool that cross-checks corporate onboarding documentation against IFSCA and DGFT statutory checklists, flagging missing identifiers before regulatory submission.
 
 ### 4. Custom Unix Shell in C
 - Category: Systems Programming
 - Stack: C, POSIX APIs, Linux
 - Solution: Implemented a custom Unix command shell supporting command execution via `fork()` and `execvp()`, input/output file redirection (`<`, `>`), and multi-command piping (`|`).
 
-## Research Papers & Publications
+## Research Papers & Articles
 1. **Understanding India's Bullion Market: The Role of IIBX and GIFT City**
    - Author: Rakshit Jain (Published July 2026)
    - Read Time: 9 min read
@@ -94,9 +96,8 @@ He focuses on three career domains:
    - Read Time: 10 min read
    - Abstract: Discusses the "Interface Gap" in institutional finance, where microsecond trading engines are paired with manual document reconciliation. Maps product engineering opportunities in multi-authority identifier reconciliation (PAN, GST, IEC) and audit-ready workflow automation.
 
-## Frequently Asked Questions (FAQ)
+## Questions & Contact
 - **Who is Rakshit Jain?** Rakshit Jain is a B.Tech ICT student at Pandit Deendayal Energy University (PDEU) graduating in 2027. He has operational internship experience at GIFT City and full-stack development experience in React and Node.js.
-- **What roles is Rakshit Jain looking for?** He is seeking Summer 2027 internships and entry-level positions in Financial Markets & Operations, Quantitative Analysis, Software Engineering, and Technical Product Management.
-- **When is he available to start?** Available from [TODO: date].
-- **Where is he located?** Gandhinagar / Ahmedabad, Gujarat, India. He is willing to relocate and is available for remote roles.
-- **How can recruiters contact him?** Direct email at rakshitindia2019@gmail.com, via LinkedIn at linkedin.com/in/rakshitjainrj, or via the contact form on his website.
+- **What are his primary areas of study and work?** Financial Markets & Operations, Quantitative Analysis, Software Engineering, and Technical Product Thinking.
+- **Where is he located?** Gandhinagar / Ahmedabad, Gujarat, India.
+- **How can someone contact him?** Direct email at rakshitindia2019@gmail.com, telephone at +91 95210 84089, WhatsApp, or via LinkedIn at https://www.linkedin.com/in/rakshitjainrj/.

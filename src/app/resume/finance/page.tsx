@@ -5,9 +5,12 @@ import { siteConfig } from "@/data/siteConfig";
 import { StructuredData } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Financial Markets & Quantitative Analysis Resume",
+  title: "Financial Markets Resume | Rakshit Jain",
   description:
-    "Curriculum Vitae of Rakshit Jain emphasizing financial market exposure, Anand Rathi IIBX operations, and Python quantitative strategy backtesting.",
+    "Resume of Rakshit Jain emphasizing financial market exposure, Anand Rathi IIBX operations, and Python quantitative strategy backtesting.",
+  alternates: {
+    canonical: `${siteConfig.url}/resume/finance`,
+  },
 };
 
 export default function FinanceResumePage() {
@@ -30,7 +33,7 @@ export default function FinanceResumePage() {
       {
         "@type": "ListItem",
         position: 3,
-        name: "Finance & Quantitative CV",
+        name: "Financial Markets Track",
         item: `${siteConfig.url}/resume/finance`,
       },
     ],

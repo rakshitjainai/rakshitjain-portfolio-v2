@@ -1,39 +1,39 @@
 import React from "react";
-import { GraduationCap, Award, CheckCircle } from "lucide-react";
+import { GraduationCap, Award } from "lucide-react";
 
 export function EducationSection() {
   const recognition = [
     {
       title: "2nd Runner-Up — Tutedude Buildathon 2025",
       issuer: "Tutedude National Hackathon",
-      detail: "Podium finish for LawPrix legal-tech matchmaking application in a competitive multi-stage national build contest.",
-      badge: "Podium Award",
+      detail: "Podium finish for LawPrix legal-tech matchmaking application in a national product build contest.",
+      badge: "2nd Runner-Up",
     },
     {
       title: "1st Rank — IoT + Deep Learning Workshop",
       issuer: "PDEU / IEEE Student Branch / GUJCOST",
-      detail: "Ranked 1st among participant teams in applied IoT and deep learning model implementation and hardware interfacing.",
+      detail: "Ranked 1st among participant teams in applied IoT and deep learning model implementation.",
       badge: "1st Place",
     },
     {
       title: "NPTEL Elite Certification (Score: 90/100)",
       issuer: "Ministry of Education, Government of India (IIT)",
-      detail: "Earned Elite distinction in Incubation and Entrepreneurship, finishing in the top tier of candidates nationwide.",
+      detail: "Elite certification in Understanding Incubation and Entrepreneurship.",
       badge: "Elite 90/100",
     },
   ];
 
   return (
-    <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
       <div className="border-b border-[#22262e] pb-6 space-y-2">
         <span className="font-mono text-xs uppercase tracking-wider text-[#c8a15a] font-semibold">
-          Credentials
+          Education
         </span>
         <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#f2efe8]">
-          Education &amp; Recognition
+          Education
         </h2>
         <p className="text-xs sm:text-sm text-[#8b8f97] max-w-2xl font-sans">
-          Formal academic degree and competitive honors.
+          Academic background and competitive honors.
         </p>
       </div>
 
@@ -58,7 +58,7 @@ export function EducationSection() {
           </div>
 
           <p className="text-xs text-[#8b8f97] leading-relaxed font-sans pt-3 border-t border-[#22262e]">
-            Rigorous core curriculum in data structures, algorithms, operating systems, computer networks, database management systems, and probability &amp; statistics for computing.
+            Core curriculum in data structures, algorithms, operating systems, computer networks, database management systems, and probability &amp; statistics for computing.
           </p>
         </div>
 
@@ -66,7 +66,7 @@ export function EducationSection() {
         <div className="lg:col-span-7 space-y-4">
           <div className="flex items-center gap-2 text-xs font-mono text-[#8b8f97] uppercase">
             <Award className="w-4 h-4 text-[#c8a15a]" />
-            <span>Awards &amp; Elite Certifications</span>
+            <span>Awards &amp; Certifications</span>
           </div>
 
           <div className="space-y-3">

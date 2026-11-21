@@ -3,7 +3,7 @@ import { siteConfig } from "@/data/siteConfig";
 import { articlesData } from "@/data/articles";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const currentDate = "2026-11-16";
+  const currentDate = "2026-11-21";
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -31,7 +31,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
-      url: `${siteConfig.url}/faq`,
+      url: `${siteConfig.url}/resume/finance`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${siteConfig.url}/resume/quant`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${siteConfig.url}/resume/tech`,
       lastModified: currentDate,
       changeFrequency: "monthly",
       priority: 0.85,
@@ -40,7 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteConfig.url}/research`,
       lastModified: currentDate,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.85,
     },
     {
       url: `${siteConfig.url}/product-thinking`,
@@ -52,7 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteConfig.url}/about`,
       lastModified: currentDate,
       changeFrequency: "monthly",
-      priority: 0.75,
+      priority: 0.8,
     },
     {
       url: `${siteConfig.url}/contact`,
@@ -66,7 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteConfig.url}/research/${article.slug}`,
     lastModified: currentDate,
     changeFrequency: "monthly",
-    priority: 0.75,
+    priority: 0.8,
   }));
 
   return [...staticRoutes, ...articleRoutes];

@@ -10,7 +10,7 @@ A production-ready personal portfolio web application built with Next.js (App Ro
 
 ## 1. Professional Positioning
 
-This application represents an early-career candidate combining four interconnected areas:
+This portfolio presents Rakshit Jain's work across four interconnected areas:
 - **Finance & Capital Markets:** Bullion trading operations at GIFT City IFSC, India International Bullion Exchange (IIBX) ecosystem, Bullion Depository Receipts (BDRs), order execution terminals, and institutional client onboarding (KYC, GST, IEC compliance).
 - **Quantitative Finance & Trading:** Python-based backtesting engines, 20/50 Simple Moving Average (SMA) crossover models, risk-adjusted performance analysis (CAGR, Sharpe Ratio, Maximum Drawdown), and empirical testing on NSE equities (INFY, TATAINVEST).
 - **Software Engineering:** Full-stack development with modern React, Next.js, Node.js, Python, systems programming in C (Unix shell), and industrial enterprise systems (Department of Atomic Energy).
@@ -68,26 +68,28 @@ rakshitjain-portfolio-v2/
     │   │   ├── page.tsx            # Curated resume track selector
     │   │   ├── finance/
     │   │   │   └── page.tsx        # Printable Financial Markets & Quantitative CV
+    │   │   ├── quant/
+    │   │   │   └── page.tsx        # Printable Quantitative Research & Modeling CV
     │   │   └── tech/
     │   │       └── page.tsx        # Printable Software Engineering & Full Stack CV
     │   ├── contact/
-    │   │   └── page.tsx            # Direct contact links & structured inquiry form
+    │   │   └── page.tsx            # Direct contact methods
     │   ├── sitemap.ts              # Dynamic XML sitemap generator
     │   └── robots.ts               # Robots.txt generator
     ├── components/
     │   ├── Navbar.tsx              # Navigation bar with mobile drawer
     │   ├── Footer.tsx              # Institutional footer & verified links
-    │   ├── PillarCard.tsx          # 4 core pillar presentation cards
-    │   ├── ExperienceCard.tsx      # Chronological experience items with verified badges
-    │   ├── ProjectCard.tsx         # Detailed project presentation cards
-    │   ├── ResearchCard.tsx        # Editorial research essay cards
+    │   ├── HeroSection.tsx         # Main hero component
+    │   ├── MarkdownRenderer.tsx    # Zero-dependency Markdown & LaTeX renderer
+    │   ├── RoleCards.tsx           # Track overview cards
+    │   ├── ExperienceSection.tsx   # Chronological experience items
+    │   ├── ProjectsSection.tsx     # Project showcase with metrics matrix
+    │   ├── ArticlesSection.tsx     # Research articles
     │   ├── ResumeView.tsx          # Institutional printable resume component
-    │   ├── ContactForm.tsx         # Accessible interactive contact form
+    │   ├── ContactSection.tsx      # Accessible direct contact channels
     │   ├── SmaBacktestChart.tsx    # Interactive SVG dual moving average crossover chart
     │   ├── BullionSettlementDiagram.tsx # IIBX vaulting to electronic BDR lifecycle diagram
     │   ├── LegalTechWorkflowDiagram.tsx # LawPrix criteria-based case routing workflow diagram
-    │   ├── ArticleTableOfContents.tsx   # Sticky scrollspy table of contents
-    │   ├── ArticleProgressBar.tsx       # Reading completion progress bar
     │   └── StructuredData.tsx      # JSON-LD injector component
     ├── data/
     │   ├── siteConfig.ts           # Global metadata, links, email, navigation

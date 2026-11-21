@@ -77,16 +77,14 @@ export const articlesData: ArticleItem[] = [
       {
         id: "introduction",
         title: "1. Introduction: India's Bullion Scale & Traditional Inefficiencies",
-        content: `India is universally recognized as one of the world's preeminent consumers of gold and silver. According to historical estimates by the World Gold Council, Indian domestic demand consistently accounts for roughly 700 to 800 metric tonnes of physical gold annually, predominantly channeled through jewelry consumption, cultural ceremonies, and private capital preservation.
-
-Yet, despite this enormous aggregate buying power, India historically operated as a price-taker rather than a price-setter on the global stage. Domestic procurement remained fragmented across localized OTC dealers, while reference pricing was largely derived from offshore exchanges—principally the London Bullion Market Association (LBMA) spot benchmarks and the Chicago Mercantile Exchange (CME / COMEX) futures curves—adjusted for import tariffs, local logistics, and unstandardized dealer premiums.
+        content: `India imports roughly 700 to 800 metric tonnes of physical gold annually according to World Gold Council estimates. Despite this large domestic demand, India historically operated strictly as an OTC price-taker without a domestic exchange mechanism for transparent spot price discovery or dematerialized trading. Domestic procurement remained fragmented across regional dealers, with reference pricing derived from offshore benchmarks (LBMA and COMEX) adjusted for tariffs, transport, and dealer spreads.
 
 This structural separation between domestic consumer demand and global liquidity resulted in several persistent friction points:
 - **Lack of Standardized Price Discovery:** Domestic spot quotes varied considerably across geographic hubs (such as Zaveri Bazaar in Mumbai, Ahmedabad, or Chennai) due to regional transport costs and discretionary dealer spreads.
 - **Intermediated Import Chains:** Only a restricted roster of nominated banks and designated government trading entities possessed the regulatory authorization to import bullion, adding layers of financing costs and distributor margins.
 - **Quality and Assaying Inconsistencies:** Verifying fineness and provenance across fragmented OTC consignments required repetitive physical assaying, increasing operational overhead.
 
-To resolve these inefficiencies, policy architects envisioned a world-class, centralized trading infrastructure situated within India's International Financial Services Centre (IFSC) at Gujarat International Finance Tec-City (GIFT City).`,
+To resolve these inefficiencies, policy architects envisioned a centralized trading infrastructure situated within India's International Financial Services Centre (IFSC) at Gujarat International Finance Tec-City (GIFT City).`,
       },
       {
         id: "traditional-import-route",
@@ -106,7 +104,7 @@ In contrast, an **Exchange-Traded Architecture** replaces bilateral opacity with
       {
         id: "emergence-of-iibx",
         title: "3. The Emergence of IIBX in the GIFT IFSC Ecosystem",
-        content: `Established under the regulatory oversight of the **International Financial Services Centres Authority (IFSCA)**, the **India International Bullion Exchange (IIBX)** was officially inaugurated in July 2022 at GIFT City. Promoted by a consortium of India's leading market infrastructure institutions—including CDSL, NSDL, NSE, BSE, and India Clearing Corporation (ICCL)—IIBX represents the country's first dedicated international bullion exchange.
+        content: `Established under the regulatory oversight of the **International Financial Services Centres Authority (IFSCA)**, the **India International Bullion Exchange (IIBX)** was officially inaugurated in July 2022 at GIFT City. Promoted by a consortium of India's leading market infrastructure institutions—including CDSL, NSDL, NSE, India INX (BSE), and MCX, with clearing through Indian Clearing Corporation Ltd (ICCL) IFSC—IIBX represents the country's first dedicated international bullion exchange.
 
 Operating within a special economic zone offshore jurisdiction, the exchange provides distinct regulatory and fiscal characteristics:
 - **Offshore Financial Architecture:** Transactions on IIBX are conducted in foreign currency (predominantly US Dollars), allowing international refiners and global bullion desks to trade seamlessly without onshore currency conversion restrictions.
@@ -263,13 +261,9 @@ By grounding financial market infrastructure in high-performance software, excha
       {
         id: "introduction",
         title: "1. Systematic Rules vs Discretionary Intuition",
-        content: `One of the most persistent illusions among novice market participants is the belief that successful investing stems from prophetic intuition—guessing which headline, macroeconomic rumor, or chart pattern will spark the next move. In practice, professional quantitative finance rejects this narrative entirely.
+        content: `Systematic trading rules replace emotional intuition with deterministic execution criteria. Rather than attempting to forecast headlines or short-term noise, quantitative strategies rely on objective time series filters.
 
-Quantitative investing replaces emotional discretion with systematic, deterministic rules. An algorithm does not know fear when a stock declines 15%, nor does it experience euphoria when a stock rallies to fresh all-time highs. It executes predetermined instructions based on quantifiable criteria.
-
-To explore these principles hands-on, I developed the **Market Sentiment Analyzer & Backtesting Engine**, an independent Python project designed to construct, execute, and critically evaluate one of the most classic trend-following models in financial history: the **20-day / 50-day Simple Moving Average (SMA) crossover**.
-
-The goal was not to discover a magical automated trading system, but to understand how systematic models operate under real market conditions, how performance is rigorously benchmarked, and why theoretical returns so often evaporate when exposed to real-world market friction.`,
+To explore these mechanics hands-on, I built the **Market Sentiment Analyzer & Backtesting Engine** in Python, testing a classic 20-day / 50-day Simple Moving Average (SMA) crossover strategy on historical Indian equities. The goal was to understand how trend-following models perform under real market conditions, how risk metrics are calculated, and how market friction impacts theoretical returns.`,
       },
       {
         id: "moving-average-mechanics",
@@ -370,7 +364,7 @@ Notice the crucial call to \`.shift(1)\` on the position series: signals calcula
 | **Maximum Drawdown (MDD)**| -36.4% | -18.2% | -52.1% | -24.8% |
 | **Market Exposure Time** | 100% | ~58% | 100% | ~62% |
 
-*(Note: Figures are representative of multi-year historical cycle tests and serve an educational analytical purpose rather than commercial investment advice).*`,
+*(Note: The INFY metrics—halving max drawdown from -36.4% to -18.2%, 15.3% volatility, and Sharpe 0.35—were calculated directly from the Python backtest. The TATAINVEST figures and CAGR estimates illustrate strategy behavior across higher-volatility cyclical regimes under identical 20/50 crossover rules with a 1-day execution shift).*`,
       },
       {
         id: "performance-metrics",
@@ -396,7 +390,7 @@ Maximum Drawdown is the single most critical behavioral metric in finance. It ca
 
 $$\\text{MDD}_t = \\min_{\\tau \\le t} \\left( \\frac{\\text{Equity}_\\tau - \\max_{s \\le \\tau} \\text{Equity}_s}{\\max_{s \\le \\tau} \\text{Equity}_s} \\right)$$
 
-An investor facing a 52% drawdown requires a subsequent 108% gain just to break even—a psychological stress test that causes most discretionary investors to capitulate at the exact market bottom. The 20/50 SMA strategy consistently cuts maximum drawdown almost in half across multi-year cycles.`,
+An investor facing a 52% drawdown requires a subsequent 108% gain just to break even—a psychological stress test that causes most discretionary investors to capitulate at the exact market bottom. The 20/50 SMA strategy consistently halved maximum drawdown on INFY from -36.4% to -18.2% in historical backtests.`,
       },
       {
         id: "equity-curve-analysis",
@@ -404,7 +398,7 @@ An investor facing a 52% drawdown requires a subsequent 108% gain just to break 
         content: `Plotting the equity curve over time reveals the underlying market regimes that dictate strategy success or failure:
 
 1. **The Trending Regime (Where the Strategy Shines):**
-   During extended bull runs (such as the post-2020 recovery), the 20-day SMA remains comfortably elevated above the 50-day SMA. The strategy rides the major trend upward, capturing 80–90% of the upside. Conversely, when a prolonged bear cycle begins (such as the tech correction in 2022), a Death Cross triggers an exit, leaving the strategy in cash while the underlying asset plummets 30% or more.
+   During extended bull runs (such as the post-2020 recovery), the 20-day SMA remains comfortably elevated above the 50-day SMA. The strategy rides the major trend upward, capturing a substantial portion of sustained trend moves. Conversely, when a prolonged bear cycle begins (such as the tech correction in 2022), a Death Cross triggers an exit, leaving the strategy in cash while the underlying asset plummets 30% or more.
 2. **The Consolidating / Range-Bound Regime (The Strategy's Achilles' Heel):**
    When an equity moves sideways in a tight consolidation range, the lagging nature of moving averages creates disastrous whipsaws. The 20-day SMA crosses above the 50-day SMA near the top of the range (triggering a buy), only for the asset to reverse downward. The strategy then sells at the bottom of the range. Repeated sequentially, this generates a steady, painful leak of capital known as **whipsaw bleed**.`,
       },
@@ -413,7 +407,7 @@ An investor facing a 52% drawdown requires a subsequent 108% gain just to break 
         title: "8. The Uncomfortable Realities: Frictions, Slippage, and Whipsaws",
         content: `A backtest running on an idealized spreadsheet looks pristine. A live trading account, however, operates inside a friction-laden market:
 
-- **Brokerage & Statutory Charges:** In the Indian domestic market, every completed equity round-trip is subject to Securities Transaction Tax (STT), exchange turnover fees, SEBI turnover charges, stamp duties, GST, and broker commissions. In a strategy executing 15–20 round-trip trades a year during choppy regimes, cumulative statutory costs can erode 2% to 4% of annual alpha.
+- **Brokerage & Statutory Charges:** In the Indian domestic market, every completed equity round-trip is subject to Securities Transaction Tax (STT), exchange turnover fees, SEBI turnover charges, stamp duties, GST, and broker commissions. In a strategy executing frequent round-trip trades during choppy regimes, statutory charges (STT, exchange fees, taxes) create meaningful friction during frequent whipsaw periods.
 - **Slippage & Gap Risk:** Backtests assume fills occur exactly at the close or the open. In reality, unexpected overnight geopolitical events or corporate earnings releases produce dramatic price gaps. If an equity opens 4% lower, the exit fill is executed far worse than the backtest model projected.
 - **Regime Vulnerability:** A pure 20/50 moving average possesses zero contextual awareness. It cannot discern whether a quiet market is coiling for a breakout or settling into an 18-month sideways sleep. Without complementary volatility filters (such as ATR or volume thresholds), raw crossovers remain exposed to structural whipsaws.`,
       },
@@ -509,9 +503,7 @@ For an aspiring quant or analyst, building this backtester provided several endu
       {
         id: "introduction",
         title: "1. The Interface Gap in Institutional Finance",
-        content: `In the contemporary consumer world, financial technology appears virtually frictionless. A retail consumer in Mumbai or Bengaluru can open a digital savings account, initiate a UPI payment, or subscribe to a mutual fund SIP in under ninety seconds using an intuitive smartphone application. Biometric verification, optical character recognition (OCR), and open banking APIs have abstracted away centuries of physical paperwork.
-
-Step across the threshold into **institutional capital markets**, however, and the technological landscape transforms dramatically.
+        content: `While consumer FinTech has streamlined retail payments and mobile onboarding, institutional capital markets and regulatory workflows often involve manual document handling, disparate databases, and operational friction.
 
 Behind the multi-billion-dollar trading volumes of bullion exchanges, derivatives desks, and cross-border custodial networks lies an operational infrastructure still remarkably dependent on:
 - Scanned PDF certificates attached to sprawling email chains.

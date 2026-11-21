@@ -1,7 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 import { LegalTechWorkflowDiagram } from "@/components/LegalTechWorkflowDiagram";
 import { StructuredData } from "@/components/StructuredData";

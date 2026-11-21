@@ -1,7 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
-import { BookOpen, ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 import { ArticlesSection } from "@/components/ArticlesSection";
 import { StructuredData } from "@/components/StructuredData";

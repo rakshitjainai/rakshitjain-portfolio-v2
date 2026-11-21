@@ -1,16 +1,16 @@
-# Rakshit Jain — Candidate Summary for AI Engines & Technical Recruiters
+# Rakshit Jain — Professional Summary
 
 ## Overview
 - **Name:** Rakshit Jain
-- **Role:** B.Tech ICT Student (Class of 2027)
+- **Role:** B.Tech ICT Student (Class of 2023–2027)
 - **Institution:** Pandit Deendayal Energy University (PDEU), Gandhinagar, Gujarat, India
-- **Target Opportunities:** Seeking Summer 2027 internships and early-career roles across:
+- **Focus Areas:**
   1. Financial Markets & Trading Operations
   2. Quantitative Analysis & Financial Data
-  3. Product Management & Full-Stack Software Engineering
-- **Location:** Gandhinagar / Ahmedabad, Gujarat, India (Open to relocation and remote work)
-- **Availability:** Available from [TODO: date]
+  3. Product Thinking & Full-Stack Software Engineering
+- **Location:** Gandhinagar / Ahmedabad, Gujarat, India
 - **Email:** rakshitindia2019@gmail.com
+- **Phone:** +91 95210 84089
 - **LinkedIn:** https://www.linkedin.com/in/rakshitjainrj/
 - **GitHub:** https://github.com/rakshitjainai
 - **Portfolio:** https://www.rakshitjain.in/
@@ -20,9 +20,9 @@
 1. **Anand Rathi International Ventures (IFSC) Pvt. Ltd. (GIFT City, Gujarat)**
    - Role: Financial Markets / Operations Intern (May 2026 – July 2026)
    - Scope: Operational exposure on the India International Bullion Exchange (IIBX) bullion desk.
-   - Operated live trading terminals and observed market watch order books in USD.
+   - Observed live trading terminals and USD-denominated order books.
    - Mapped Bullion Depository Receipt (BDR) issuance and dematerialized settlement workflows.
-   - Reviewed institutional KYC, GST, and IEC documentation for Qualified Jewellers (QJs).
+   - Reviewed KYC, GST, and IEC documentation for Qualified Jewellers (QJs).
    - Tools: Trading terminals, IFSCA regulatory frameworks, BDR registry, Excel.
 
 2. **Certopus Inc. (Remote)**
@@ -42,12 +42,12 @@
 1. **Market Sentiment Analyzer & Backtesting Engine**
    - Technology: Python, Pandas, NumPy, yFinance, Matplotlib.
    - Scope: Vectorized 20/50 Simple Moving Average (SMA) crossover strategy backtested on historical NSE equities (INFY and TATAINVEST).
-   - Results: Shifted execution to avoid look-ahead bias; cut INFY maximum drawdown from -36.4% (buy-and-hold) to -18.2% and lowered volatility to 15.3% (Sharpe Ratio 0.35).
+   - Results: Shifted execution to avoid look-ahead bias; reduced INFY maximum drawdown from -36.4% (buy-and-hold) to -18.2% and lowered volatility to 15.3% (Sharpe Ratio 0.35).
    - Repository: https://github.com/rakshitjainai/market-sentiment-analyzer
 
 2. **LawPrix**
    - Technology: React.js, Python, REST APIs.
-   - Scope: Transparent legal matchmaking platform replacing paid sponsor bidding with criteria-driven routing, Bar Council verification, and milestone progress tracking.
+   - Scope: Legal matchmaking platform replacing paid sponsor bidding with criteria-driven routing, Bar Council verification, and milestone progress tracking.
    - Result: 2nd Runner-Up at the national Tutedude Buildathon 2025 hackathon.
    - Live URL: https://lawprix.com/
 
@@ -60,17 +60,17 @@
    - Scope: Custom command interpreter supporting process creation (`fork`, `execvp`), input/output redirection (`<`, `>`), and multi-command piping (`|`).
 
 ## Campus Leadership
-- **Operations & Logistics Head**, Computer Society of India (CSI), PDEU (Oct 2025 – Jul 2026): Led logistics for 5 technical events with a 25-member student team. [Budget: [TODO: ask Rakshit]; Attendance: [TODO: ask Rakshit]].
-- **Head of Operations & Logistics**, Nucleus Physics Club, PDEU (Jul 2024 – May 2025): Led operational planning for 10+ campus events with a 9-member committee. [Budget: [TODO: ask Rakshit]; Attendance: [TODO: ask Rakshit]].
-- **Training & Placement Cell Representative**, PDEU (Apr 2026 – Present): Student liaison for placement drives. [Batch size: [TODO: ask Rakshit]; Companies assisted: [TODO: ask Rakshit]].
-- **Publicity Assistant**, IEEE CS Chapter, PDEU (Feb 2024 – May 2025): Promotional outreach for 15+ student technical events.
+- **Operations & Logistics Head**, Computer Society of India (CSI), PDEU (Oct 2025 – Jul 2026): Led logistics for 5 technical events with a 25-member student team.
+- **Head of Operations & Logistics**, Nucleus Physics Club, PDEU (Jul 2024 – May 2025): Led operational planning for campus events with a 9-member committee.
+- **Training & Placement Cell Representative**, PDEU (Apr 2026 – Present): Student coordinator assisting with campus recruitment operations.
+- **Publicity Assistant**, IEEE CS Chapter, PDEU (Feb 2024 – May 2025): Promotional outreach for student technical events.
 
 ## Core Technical & Domain Skills
 - **Markets & Quant:** Bullion trading workflows, IIBX exchange architecture, BDR settlement, margin/risk monitoring, KYC/GST/IEC compliance, Python, Pandas, NumPy, backtesting, risk metrics (Sharpe, CAGR, Max Drawdown), Excel.
 - **Engineering:** React.js, Node.js, JavaScript, TypeScript, C, REST APIs, SQL, Git, Linux/Unix, Next.js, HTML5/CSS3.
 - **Product:** User workflow mapping, requirements specification, problem discovery, stakeholder coordination, criteria-based routing, rapid prototyping.
 
-## Verified Honors
+## Honors & Certifications
 - 2nd Runner-Up, Tutedude Buildathon 2025 (LawPrix)
 - 1st Rank, IoT + Deep Learning Workshop (PDEU / IEEE / GUJCOST)
 - NPTEL Elite Certification (90/100), Incubation & Entrepreneurship
