@@ -5,7 +5,7 @@ import { articlesData } from "@/data/articles";
 
 export function ArticlesSection() {
   return (
-    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
+    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-12 xl:px-16 max-w-[1280px] mx-auto space-y-10">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#e3e8ef] pb-6">
         <div className="space-y-2">
           <span className="font-mono text-xs uppercase tracking-wider text-[#2563eb] font-semibold">
@@ -64,7 +64,7 @@ export function ArticlesSection() {
             <div className="pt-2 border-t border-[#e3e8ef]">
               <Link
                 href={`/research/${article.slug}`}
-                className="text-xs font-mono font-bold text-[#1d4ed8] hover:underline inline-flex items-center gap-1 group"
+                className="text-xs font-mono font-bold text-[#1d4ed8] hover:underline inline-flex items-center gap-1 group min-h-[44px]"
               >
                 <span>Read article</span>
                 <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />

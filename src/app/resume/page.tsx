@@ -51,7 +51,7 @@ export default function ResumePage() {
     <>
       <StructuredData data={breadcrumbJsonLd} />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 pb-24 space-y-12">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 pt-24 sm:pt-28 lg:pt-32 pb-24 space-y-12">
         {/* Header & Primary Download Card */}
         <section className="no-print space-y-6">
           <div className="border-b border-[#e3e8ef] pb-6 space-y-2">
@@ -95,7 +95,7 @@ export default function ResumePage() {
                 href={siteConfig.resume.primaryPdf}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary inline-flex items-center gap-2 px-4 py-3 rounded-lg font-mono text-xs"
+                className="btn-secondary min-h-[44px] inline-flex items-center gap-2 px-4 py-2.5 rounded-lg font-mono text-xs"
               >
                 <span>Open in Viewer</span>
                 <ExternalLink className="w-3.5 h-3.5 text-[#64748b]" />

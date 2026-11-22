@@ -53,7 +53,7 @@ export default function ResearchPage() {
 
       <div className="pt-24 sm:pt-32 pb-20 space-y-8">
         {/* Source Grounding Banner */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 xl:px-16">
           <div className="p-4 bg-[#f8fafc] border border-[#e3e8ef] rounded-xl flex items-center justify-between gap-4 text-xs font-mono shadow-sm">
             <div className="flex items-center gap-2 text-[#475569]">
               <ShieldCheck className="w-4 h-4 text-[#059669] shrink-0" />

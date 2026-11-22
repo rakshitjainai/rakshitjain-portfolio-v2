@@ -59,7 +59,7 @@ export default function ExperiencePage() {
         <ExperienceSection />
 
         {/* Operational Workflow Visual: IIBX Bullion Settlement */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+        <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 space-y-4">
           <div className="border-b border-[#e3e8ef] pb-3 flex items-center justify-between">
             <div>
               <span className="font-mono text-xs uppercase text-[#2563eb] block font-semibold">
@@ -85,7 +85,7 @@ export default function ExperiencePage() {
         <LeadershipSection />
 
         {/* Resume Download Card */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 xl:px-16">
           <div className="p-6 bg-[#f8fafc] border border-[#e3e8ef] rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
             <div className="space-y-1">
               <h3 className="text-base font-bold text-[#0f172a]">
@@ -98,7 +98,7 @@ export default function ExperiencePage() {
             <a
               href={siteConfig.resume.primaryPdf}
               download={siteConfig.resume.filename}
-              className="btn-primary-gradient inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-white font-bold text-xs uppercase tracking-wider shrink-0 font-mono cursor-pointer shadow-sm"
+              className="btn-primary-gradient min-h-[44px] inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-white font-bold text-xs uppercase tracking-wider shrink-0 font-mono cursor-pointer shadow-sm"
             >
               <FileText className="w-3.5 h-3.5" />
               <span>Download Resume (PDF)</span>

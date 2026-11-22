@@ -41,15 +41,15 @@ export function LeadershipSection() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
+    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-12 xl:px-16 max-w-[1280px] mx-auto space-y-10">
       <div className="border-b border-[#e3e8ef] pb-6 space-y-2">
         <span className="font-mono text-xs uppercase tracking-wider text-[#2563eb] font-semibold">
           Leadership
         </span>
-        <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#0f172a]">
+        <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#0f172a] [text-wrap:balance]">
           Leadership
         </h2>
-        <p className="text-xs sm:text-sm text-[#475569] max-w-2xl font-sans">
+        <p className="text-sm sm:text-base text-[#475569] max-w-2xl font-sans [text-wrap:pretty]">
           Campus leadership positions across technical event operations, club administration, and placement coordination.
         </p>
       </div>
@@ -72,12 +72,12 @@ export function LeadershipSection() {
               </div>
             </div>
 
-            <p className="text-xs sm:text-sm text-[#334155] leading-relaxed font-sans">
+            <p className="text-base text-[#334155] leading-relaxed font-sans [text-wrap:pretty]">
               {lead.highlights}
             </p>
 
             {(lead.teamSize || lead.events) && (
-              <div className="flex flex-wrap items-center gap-2 pt-1 font-mono text-[11px]">
+              <div className="flex flex-wrap items-center gap-2 pt-1 font-mono text-xs">
                 {lead.teamSize && (
                   <span className="px-2.5 py-1 rounded bg-[#f8fafc] border border-[#e3e8ef] text-[#0f172a] font-medium">
                     Team: {lead.teamSize}

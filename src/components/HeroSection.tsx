@@ -38,8 +38,8 @@ export function HeroSection() {
   ];
 
   return (
-    <section className="relative min-h-[85svh] flex flex-col justify-between pt-[calc(6rem+env(safe-area-inset-top,0px))] pb-10 px-4 sm:px-6 lg:px-8 border-b border-[#e3e8ef] bg-white overflow-hidden">
-      {/* 4. Single ambient background element drifting slowly behind the heading */}
+    <section className="relative min-h-[85dvh] flex flex-col justify-between pt-[calc(5rem+env(safe-area-inset-top,0px))] pb-8 sm:pb-12 px-4 sm:px-6 lg:px-12 xl:px-16 border-b border-[#e3e8ef] bg-white overflow-hidden max-w-[1440px] mx-auto w-full">
+      {/* Ambient background element drifting slowly behind the heading */}
       <div
         aria-hidden="true"
         className="ambient-gradient-blob hidden sm:block absolute -top-32 -left-20 w-[600px] h-[600px] rounded-full pointer-events-none opacity-20 blur-3xl -z-10"
@@ -48,14 +48,15 @@ export function HeroSection() {
         }}
       />
 
-      <div className="max-w-7xl w-full mx-auto space-y-6 my-auto relative z-10">
-        {/* Name Heading with 1. subtle slow gradient shimmer underline */}
+      <div className="w-full space-y-6 my-auto relative z-10 pt-4 sm:pt-6">
+        {/* Name Heading with subtle slow gradient shimmer underline */}
         <div className="space-y-3">
           <h1
-            className="font-serif-display font-bold text-[#0f172a] tracking-tight leading-[0.92] select-none uppercase"
-            style={{ fontSize: "clamp(3rem, 10.5vw, 9.8rem)", textTransform: "uppercase" }}
+            className="font-serif-display font-bold text-[#0f172a] tracking-tight leading-[0.92] select-none uppercase break-words"
+            style={{ fontSize: "clamp(3rem, 13vw, 13rem)", textTransform: "uppercase" }}
           >
-            Rakshit Jain
+            <span className="inline-block">Rakshit</span>{" "}
+            <span className="inline-block">Jain</span>
           </h1>
 
           {/* Shimmer Accent Line (8-12s loop, animated background-position) */}
@@ -65,59 +66,59 @@ export function HeroSection() {
           />
 
           {/* Neutral role statement */}
-          <p className="text-base sm:text-xl lg:text-2xl text-[#1d4ed8] font-sans font-semibold tracking-tight pt-1">
+          <p className="text-base sm:text-xl lg:text-2xl text-[#1d4ed8] font-sans font-semibold tracking-tight pt-1 max-w-3xl leading-snug [text-wrap:balance]">
             B.Tech ICT, PDEU (2023–2027) · Financial Markets, Quantitative Research &amp; Software
           </p>
         </div>
 
-        {/* Action CTAs & Socials */}
-        <div className="flex flex-wrap items-center gap-3 pt-2">
-          {/* 2. Primary Button: gradient fill shifting on hover */}
+        {/* Action CTAs & Socials: Full-width stacked on mobile (< 480px), inline from 480px up */}
+        <div className="flex flex-col xs:flex-row flex-wrap items-stretch xs:items-center gap-3 pt-2 w-full xs:w-auto">
+          {/* Primary Button: Resume (PDF) */}
           <a
             href={siteConfig.resume.primaryPdf}
             download={siteConfig.resume.filename}
-            className="btn-primary-gradient inline-flex items-center gap-2 px-6 py-3 rounded-lg font-mono font-bold text-xs uppercase tracking-wider cursor-pointer"
+            className="btn-primary-gradient w-full xs:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-[48px] rounded-lg font-mono font-bold text-xs uppercase tracking-wider cursor-pointer shadow-xs"
           >
-            <FileText className="w-4 h-4" />
+            <FileText className="w-4 h-4 shrink-0" />
             <span>Download resume (PDF)</span>
           </a>
 
-          {/* Secondary CTA */}
+          {/* Secondary CTA: Email */}
           <a
             href={`mailto:${siteConfig.author.email}?subject=Hello%20Rakshit`}
-            className="btn-secondary inline-flex items-center gap-2 px-5 py-3 rounded-lg font-mono text-xs font-semibold tracking-wider"
+            className="btn-secondary w-full xs:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 min-h-[48px] rounded-lg font-mono text-xs font-semibold tracking-wider"
           >
-            <Mail className="w-4 h-4 text-[#2563eb]" />
+            <Mail className="w-4 h-4 text-[#2563eb] shrink-0" />
             <span>Email me</span>
           </a>
 
           {/* Copy Email Helper */}
           <button
             onClick={handleCopyEmail}
-            className="btn-secondary inline-flex items-center gap-1.5 px-3.5 py-3 rounded-lg text-xs font-mono text-[#475569] hover:text-[#0f172a] cursor-pointer"
+            className="btn-secondary w-full xs:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-3.5 min-h-[48px] text-xs font-mono text-[#475569] hover:text-[#0f172a] cursor-pointer"
             title="Copy email to clipboard"
             aria-label="Copy email address"
           >
             {copied ? (
               <>
-                <Check className="w-3.5 h-3.5 text-emerald-600" />
+                <Check className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span className="text-emerald-700 font-bold">Copied</span>
               </>
             ) : (
               <>
-                <Copy className="w-3.5 h-3.5 text-[#64748b]" />
+                <Copy className="w-4 h-4 text-[#64748b] shrink-0" />
                 <span>Copy email</span>
               </>
             )}
           </button>
 
           {/* Social Profiles */}
-          <div className="flex items-center gap-2 pl-2">
+          <div className="flex items-center justify-center xs:justify-start gap-2 pt-1 xs:pt-0 xs:pl-2">
             <a
               href={siteConfig.author.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary p-3 rounded-lg text-[#475569] hover:text-[#0f172a]"
+              className="btn-secondary min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-3 rounded-lg text-[#475569] hover:text-[#0f172a]"
               aria-label="LinkedIn profile"
             >
               <LinkedinIcon className="w-4 h-4" />
@@ -126,7 +127,7 @@ export function HeroSection() {
               href={siteConfig.author.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary p-3 rounded-lg text-[#475569] hover:text-[#0f172a]"
+              className="btn-secondary min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-3 rounded-lg text-[#475569] hover:text-[#0f172a]"
               aria-label="GitHub profile"
             >
               <GithubIcon className="w-4 h-4" />
@@ -135,21 +136,21 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Proof Strip: 4 Factual Cards */}
-      <div className="max-w-7xl w-full mx-auto pt-8 border-t border-[#e3e8ef] relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      {/* Proof Strip: 2x2 grid on mobile, 4 across from 768px (md) up */}
+      <div className="w-full pt-8 border-t border-[#e3e8ef] relative z-10 mt-6 sm:mt-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
           {proofFacts.map((fact, idx) => (
             <div
               key={idx}
-              className="p-4 sm:p-5 rounded-xl bg-white border border-[#e3e8ef] shadow-2xs hover:shadow-sm hover:border-blue-300 transition-all space-y-1.5"
+              className="p-3.5 sm:p-5 rounded-xl bg-white border border-[#e3e8ef] shadow-2xs hover:shadow-sm hover:border-blue-300 transition-all space-y-1.5"
             >
               <div className="font-mono-num font-bold text-base sm:text-lg text-[#2563eb]">
                 {fact.num}
               </div>
-              <div className="text-xs sm:text-sm font-bold text-[#0f172a]">
+              <div className="text-xs sm:text-sm font-bold text-[#0f172a] leading-tight">
                 {fact.label}
               </div>
-              <p className="text-[11px] sm:text-xs text-[#475569] leading-relaxed">
+              <p className="text-[11px] sm:text-xs text-[#475569] leading-relaxed line-clamp-2">
                 {fact.desc}
               </p>
             </div>

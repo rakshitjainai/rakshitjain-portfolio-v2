@@ -24,22 +24,22 @@ export function EducationSection() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
+    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-12 xl:px-16 max-w-[1280px] mx-auto space-y-10">
       <div className="border-b border-[#e3e8ef] pb-6 space-y-2">
         <span className="font-mono text-xs uppercase tracking-wider text-[#2563eb] font-semibold">
           Education
         </span>
-        <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#0f172a]">
+        <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#0f172a] [text-wrap:balance]">
           Education
         </h2>
-        <p className="text-xs sm:text-sm text-[#475569] max-w-2xl font-sans">
+        <p className="text-sm sm:text-base text-[#475569] max-w-2xl font-sans [text-wrap:pretty]">
           Academic background and competitive honors.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Education (5 Cols) */}
-        <div className="lg:col-span-5 p-7 rounded-2xl bg-white border border-[#e3e8ef] shadow-xs space-y-4">
+        <div className="lg:col-span-5 p-6 sm:p-7 rounded-2xl bg-white border border-[#e3e8ef] shadow-xs space-y-4">
           <div className="flex items-center gap-2 text-xs font-mono text-[#2563eb] uppercase font-bold">
             <GraduationCap className="w-4 h-4" />
             <span>Academic Degree</span>
@@ -57,7 +57,7 @@ export function EducationSection() {
             </p>
           </div>
 
-          <p className="text-xs text-[#475569] leading-relaxed font-sans pt-3 border-t border-[#e3e8ef]">
+          <p className="text-sm sm:text-base text-[#475569] leading-relaxed font-sans pt-3 border-t border-[#e3e8ef] [text-wrap:pretty]">
             Core coursework across computer systems, data structures and algorithms, database management, computer networks, and operating systems.
           </p>
         </div>
@@ -76,17 +76,17 @@ export function EducationSection() {
                 className="p-5 rounded-xl bg-white border border-[#e3e8ef] shadow-xs space-y-1.5 hover:border-[#2563eb]/40 transition-colors"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                  <h4 className="text-sm font-bold text-[#0f172a] font-sans">
+                  <h4 className="text-sm sm:text-base font-bold text-[#0f172a] font-sans">
                     {item.title}
                   </h4>
-                  <span className="font-mono text-[10px] text-[#047857] bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/80 font-bold self-start sm:self-auto">
+                  <span className="font-mono text-xs text-[#047857] bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/80 font-bold self-start sm:self-auto">
                     {item.badge}
                   </span>
                 </div>
                 <div className="text-xs font-mono text-[#2563eb]">
                   {item.issuer}
                 </div>
-                <p className="text-xs text-[#475569] leading-relaxed font-sans">
+                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed font-sans [text-wrap:pretty]">
                   {item.detail}
                 </p>
               </div>

@@ -42,7 +42,7 @@ export function ResumeView({ track }: ResumeViewProps) {
         <div className="flex items-center gap-3">
           <Link
             href="/resume"
-            className="inline-flex items-center gap-1.5 text-xs text-[#475569] hover:text-[#0f172a] transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-[#475569] hover:text-[#0f172a] transition-colors min-h-[44px]"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>All Resumes</span>
@@ -56,7 +56,7 @@ export function ResumeView({ track }: ResumeViewProps) {
         <div className="flex items-center gap-2">
           <button
             onClick={handlePrint}
-            className="btn-primary-gradient inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white font-bold text-xs uppercase tracking-wider shadow-sm cursor-pointer"
+            className="btn-primary-gradient inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-white font-bold text-xs uppercase tracking-wider shadow-sm cursor-pointer min-h-[44px]"
           >
             <Printer className="w-3.5 h-3.5" />
             <span>Print / Save as PDF</span>
@@ -65,7 +65,7 @@ export function ResumeView({ track }: ResumeViewProps) {
       </div>
 
       {/* The Printable Resume Paper Container */}
-      <div className="bg-white text-slate-900 font-sans p-8 sm:p-12 rounded-xl border border-[#e3e8ef] shadow-lg max-w-4xl mx-auto print:p-0 print:border-none print:shadow-none print:max-w-none print:text-black">
+      <div className="bg-white text-slate-900 font-sans p-4 sm:p-8 md:p-12 rounded-xl border border-[#e3e8ef] shadow-lg max-w-4xl mx-auto print:p-0 print:border-none print:shadow-none print:max-w-none print:text-black">
         {/* Header */}
         <header className="border-b-2 border-slate-900 pb-5 space-y-2">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
@@ -78,21 +78,21 @@ export function ResumeView({ track }: ResumeViewProps) {
           </div>
 
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-600 font-sans">
-            <span>Gandhinagar, Gujarat, India</span>
-            <span>•</span>
-            <a href={`mailto:${siteConfig.author.email}`} className="text-blue-700 hover:underline">
+            <span className="min-h-[40px] inline-flex items-center">Gandhinagar, Gujarat, India</span>
+            <span className="hidden sm:inline">•</span>
+            <a href={`mailto:${siteConfig.author.email}`} className="text-blue-700 hover:underline min-h-[40px] inline-flex items-center break-all">
               {siteConfig.author.email}
             </a>
-            <span>•</span>
-            <a href={`tel:${siteConfig.author.phone}`} className="text-blue-700 hover:underline">
+            <span className="hidden sm:inline">•</span>
+            <a href={`tel:${siteConfig.author.phone}`} className="text-blue-700 hover:underline min-h-[40px] inline-flex items-center">
               {siteConfig.author.phoneDisplay}
             </a>
-            <span>•</span>
-            <a href={siteConfig.author.linkedin} target="_blank" rel="noreferrer" className="text-blue-700 hover:underline">
+            <span className="hidden sm:inline">•</span>
+            <a href={siteConfig.author.linkedin} target="_blank" rel="noreferrer" className="text-blue-700 hover:underline min-h-[40px] inline-flex items-center">
               linkedin.com/in/rakshitjainrj
             </a>
-            <span>•</span>
-            <a href={siteConfig.author.github} target="_blank" rel="noreferrer" className="text-blue-700 hover:underline">
+            <span className="hidden sm:inline">•</span>
+            <a href={siteConfig.author.github} target="_blank" rel="noreferrer" className="text-blue-700 hover:underline min-h-[40px] inline-flex items-center">
               github.com/rakshitjainai
             </a>
           </div>

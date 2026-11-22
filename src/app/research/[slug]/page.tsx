@@ -156,7 +156,7 @@ export default async function ArticlePage({ params }: Props) {
       <StructuredData data={breadcrumbJsonLd} />
       <ArticleProgressBar />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 space-y-12 pb-24">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 pt-24 sm:pt-28 lg:pt-32 space-y-12 pb-24">
         {/* Navigation Breadcrumb */}
         <div className="flex items-center gap-2 text-xs font-mono text-[#475569]">
           <Link href="/research" className="hover:text-[#0f172a] transition-colors flex items-center gap-1">

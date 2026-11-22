@@ -55,7 +55,7 @@ export default function FinanceResumePage() {
   return (
     <>
       <StructuredData data={breadcrumbJsonLd} />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 pb-24">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 pt-24 sm:pt-28 lg:pt-32 pb-24">
         <ResumeView track="finance" />
       </div>
     </>

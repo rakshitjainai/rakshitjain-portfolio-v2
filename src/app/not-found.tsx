@@ -23,7 +23,7 @@ export default function NotFound() {
           <a
             href={siteConfig.resume.primaryPdf}
             download={siteConfig.resume.filename}
-            className="btn-primary-gradient w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-white text-xs font-bold uppercase tracking-wider shadow-sm cursor-pointer"
+            className="btn-primary-gradient w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-white text-xs font-bold uppercase tracking-wider shadow-sm cursor-pointer"
           >
             <FileText className="w-4 h-4" />
             <span>Download Resume (PDF)</span>
@@ -31,7 +31,7 @@ export default function NotFound() {
 
           <Link
             href="/projects"
-            className="btn-secondary w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-mono"
+            className="btn-secondary w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-mono"
           >
             <LayoutGrid className="w-4 h-4 text-[#2563eb]" />
             <span>View Projects</span>

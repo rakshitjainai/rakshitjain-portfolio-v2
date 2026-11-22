@@ -78,7 +78,7 @@ export default function ProductThinkingPage() {
     <>
       <StructuredData data={breadcrumbJsonLd} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 space-y-12 pb-20">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 pt-24 sm:pt-28 lg:pt-32 space-y-12 pb-20">
         {/* Header & Product Perspective */}
         <section className="max-w-3xl space-y-3">
           <span className="font-mono text-xs uppercase tracking-wider text-[#2563eb] font-semibold">

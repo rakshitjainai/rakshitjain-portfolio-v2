@@ -1,6 +1,14 @@
 @import "tailwindcss";
 
 @theme {
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  --breakpoint-3xl: 1920px;
+
   --color-bg: #ffffff;
   --color-bg-soft: #f6f8fb;
   --color-surface: #ffffff;
@@ -39,6 +47,11 @@
   --on-ink: #e6edf7;
   --on-ink-muted: #94a3b8;
 
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+
   --brand-gradient: linear-gradient(110deg, #2563eb, #0ea5a4, #10b981);
   --brand-gradient-hover: linear-gradient(110deg, #1d4ed8, #0d8281, #059669);
   --brand-gradient-button: linear-gradient(110deg, #1d4ed8 0%, #0d8281 50%, #047857 100%);
@@ -57,11 +70,87 @@ body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem; /* 16px minimum on mobile */
+  line-height: 1.6;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  overflow-wrap: anywhere;
 }
 
+/* Fluid Max Width Containers */
+.container-fluid {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem; /* 16px mobile */
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .container-fluid {
+    padding-left: 1.5rem; /* 24px tablet */
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container-fluid {
+    padding-left: 3rem; /* 48px desktop */
+    padding-right: 3rem;
+  }
+}
+@media (min-width: 1280px) {
+  .container-fluid {
+    padding-left: 4rem; /* 64px large desktop */
+    padding-right: 4rem;
+  }
+}
+
+.container-hero {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .container-hero {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container-hero {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+@media (min-width: 1280px) {
+  .container-hero {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* Prevent flex and grid items from expanding parent beyond viewport */
+main,
+section,
+article {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Typography Balance and Pretty wrapping */
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Touch Interactions */
 button, a, input, select, textarea {
   touch-action: manipulation;
   -webkit-tap-highlight-color: rgba(37, 99, 235, 0.1);
@@ -72,10 +161,11 @@ button, a, input, select, textarea {
   outline-offset: 2px;
 }
 
+/* Touch active state on touchscreens */
 @media (hover: none) {
   button:active, a:active {
-    opacity: 0.85;
-    transform: scale(0.98);
+    opacity: 0.88;
+    transform: scale(0.985);
   }
 }
 
@@ -175,12 +265,6 @@ button, a, input, select, textarea {
   box-shadow: 0 2px 4px rgba(29, 78, 216, 0.15);
 }
 
-.btn-primary-gradient:hover {
-  background-position: right center;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(29, 78, 216, 0.25);
-}
-
 /* Secondary Button */
 .btn-secondary {
   background: #ffffff;
@@ -190,25 +274,12 @@ button, a, input, select, textarea {
   box-shadow: var(--shadow-subtle);
 }
 
-.btn-secondary:hover {
-  background: #f8fafc;
-  border-color: rgba(37, 99, 235, 0.4);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-card);
-}
-
 /* Card Interactive */
 .card-interactive {
   background: #ffffff;
   border: 1px solid #e3e8ef;
   box-shadow: var(--shadow-card);
   transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.card-interactive:hover {
-  border-color: rgba(37, 99, 235, 0.4);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-card-hover);
 }
 
 /* Interactive Link Underline */
@@ -230,8 +301,30 @@ button, a, input, select, textarea {
   transition: transform 0.25s ease-out;
 }
 
-.link-gradient-underline:hover::after {
-  transform: scaleX(1);
+/* Hover effects enabled ONLY on devices with a true pointer (mouse) */
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary-gradient:hover {
+    background-position: right center;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(29, 78, 216, 0.25);
+  }
+
+  .btn-secondary:hover {
+    background: #f8fafc;
+    border-color: rgba(37, 99, 235, 0.4);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-interactive:hover {
+    border-color: rgba(37, 99, 235, 0.4);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .link-gradient-underline:hover::after {
+    transform: scaleX(1);
+  }
 }
 
 /* Focus Visible */

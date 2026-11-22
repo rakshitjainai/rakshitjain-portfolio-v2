@@ -392,11 +392,15 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
       );
 
       blocks.push(
-        <div
-          key={`table-${blockKey++}`}
-          className="my-6 overflow-x-auto rounded-xl border border-[#e3e8ef] shadow-sm overscroll-x-contain [-webkit-overflow-scrolling:touch]"
-        >
-          <table className="w-full min-w-[500px] text-left border-collapse text-xs font-sans">
+        <div key={`table-wrap-${blockKey++}`} className="my-6 space-y-1.5">
+          <div className="sm:hidden flex items-center justify-between text-[11px] font-mono text-slate-500 px-1">
+            <span>Table (Swipe horizontally)</span>
+            <span>⇄</span>
+          </div>
+          <div
+            className="overflow-x-auto rounded-xl border border-[#e3e8ef] shadow-sm overscroll-x-contain [-webkit-overflow-scrolling:touch]"
+          >
+            <table className="w-full min-w-[500px] text-left border-collapse text-xs font-sans">
             <thead>
               <tr className="bg-[#f8fafc] border-b border-[#e3e8ef]">
                 {headerCells.map((cell, cIdx) => (
@@ -422,6 +426,7 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
             </tbody>
           </table>
         </div>
+      </div>
       );
       continue;
     }

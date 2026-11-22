@@ -48,15 +48,15 @@ export function SkillsSection() {
   ];
 
   return (
-    <section id="skills" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
+    <section id="skills" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-12 xl:px-16 max-w-[1280px] mx-auto space-y-10">
       <div className="border-b border-[#e3e8ef] pb-6 space-y-2">
         <span className="font-mono text-xs uppercase tracking-wider text-[#2563eb] font-semibold">
           Skills
         </span>
-        <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#0f172a]">
+        <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#0f172a] [text-wrap:balance]">
           Skills
         </h2>
-        <p className="text-xs sm:text-sm text-[#475569] max-w-2xl font-sans">
+        <p className="text-sm sm:text-base text-[#475569] max-w-2xl font-sans [text-wrap:pretty]">
           Technical skills, tools, and methodologies applied across projects and internships.
         </p>
       </div>
@@ -71,7 +71,7 @@ export function SkillsSection() {
               <h3 className="text-lg sm:text-xl font-bold text-[#0f172a] font-sans">
                 {group.category}
               </h3>
-              <p className="text-xs text-[#475569] font-sans">
+              <p className="text-xs sm:text-sm text-[#475569] font-sans [text-wrap:pretty]">
                 {group.description}
               </p>
             </div>
@@ -82,7 +82,7 @@ export function SkillsSection() {
                 <span
                   key={sIdx}
                   title={skill.context}
-                  className="px-3 py-1.5 rounded-lg bg-blue-50/70 border border-blue-200/60 text-[#1d4ed8] text-xs font-mono font-medium transition-colors hover:bg-emerald-50 hover:text-[#047857] hover:border-emerald-300/80 cursor-default shadow-2xs"
+                  className="px-3.5 py-2 rounded-lg bg-blue-50/70 border border-blue-200/60 text-[#1d4ed8] text-xs sm:text-sm font-mono font-medium transition-colors hover:bg-emerald-50 hover:text-[#047857] hover:border-emerald-300/80 cursor-default shadow-2xs"
                 >
                   {skill.name}
                 </span>

@@ -73,17 +73,17 @@ export function RoleCards() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
+    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-12 xl:px-16 max-w-[1280px] mx-auto space-y-10">
       <div className="border-b border-[#e3e8ef] pb-6 space-y-2">
         <span className="font-mono text-xs uppercase tracking-wider text-[#2563eb] font-semibold">
           Focus
         </span>
-        <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#0f172a]">
+        <h2 className="text-2xl sm:text-4xl font-serif-display font-bold text-[#0f172a] [text-wrap:balance]">
           Areas of Experience
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {roles.map((role, idx) => {
           const Icon = role.icon;
           return (
@@ -100,7 +100,7 @@ export function RoleCards() {
                   </div>
                   {/* Numbered label whose color transitions blue → teal → green across the 3 cards */}
                   <span
-                    className="font-mono text-xs font-bold px-2 py-0.5 rounded-full border"
+                    className="font-mono text-xs font-bold px-2.5 py-1 rounded-full border"
                     style={{
                       color: role.accentColor,
                       borderColor: `${role.accentColor}30`,
@@ -115,7 +115,7 @@ export function RoleCards() {
                   <h3 className="text-lg sm:text-xl font-bold text-[#0f172a] font-sans">
                     {role.title}
                   </h3>
-                  <p className="font-mono text-[11px] font-semibold leading-tight" style={{ color: role.accentColor }}>
+                  <p className="font-mono text-xs font-semibold leading-tight" style={{ color: role.accentColor }}>
                     {role.focus}
                   </p>
                 </div>
@@ -124,7 +124,7 @@ export function RoleCards() {
                   <span className="font-mono text-[10px] uppercase text-[#64748b] tracking-wider block font-semibold">
                     Key Skills
                   </span>
-                  <ul className="text-xs text-[#334155] space-y-1 font-sans">
+                  <ul className="text-xs sm:text-sm text-[#334155] space-y-1.5 font-sans">
                     {role.skills.map((skill, sIdx) => (
                       <li key={sIdx} className="flex items-start gap-1.5">
                         <span className="font-mono leading-none mt-1" style={{ color: role.accentColor }}>›</span>
@@ -136,19 +136,19 @@ export function RoleCards() {
               </div>
 
               <div className="space-y-3 pt-4 border-t border-[#e3e8ef]">
-                <div className="p-3.5 rounded-lg bg-[#f8fafc] border border-[#e3e8ef] space-y-1">
+                <div className="p-4 rounded-xl bg-[#f8fafc] border border-[#e3e8ef] space-y-1.5">
                   <span className="font-mono text-[10px] uppercase font-bold block" style={{ color: role.accentColor }}>
                     Representative Project
                   </span>
-                  <div className="text-xs font-bold text-[#0f172a]">
+                  <div className="text-xs sm:text-sm font-bold text-[#0f172a]">
                     {role.project.title}
                   </div>
-                  <p className="text-[11px] text-[#475569] leading-relaxed">
+                  <p className="text-xs text-[#475569] leading-relaxed [text-wrap:pretty]">
                     {role.project.detail}
                   </p>
                   <Link
                     href={role.project.href}
-                    className="text-[11px] font-mono hover:underline inline-flex items-center gap-1 pt-1 font-semibold group/link"
+                    className="min-h-[44px] text-xs font-mono hover:underline inline-flex items-center gap-1 font-semibold group/link"
                     style={{ color: role.accentColor }}
                   >
                     <span>{role.project.linkText}</span>
@@ -156,10 +156,9 @@ export function RoleCards() {
                   </Link>
                 </div>
 
-                {/* Hover reveals an arrow nudge */}
                 <Link
                   href={role.resumeHref}
-                  className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg border border-[#e3e8ef] hover:border-[#2563eb]/50 bg-white hover:bg-[#f8fafc] text-xs font-mono font-semibold text-[#0f172a] transition-all shadow-2xs"
+                  className="w-full min-h-[44px] inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg border border-[#e3e8ef] hover:border-[#2563eb]/50 bg-white hover:bg-[#f8fafc] text-xs font-mono font-semibold text-[#0f172a] transition-all shadow-2xs"
                 >
                   <span>View track resume</span>
                   <ArrowRight className="w-3 h-3 text-[#2563eb] group-hover:translate-x-1 transition-transform" />

@@ -22,7 +22,7 @@ export function ContactSection() {
   };
 
   return (
-    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
+    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-12 xl:px-16 max-w-[1280px] mx-auto space-y-10">
       <div className="border-b border-[#e3e8ef] pb-6 space-y-2">
         <span className="font-mono text-xs uppercase tracking-wider text-[#2563eb] font-semibold">
           Contact

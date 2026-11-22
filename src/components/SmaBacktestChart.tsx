@@ -94,7 +94,7 @@ export function SmaBacktestChart() {
   const sma50Path = makePath((d) => d.sma50);
 
   return (
-    <div className="w-full bg-white border border-[#e3e8ef] rounded-xl p-4 sm:p-6 space-y-6 shadow-xs">
+    <div className="w-full max-w-full min-w-0 bg-white border border-[#e3e8ef] rounded-xl p-4 sm:p-6 space-y-6 shadow-xs overflow-hidden">
       {/* Chart Header & Ticker Toggle */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e3e8ef] pb-4">
         <div>
@@ -163,129 +163,148 @@ export function SmaBacktestChart() {
         ))}
       </div>
 
-      {/* Responsive SVG Container with horizontal scroll affordance */}
-      <div className="w-full overflow-x-auto overscroll-x-contain [-webkit-overflow-scrolling:touch]">
-        <svg
-          viewBox={`0 0 ${width} ${height}`}
-          className="w-full min-w-[600px] h-[260px] sm:h-[300px] overflow-visible"
-        >
-          {/* Grid lines */}
-          {[0, 0.25, 0.5, 0.75, 1].map((pct, idx) => {
-            const val = minVal + pct * (maxVal - minVal);
-            const y = getY(val);
-            return (
-              <g key={idx}>
-                <line
-                  x1={padding.left}
-                  y1={y}
-                  x2={width - padding.right}
-                  y2={y}
-                  stroke="#e3e8ef"
-                  strokeDasharray="4 4"
-                  strokeWidth="1"
-                />
-                <text
-                  x={padding.left - 10}
-                  y={y + 4}
-                  fill="#64748b"
-                  fontSize="10"
-                  fontFamily="monospace"
-                  textAnchor="end"
+      {/* Responsive SVG Container with horizontal scroll affordance and visible mobile hint */}
+      <div className="space-y-1.5">
+        <div className="flex items-center justify-between text-[11px] font-mono text-[#64748b] sm:hidden px-1">
+          <span>← Swipe horizontally to explore all intervals →</span>
+          <span>15 intervals</span>
+        </div>
+
+        <div className="w-full max-w-full min-w-0 overflow-x-auto overscroll-x-contain [-webkit-overflow-scrolling:touch] rounded-lg border border-[#e3e8ef]/60 p-1 bg-white">
+          <svg
+            viewBox={`0 0 ${width} ${height}`}
+            className="w-full min-w-[580px] h-[240px] sm:h-[300px] min-h-[220px] overflow-visible"
+          >
+            {/* Grid lines */}
+            {[0, 0.25, 0.5, 0.75, 1].map((pct, idx) => {
+              const val = minVal + pct * (maxVal - minVal);
+              const y = getY(val);
+              return (
+                <g key={idx}>
+                  <line
+                    x1={padding.left}
+                    y1={y}
+                    x2={width - padding.right}
+                    y2={y}
+                    stroke="#e3e8ef"
+                    strokeDasharray="4 4"
+                    strokeWidth="1"
+                  />
+                  <text
+                    x={padding.left - 10}
+                    y={y + 4}
+                    fill="#64748b"
+                    fontSize="10"
+                    fontFamily="monospace"
+                    textAnchor="end"
+                  >
+                    ₹{val.toFixed(0)}
+                  </text>
+                </g>
+              );
+            })}
+
+            {/* X Axis Labels */}
+            {data.map((d, i) => (
+              <text
+                key={i}
+                x={getX(i)}
+                y={height - 10}
+                fill="#64748b"
+                fontSize="10"
+                fontFamily="monospace"
+                textAnchor="middle"
+              >
+                {d.date}
+              </text>
+            ))}
+
+            {/* Paths with draw-in animation */}
+            <path
+              d={pricePath}
+              fill="none"
+              stroke="#0f172a"
+              strokeWidth="2"
+              className="draw-stroke-path"
+            />
+            <path
+              d={sma20Path}
+              fill="none"
+              stroke="#2563eb"
+              strokeWidth="2"
+              className="draw-stroke-path"
+            />
+            <path
+              d={sma50Path}
+              fill="none"
+              stroke="#047857"
+              strokeWidth="2"
+              strokeDasharray="5 4"
+              className="draw-stroke-path"
+            />
+
+            {/* Interactive Tap / Hover points with large 28px hit-target */}
+            {data.map((d, i) => {
+              const x = getX(i);
+              const y = getY(d.price);
+              return (
+                <g
+                  key={`point-${i}`}
+                  className="cursor-pointer"
+                  onClick={() => setSelectedPoint(d)}
                 >
-                  ₹{val.toFixed(0)}
-                </text>
-              </g>
-            );
-          })}
+                  <circle
+                    cx={x}
+                    cy={y}
+                    r="14"
+                    fill="transparent"
+                    className="hover:fill-blue-500/15 transition-colors"
+                  />
+                  <circle
+                    cx={x}
+                    cy={y}
+                    r="4"
+                    fill="#0f172a"
+                    stroke="#ffffff"
+                    strokeWidth="1.5"
+                  />
+                </g>
+              );
+            })}
 
-          {/* X Axis Labels */}
-          {data.map((d, i) => (
-            <text
-              key={i}
-              x={getX(i)}
-              y={height - 10}
-              fill="#64748b"
-              fontSize="10"
-              fontFamily="monospace"
-              textAnchor="middle"
-            >
-              {d.date}
-            </text>
-          ))}
-
-          {/* Paths with draw-in animation */}
-          <path
-            d={pricePath}
-            fill="none"
-            stroke="#0f172a"
-            strokeWidth="2"
-            className="draw-stroke-path"
-          />
-          <path
-            d={sma20Path}
-            fill="none"
-            stroke="#2563eb"
-            strokeWidth="2"
-            className="draw-stroke-path"
-          />
-          <path
-            d={sma50Path}
-            fill="none"
-            stroke="#047857"
-            strokeWidth="2"
-            strokeDasharray="5 4"
-            className="draw-stroke-path"
-          />
-
-          {/* Interactive Tap / Hover points */}
-          {data.map((d, i) => {
-            const x = getX(i);
-            const y = getY(d.price);
-            return (
-              <g key={`point-${i}`} className="cursor-pointer" onClick={() => setSelectedPoint(d)}>
-                <circle
-                  cx={x}
-                  cy={y}
-                  r="7"
-                  fill="transparent"
-                  className="hover:fill-blue-500/20"
-                />
-              </g>
-            );
-          })}
-
-          {/* Signal Markers */}
-          {data.map((d, i) => {
-            if (!d.signal) return null;
-            const x = getX(i);
-            const y = getY(d.price);
-            const isBuy = d.signal === "BUY";
-            return (
-              <g key={`sig-${i}`}>
-                <circle
-                  cx={x}
-                  cy={y}
-                  r="6"
-                  fill={isBuy ? "#059669" : "#dc2626"}
-                  stroke="#ffffff"
-                  strokeWidth="2"
-                  className="shadow-sm"
-                />
-                <text
-                  x={x}
-                  y={isBuy ? y - 12 : y + 18}
-                  fill={isBuy ? "#047857" : "#b91c1c"}
-                  fontSize="9"
-                  fontFamily="monospace"
-                  fontWeight="bold"
-                  textAnchor="middle"
-                >
-                  {isBuy ? "BUY (Golden Cross)" : "EXIT (Death Cross)"}
-                </text>
-              </g>
-            );
-          })}
-        </svg>
+            {/* Signal Markers */}
+            {data.map((d, i) => {
+              if (!d.signal) return null;
+              const x = getX(i);
+              const y = getY(d.price);
+              const isBuy = d.signal === "BUY";
+              return (
+                <g key={`sig-${i}`}>
+                  <circle
+                    cx={x}
+                    cy={y}
+                    r="6"
+                    fill={isBuy ? "#059669" : "#dc2626"}
+                    stroke="#ffffff"
+                    strokeWidth="2"
+                    className="shadow-sm"
+                  />
+                  <text
+                    x={x}
+                    y={isBuy ? y - 12 : y + 18}
+                    fill={isBuy ? "#047857" : "#b91c1c"}
+                    fontSize="9"
+                    fontFamily="monospace"
+                    fontWeight="bold"
+                    textAnchor="middle"
+                  >
+                    {isBuy ? "BUY (Golden Cross)" : "EXIT (Death Cross)"}
+                  </text>
+                </g>
+              );
+            })}
+          </svg>
+        </div>
       </div>
 
       {/* Selected Data Point Detail (Tap Support) */}
