@@ -36,11 +36,10 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Rakshit Jain | B.Tech ICT, PDEU",
+    default: "Rakshit Jain | PDEU: Markets, Quant & Software",
     template: "%s | Rakshit Jain",
   },
-  description:
-    "Rakshit Jain: B.Tech ICT student at PDEU working across financial markets operations, quantitative research, and full-stack software development.",
+  description: siteConfig.description,
   authors: [{ name: "Rakshit Jain", url: siteConfig.url }],
   creator: "Rakshit Jain",
   alternates: {
@@ -50,9 +49,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: siteConfig.url,
-    title: "Rakshit Jain | B.Tech ICT, PDEU",
-    description:
-      "Rakshit Jain: B.Tech ICT student at PDEU working across financial markets operations, quantitative research, and full-stack software development.",
+    title: "Rakshit Jain | PDEU: Markets, Quant & Software",
+    description: siteConfig.description,
     siteName: "Rakshit Jain",
     images: [
       {
@@ -65,9 +63,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rakshit Jain | B.Tech ICT, PDEU",
-    description:
-      "Rakshit Jain: B.Tech ICT student at PDEU working across financial markets operations, quantitative research, and full-stack software development.",
+    title: "Rakshit Jain | PDEU: Markets, Quant & Software",
+    description: siteConfig.description,
     images: ["/opengraph-image"],
   },
   robots: {

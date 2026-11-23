@@ -164,18 +164,8 @@ export function Navbar() {
             </a>
           </div>
 
-          {/* Mobile/Tablet Actions (< 1024px): Compact Resume CTA + Hamburger Button */}
-          <div className="flex lg:hidden items-center gap-2">
-            <a
-              href={siteConfig.resume.primaryPdf}
-              download={siteConfig.resume.filename}
-              className="hidden xs:inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-1.5 px-3 py-2 rounded-lg border border-[#e3e8ef] bg-[#f8fafc] text-[#2563eb] text-xs font-mono font-bold"
-              aria-label="Download resume PDF"
-            >
-              <FileText className="w-3.5 h-3.5" />
-              <span>Resume</span>
-            </a>
-
+          {/* Mobile/Tablet Actions (< 1024px): Hamburger Button */}
+          <div className="flex lg:hidden items-center">
             <button
               ref={menuButtonRef}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

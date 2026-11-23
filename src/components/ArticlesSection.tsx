@@ -64,6 +64,7 @@ export function ArticlesSection() {
             <div className="pt-2 border-t border-[#e3e8ef]">
               <Link
                 href={`/research/${article.slug}`}
+                aria-label={`Read full article: ${article.title}`}
                 className="text-xs font-mono font-bold text-[#1d4ed8] hover:underline inline-flex items-center gap-1 group min-h-[44px]"
               >
                 <span>Read article</span>

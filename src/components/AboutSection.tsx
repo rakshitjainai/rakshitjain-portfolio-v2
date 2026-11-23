@@ -46,7 +46,7 @@ export function AboutSection() {
         {/* Short About Copy & Actions (8 cols) */}
         <div className="md:col-span-8 space-y-6">
           <p className="text-base sm:text-lg text-[#0f172a] leading-relaxed font-sans font-normal [text-wrap:pretty]">
-            I study Information and Communications Technology at PDEU in Gandhinagar (2023–2027). My work focuses on financial market operations, quantitative research, and software engineering. During my internship at GIFT City, I observed how exchange infrastructure and institutional settlement workflows operate in practice. When building software, I focus on reducing manual friction and creating reliable systems. Outside coursework, I coordinate operations for campus technical bodies and test quantitative strategies in Python.
+            Rakshit Jain is a B.Tech ICT student at Pandit Deendayal Energy University (PDEU, 2023–2027) in Gandhinagar, Gujarat, working across financial markets, quantitative research, and software engineering, with operational internship exposure to bullion trading at GIFT City. When building software, I focus on reducing manual friction and creating reliable systems. Outside coursework, I coordinate operations for campus technical bodies and test quantitative strategies in Python.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 text-xs font-mono border-t border-[#e3e8ef] pt-4">

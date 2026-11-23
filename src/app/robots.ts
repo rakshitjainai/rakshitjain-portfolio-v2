@@ -9,26 +9,20 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
       {
-        userAgent: "GPTBot",
-        allow: "/",
-      },
-      {
-        userAgent: "ClaudeBot",
-        allow: "/",
-      },
-      {
-        userAgent: "PerplexityBot",
-        allow: "/",
-      },
-      {
-        userAgent: "Google-Extended",
-        allow: "/",
-      },
-      {
-        userAgent: "OAI-SearchBot",
+        userAgent: [
+          "Googlebot",
+          "Bingbot",
+          "Google-Extended",
+          "GPTBot",
+          "OAI-SearchBot",
+          "ClaudeBot",
+          "PerplexityBot",
+          "Applebot",
+        ],
         allow: "/",
       },
     ],
     sitemap: `${siteConfig.url}/sitemap.xml`,
+    host: siteConfig.url,
   };
 }

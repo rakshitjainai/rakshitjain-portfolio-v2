@@ -95,9 +95,7 @@ export default function AboutPage() {
             Markets, Quantitative Analysis &amp; Software
           </h1>
           <p className="text-sm sm:text-base text-[#475569] leading-relaxed font-sans">
-            I am a B.Tech ICT student at Pandit Deendayal Energy University (2023–2027).
-            My work combines operational exposure to bullion trading at GIFT City with hands-on
-            software development and Python-based quantitative backtesting.
+            Rakshit Jain is a B.Tech ICT student at Pandit Deendayal Energy University (PDEU, 2023–2027) in Gandhinagar, Gujarat, working across financial markets, quantitative research, and software engineering, with operational internship exposure to bullion trading at GIFT City.
           </p>
         </section>
 

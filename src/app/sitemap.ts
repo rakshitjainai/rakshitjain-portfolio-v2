@@ -3,7 +3,7 @@ import { siteConfig } from "@/data/siteConfig";
 import { articlesData } from "@/data/articles";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const currentDate = "2026-11-21";
+  const currentDate = "2026-11-23";
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {

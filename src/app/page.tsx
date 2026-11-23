@@ -39,11 +39,14 @@ export default function HomePage() {
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `${siteConfig.url}/#person`,
     name: "Rakshit Jain",
+    alternateName: ["rakshitjainrj", "rakshitjainai"],
     jobTitle: "Student, B.Tech ICT",
     url: siteConfig.url,
     email: `mailto:${siteConfig.author.email}`,
     telephone: siteConfig.author.phone,
+    description: siteConfig.description,
     sameAs: [siteConfig.author.linkedin, siteConfig.author.github],
     worksFor: {
       "@type": "CollegeOrUniversity",
@@ -52,6 +55,10 @@ export default function HomePage() {
     alumniOf: {
       "@type": "CollegeOrUniversity",
       name: "Pandit Deendayal Energy University (PDEU)",
+    },
+    homeLocation: {
+      "@type": "Place",
+      name: "Gandhinagar, Gujarat, India",
     },
     address: {
       "@type": "PostalAddress",
@@ -81,7 +88,10 @@ export default function HomePage() {
   const profilePageJsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    mainEntity: personJsonLd,
+    "@id": `${siteConfig.url}/#profilepage`,
+    mainEntity: {
+      "@id": `${siteConfig.url}/#person`,
+    },
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
@@ -98,10 +108,13 @@ export default function HomePage() {
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${siteConfig.url}/#website`,
     name: "Rakshit Jain",
     url: siteConfig.url,
-    description:
-      "Personal website of Rakshit Jain, B.Tech ICT student at PDEU working across financial markets, quantitative research and software.",
+    description: siteConfig.description,
+    publisher: {
+      "@id": `${siteConfig.url}/#person`,
+    },
   };
 
   const organizationsJsonLd = {

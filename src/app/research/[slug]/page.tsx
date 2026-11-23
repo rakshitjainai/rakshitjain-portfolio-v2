@@ -72,7 +72,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       tags: article.tags,
       images: [
         {
-          url: "/opengraph-image",
+          url: `${siteConfig.url}/research/${article.slug}/opengraph-image`,
           width: 1200,
           height: 630,
           alt: `${metaTitle} — Rakshit Jain`,
@@ -83,7 +83,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: `${metaTitle} | Rakshit Jain`,
       description: metaDescription,
-      images: ["/opengraph-image"],
+      images: [`${siteConfig.url}/research/${article.slug}/opengraph-image`],
     },
   };
 }
@@ -103,16 +103,19 @@ export default async function ArticlePage({ params }: Props) {
     description: article.excerpt,
     author: {
       "@type": "Person",
+      "@id": `${siteConfig.url}/#person`,
       name: article.author,
       url: siteConfig.url,
       jobTitle: "Student, B.Tech ICT",
       affiliation: {
         "@type": "CollegeOrUniversity",
         name: "Pandit Deendayal Energy University (PDEU)",
+        sameAs: "https://www.pdeu.ac.in",
       },
     },
     publisher: {
       "@type": "Person",
+      "@id": `${siteConfig.url}/#person`,
       name: siteConfig.name,
       url: siteConfig.url,
     },
@@ -307,6 +310,54 @@ export default async function ArticlePage({ params }: Props) {
                 </div>
               </section>
             )}
+
+            {/* Context & Related Work Section */}
+            <section className="p-6 rounded-2xl bg-[#f8fafc] border border-[#e3e8ef] space-y-4 shadow-xs">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#2563eb] font-semibold">
+                Context &amp; Connected Projects
+              </span>
+              <h3 className="text-lg font-bold text-[#0f172a] font-sans">
+                How this research connects to Rakshit Jain&apos;s practical work
+              </h3>
+              <div className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                {slug === "iibx-and-indias-bullion-market" && (
+                  <p>
+                    This paper documents domain insights gained during Rakshit&apos;s operations internship on the India International Bullion Exchange (IIBX) desk at Anand Rathi International Ventures (IFSC) in GIFT City. Explore the operational background on the{" "}
+                    <Link href="/experience" className="text-[#2563eb] font-semibold underline underline-offset-2">
+                      Anand Rathi Experience Card
+                    </Link>{" "}
+                    or review the regulatory compliance prototype{" "}
+                    <Link href="/projects" className="text-[#2563eb] font-semibold underline underline-offset-2">
+                      RegMate
+                    </Link>.
+                  </p>
+                )}
+                {slug === "sma-strategy-backtesting" && (
+                  <p>
+                    This analysis is backed by an automated vectorized backtesting engine built with Python, Pandas, and NumPy. Examine the implementation details, execution logic, and source code in the{" "}
+                    <Link href="/projects" className="text-[#2563eb] font-semibold underline underline-offset-2">
+                      Market Sentiment Analyzer Project
+                    </Link>{" "}
+                    or explore Rakshit&apos;s quantitative background on the{" "}
+                    <Link href="/about" className="text-[#2563eb] font-semibold underline underline-offset-2">
+                      About Page
+                    </Link>.
+                  </p>
+                )}
+                {slug === "financial-workflows-and-fintech-products" && (
+                  <p>
+                    This product essay synthesizes lessons learned from architecting{" "}
+                    <Link href="/projects" className="text-[#2563eb] font-semibold underline underline-offset-2">
+                      LawPrix
+                    </Link>{" "}
+                    (2nd Runner-Up at Tutedude Buildathon 2025) and observing institutional fintech hurdles. Read additional teardowns in the{" "}
+                    <Link href="/product-thinking" className="text-[#2563eb] font-semibold underline underline-offset-2">
+                      Product Thinking Section
+                    </Link>.
+                  </p>
+                )}
+              </div>
+            </section>
           </article>
 
           {/* Sticky Sidebar: Table of Contents */}

@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "Rakshit Jain",
-  title: "Rakshit Jain | B.Tech ICT, PDEU",
+  title: "Rakshit Jain | PDEU: Markets, Quant & Software",
   shortTitle: "Rakshit Jain",
   description:
-    "Personal website of Rakshit Jain, B.Tech ICT student at PDEU working across financial markets, quantitative analysis, and software engineering.",
+    "Rakshit Jain is a B.Tech ICT student at Pandit Deendayal Energy University (PDEU, 2023–2027) in Gandhinagar, Gujarat, working across financial markets, quantitative research, and software engineering, with operational internship exposure to bullion trading at GIFT City.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL &&
     !process.env.NEXT_PUBLIC_SITE_URL.includes("vercel.app")
@@ -59,7 +59,7 @@ export const siteConfig = {
     heroIntro:
       "B.Tech ICT student at PDEU working across financial markets, quantitative research, and software development.",
     heroParagraph:
-      "B.Tech ICT student at PDEU with internship exposure to bullion market operations at GIFT City, experience in full-stack development, and hands-on projects involving Python-based quantitative analysis.",
+      "Rakshit Jain is a B.Tech ICT student at Pandit Deendayal Energy University (PDEU, 2023–2027) in Gandhinagar, Gujarat, working across financial markets, quantitative research, and software engineering, with operational internship exposure to bullion trading at GIFT City.",
   },
   navLinks: [
     { label: "Home", href: "/" },

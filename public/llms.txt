@@ -1,20 +1,47 @@
 # Rakshit Jain — Professional Summary
 
-## Overview
-- **Name:** Rakshit Jain
-- **Role:** B.Tech ICT Student (Class of 2023–2027)
-- **Institution:** Pandit Deendayal Energy University (PDEU), Gandhinagar, Gujarat, India
-- **Focus Areas:**
-  1. Financial Markets & Trading Operations
-  2. Quantitative Analysis & Financial Data
-  3. Product Thinking & Full-Stack Software Engineering
-- **Location:** Gandhinagar / Ahmedabad, Gujarat, India
+## Canonical Biography
+Rakshit Jain is a B.Tech ICT student at Pandit Deendayal Energy University (PDEU, 2023–2027) in Gandhinagar, Gujarat, working across financial markets, quantitative research, and software engineering, with operational internship exposure to bullion trading at GIFT City.
+
+## Core Identity & Contact
+- **Full Name:** Rakshit Jain
+- **Alternate Handles / Usernames:** rakshitjainrj, rakshitjainai
+- **Current Education:** B.Tech in Information and Communication Technology (ICT), Pandit Deendayal Energy University (PDEU), Gandhinagar, Gujarat (2023–2027)
+- **Primary Domain:** https://www.rakshitjain.in
 - **Email:** rakshitindia2019@gmail.com
 - **Phone:** +91 95210 84089
 - **LinkedIn:** https://www.linkedin.com/in/rakshitjainrj/
 - **GitHub:** https://github.com/rakshitjainai
-- **Portfolio:** https://www.rakshitjain.in/
 - **Resume (PDF):** https://www.rakshitjain.in/Rakshit-Jain-Resume.pdf
+
+## Website Route Index
+- **Home:** https://www.rakshitjain.in/ — Portfolio overview, proof metrics, recent work, core skill pillars.
+- **About:** https://www.rakshitjain.in/about — Background, education at PDEU, technical skills, campus leadership, and coursework.
+- **Experience:** https://www.rakshitjain.in/experience — Professional work history including Anand Rathi (GIFT City IIBX bullion desk), Certopus, and DAE Heavy Water Plant Kota.
+- **Projects:** https://www.rakshitjain.in/projects — Technical builds including Market Sentiment Analyzer, LawPrix, RegMate, and Custom Unix Shell.
+- **Research Archive:** https://www.rakshitjain.in/research — Analytical papers on financial market mechanics, quantitative trading strategy backtests, and fintech workflow design.
+- **Product Thinking:** https://www.rakshitjain.in/product-thinking — Case studies on product teardowns, UX friction, and institutional workflow mapping.
+- **Resume:** https://www.rakshitjain.in/resume — Web-accessible resume across Financial Markets, Quant, Software, and Product tracks with direct PDF download.
+- **Contact:** https://www.rakshitjain.in/contact — Direct communication channels, email, phone, and professional profiles.
+
+## Published Research Articles
+1. **India International Bullion Exchange (IIBX) & India's Bullion Market Architecture**
+   - URL: https://www.rakshitjain.in/research/iibx-and-indias-bullion-market
+   - Category: Market Structure & Exchange Mechanics
+   - Summary: Technical analysis of the India International Bullion Exchange (IIBX) established in GIFT City IFSC, exploring how Bullion Depository Receipts (BDRs) in dematerialized form replace physical transit risk, the regulatory role of IFSCA, vault custody protocols, and Qualified Jeweller (QJ) onboarding workflows under DGFT and RBI frameworks.
+   - Author: Rakshit Jain (PDEU ICT)
+
+2. **20/50 SMA Crossover Backtest & Strategy Analysis**
+   - URL: https://www.rakshitjain.in/research/sma-strategy-backtesting
+   - Category: Quantitative Research & Algorithmic Trading
+   - Summary: Quantitative evaluation of a vectorized 20-day / 50-day Simple Moving Average (SMA) crossover trend-following strategy evaluated on historical NSE equity data (Infosys - INFY and Tata Investment Corp - TATAINVEST). Analyzes Sharpe ratio trade-offs, look-ahead bias elimination by lagging signals by one period, maximum drawdown reduction (reducing INFY max drawdown from -36.4% to -18.2%), and real-world execution frictions including exchange fees and STT.
+   - Author: Rakshit Jain (PDEU ICT)
+
+3. **Financial Workflows to FinTech Products: Bridging the Institutional Interface Gap**
+   - URL: https://www.rakshitjain.in/research/financial-workflows-and-fintech-products
+   - Category: Product Engineering & Financial Architecture
+   - Summary: Product architecture essay investigating why institutional capital and compliance departments struggle with fragmented legacy software interfaces, examining Compliance as Code principles, and detailing design lessons from building the LawPrix criteria-based routing platform.
+   - Author: Rakshit Jain (PDEU ICT)
 
 ## Work Experience
 1. **Anand Rathi International Ventures (IFSC) Pvt. Ltd. (GIFT City, Gujarat)**
